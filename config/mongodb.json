@@ -1,0 +1,6 @@
+{
+    "description":"configuration file for mongodb",
+    "user":"mongo",
+    "password": "mongo",
+    
+}
