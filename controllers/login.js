@@ -1,5 +1,7 @@
+const logger  = require('./util/log').getLogger('app');
 let login = async function(ctx, next){
-    ctx.body = "<body><h1>login</h1></body>";
+    logger.debug("login at %j",Date.now());
+    ctx.render('post.html',{"myName":"haha"});
     await next();
 }
 module.exports = {
