@@ -4,7 +4,7 @@ const bodyParser = require('koa-bodyparser')();
 const registerMapping = require('./controllers');
 const nunjucksMw = require('./middleware/nunjucks');
 const log = require('./util/log');
-//const mongoose = require('./domain/dao/mongoose');
+const mongoose = require('./domain/dao/mongoose');
 
 
 const isProduction = process.env.NODE_ENV == 'production'; // production environment
@@ -36,6 +36,6 @@ registerMapping(router);
 app.use(router.routes());
 
 // init database here
-//mongoose.init(require('./config/mongodb.json'));
+mongoose.dbInit(require('./config/mongodb.json'));
 
 app.listen(8000);

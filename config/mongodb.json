@@ -2,7 +2,7 @@
     "description":"configuration file for mongodb",
     "host":"localhost",
     "port": 27017,
-    "user":"mongo",
+    "user":"",
     "password": "mongo",
     "database": "usercenter"
 }

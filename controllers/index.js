@@ -11,7 +11,7 @@ let registerFile = function(router,file){
                 router.post(mod.url,mod.fn);
                 break;
             default:
-                console.log(`unsupport method: ${mod.method}`);
+                router.all(mod.url,mod.fn);
                 break;
         }
 };
