@@ -3,11 +3,13 @@
  * 
  *
  */
+const DaoUser = require('../dao/mongoose/user');
+
 class UserCenter {
     constructor(){
 
     }
-    createUser(){
+    async createUser(){
 
     }
     /**

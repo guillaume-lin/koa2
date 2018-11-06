@@ -5,6 +5,7 @@ const registerMapping = require('./controllers');
 const nunjucksMw = require('./middleware/nunjucks');
 const log = require('./util/log');
 const mongoose = require('./domain/dao/mongoose');
+const redis = require('./domain/dao/redis');
 
 
 const isProduction = process.env.NODE_ENV == 'production'; // production environment
@@ -37,5 +38,5 @@ app.use(router.routes());
 
 // init database here
 mongoose.dbInit(require('./config/mongodb.json'));
-
+redis.initRedis(require('./config/redis.json'));
 app.listen(8000);

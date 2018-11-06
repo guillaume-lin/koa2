@@ -4,6 +4,7 @@
 const logger = require('../../../util/log').getLogger('app');
 const mongoose = require('mongoose');
 
+mongoose.Promise = require('bluebird');
 let dbInit = function(config){
     logger.info("init mongoose %j:%j/%j ...",config.host,config.port,config.database);
     let upw = config.user + ":" + config.password + "@";

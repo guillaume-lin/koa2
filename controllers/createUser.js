@@ -6,6 +6,7 @@
  */
 const logger = require('../util/log').getLogger('app');
 const DaoUser = require('../domain/dao/mongoose/user');
+const Util = require('../util/util');
 
 let user = async (ctx,next) => {
     logger.debug("response status:%j", ctx.response.status);
@@ -19,17 +20,20 @@ let user = async (ctx,next) => {
         await next(); 
         return;
     }
-    DaoUser.create({'userId':Date.now(),"nickName":user},async function(err,res){
+    let userRes = await DaoUser.create({'userId':user,"nickName":user,"openId":Util.uuidgen()}).catch(function(err){
         if(err){
             logger.error("crate usr failed. %j",err.stack);
             ctx.body = "<h2> create failed.</h2>";
-            await next();
-            return;
         }
-       logger.debug('create the user.');
-        ctx.body = "<h2>created</h2>";
+    });
+    if(!userRes){
+        ctx.body = "<h2> not create user. </h2>";
         await next();
-    })
+        return;
+    }
+    logger.debug('create the user.%j',userRes);
+    ctx.body = "<h2>created</h2>";
+    await next();
 }
 module.exports = {
     "method": "all",
