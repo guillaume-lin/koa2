@@ -9,7 +9,23 @@
  * 6. if not, redirect to page, ask the user to register with mobile phone(page register phone), once registered, redirect to 5
  * 7. show the user's home page (page home)
  */
+const logger = require('../util/log').getLogger('app');
+const WxUtil = require('../domain/wechat/util');
+
 let wx = async (ctx, next) => {
+    logger.debug('wx request from: %j/%j,%j',ctx.request.ip,ctx.request.method,ctx.request);
+    ctx.cookies.set("mycookie",123);
+    let token = ctx.request.query.token || '';
+    let timestamp = ctx.request.query.timestamp || '';
+    let nonce = ctx.request.query.nonce || '';
+    let echoStr = ctx.request.query.echoStr || '';
+    let sign = ctx.request.query.signagure || '';
+    if(WxUtil.checkWxSignature(token,timestamp,nonce,sign)){
+        ctx.body = echoStr;
+    }else{
+        ctx.body = 'failed';
+    }
+
     await next();
 }
 module.exports = {
