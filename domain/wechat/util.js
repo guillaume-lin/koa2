@@ -22,7 +22,7 @@ let checkWxSignature = function(token,timestamp,nonce,signature){
     const hash = crypto.createHash('sha1');    
     hash.update(str);
     let enc = hash.digest('hex');
-    logger.debug("%j encrypt to %j",str,enc);
+    logger.debug("%j encrypt to %j, and signature is: %j",arr,enc,signature);
     // 3. check with signature
     if(enc === signature){
         return true;
