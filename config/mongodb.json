@@ -1,6 +1,6 @@
 {
     "description":"configuration file for mongodb",
-    "host":"localhost",
+    "host":"172.22.1.90",
     "port": 27017,
     "user":"",
     "password": "mongo",
