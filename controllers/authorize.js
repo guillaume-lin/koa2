@@ -6,10 +6,16 @@ let logger = require('../util/log').getLogger('app');
 let authroize = async (ctx,next) => {
     let client = ctx.client;
     let code = ctx.request.query.code || '';
+    let cdkey = ctx.request.query.cdkey || ''; // 兑换码
     if(code !== ''){
         // 已经获得授权
         let userInfo = await new Promise(function(resolve,reject){
             client.getAccessToken(code, function (err, result) {
+                if(err){
+                    logger.error("getAccessToken error: %j",err.stack);
+                    reject(err);
+                    return;
+                }
                 var accessToken = result.data.access_token;
                 var openId = result.data.openid;
                 logger.debug("accessToken: %j, openId: %j",accessToken,openId);
@@ -25,7 +31,7 @@ let authroize = async (ctx,next) => {
         return;
     }
     
-    let redirectUrl = "http://5b59a147.ngrok.io/authorize";
+    let redirectUrl = "https://43aefd66.ngrok.io/authorize";
     let url = client.getAuthorizeURL(redirectUrl, 'myState', 'snsapi_userinfo');
     logger.debug("redirect to url:%j",url);
     //ctx.body = "<a href="+url+"> click here</a>";
