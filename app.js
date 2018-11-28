@@ -19,7 +19,7 @@ logger.debug("starting %j ...","koa2");
 app.use(require('koa-static')(__dirname+'/static',ksOpts));
 
 let njOpts = {
-
+    noCache: !isProduction   // 非生产环境不cache模板
 };
 nunjucksMw(app,__dirname+'/views',njOpts); //
 
@@ -29,9 +29,9 @@ app.on("error",(err,ctx)=>{
 
 app.use(bodyParser);
 app.use(async(ctx,next) =>{
-    console.log(`before process ${ctx.request.method} on ${ctx.request.url}`);
+    logger.debug("before process %j on %j  req:%j",ctx.request.method,ctx.request.url,ctx.request);
     await next();
-    console.log(`after process ${ctx.request.method} on ${ctx.request.url}`);
+    logger.debug("after process %j on %j\n",ctx.request.method,ctx.request.url);
 })
 
 registerMapping(router);
