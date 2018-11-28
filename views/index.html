@@ -31,7 +31,17 @@
       });
     });
 
-    // 
+    // 活动抽奖
+    $("#acquirePoint").click(function(){
+      let cdkey = $("#cdkey").val();
+      // 使用ajax登录
+      $.post('/acquirePoint',{clickCount:10},function(data,status){
+        console.log('result ');
+        console.log(data);
+        console.log(status);
+      });
+    });
+
   });
 </script>
    </head>
@@ -42,6 +52,10 @@
         <label>cdkey</label>
         <input type="text" id="cdkey" placeholder="input cdkey here"></input>
         <button type="submit" id="login">登录</button>
+      </div>
+      <div>
+        <h3>活动抽奖</h3>
+        <button type="submit" id="acquirePoint">活动抽奖</button>
       </div>
       <div>
         <h1>测试结果</h1>

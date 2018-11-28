@@ -13,8 +13,7 @@ let acquirePoint = async function(ctx, next){
 
     // 从配置表中抽取物品给用户，下发给客户端
     
-    ItemManager = ItemService.getItemManager(ctx.userId);
-    ItemManager.addItem(new Item());
+    app.scanActivityService.drawAward(clickCount);
 
     await next();
 }

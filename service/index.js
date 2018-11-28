@@ -16,7 +16,11 @@ let loadServices = async function(app){
         app[svc.name()] = svc;
         app['service'].push(svc);
     });
-    app['service'].map(svc => svc.afterStart());
+    app['service'].map(function(svc){
+        if(typeof(svc.afterStart) === 'function'){
+            svc.afterStart();
+        }
+    });
 }
 module.exports = {
     load: loadServices,
