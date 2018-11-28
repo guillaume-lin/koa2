@@ -3,34 +3,19 @@
  */
 const fs = require('fs');
 
-let loadImpl = function(router,file){
-    console.log(`loading ${file} ...`);
-    let mod = require(__dirname + '/' + file);
-    switch(mod.method){
-        case 'get':
-            router.get(mod.url,mod.fn);
-            break;
-        case 'post':
-            router.post(mod.url,mod.fn);
-            break;
-        default:
-            router.all(mod.url,mod.fn);
-            break;
-    }
-};
 let registerImpl = function(app){
     console.log(`readdir ${__dirname} ...`);
-    fs.readdir(__dirname,function(err,files){
-        if(!err){
-            for(let i=0,len=files.length; i<len; i++){
-                if(files[i] !== 'index.js'){
-                    loadImpl(router,files[i]);
-                }
-            }
-        }else{
-            throw err;
-        }  
-    });
+    let files = fs.readdirSync(__dirname).filter(f => f !== 'index.js');
+    app.dbJson = {};
+    files.map(function(f){
+        // load each dbJsonImpl
+        let Impl = require(app.baseDir + '/dbJsonImpl/'+f);
+        let impl = new Impl(app);
+        impl.load();
+        app.dbJson[impl.name()] = impl;
+    })
 };
 
-module.exports = registerImpl;
+module.exports = {
+    load: registerImpl
+};

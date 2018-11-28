@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 
 const Util = require('../../../util/util');
 let UserSchema = new mongoose.Schema({
-    "openId": {type:String,default:''},
+    "openId": {type:String,unique: true},
     "nickName": {type:String,default:''},
     "sex": {type:Number,default: 0},
     "vipLevel": {type:Number,default:1},
@@ -14,7 +14,7 @@ let UserSchema = new mongoose.Schema({
 });
 
 // define method for this model
-UserSchema.statics.createUser = function(openId,nickName,sex){
+UserSchema.statics.createUser = async function(openId,nickName,sex){
     let userInfo = {
         openId: openId,
         nickName: nickName,
@@ -24,7 +24,7 @@ UserSchema.statics.createUser = function(openId,nickName,sex){
 };
 
 
-UserSchema.statics.findUser = function(openId){
+UserSchema.statics.findUser = async function(openId){
     return await this.findOne({openId:openId});
 };
 

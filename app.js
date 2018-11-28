@@ -7,15 +7,20 @@ const log = require('./util/log');
 const mongoose = require('./domain/dao/mongoose');
 const redis = require('./domain/dao/redis');
 const wechatAuth = require('./domain/wechat/auth');
+const service = require('./service');
+const dbJsonImpl = require('./dbJsonImpl');
 
 const isProduction = process.env.NODE_ENV == 'production'; // production environment
 let app = new Koa();
-let ksOpts = {
-};
+
+app.baseDir = __dirname;
 
 log.configure(require('./config/log4js.json'));
 let logger = log.getLogger('app');
 logger.debug("starting %j ...","koa2");
+
+let ksOpts = {
+};
 app.use(require('koa-static')(__dirname+'/static',ksOpts));
 
 let njOpts = {
@@ -23,6 +28,11 @@ let njOpts = {
 };
 nunjucksMw(app,__dirname+'/views',njOpts); //
 
+process.on('unhandledRejection', error => {
+    logger.fatal("unhandledRejection: %j",error.stack);
+    console.error('unhandledRejection', error);
+    process.exit(1) // To exit with a 'failure' code
+});
 app.on("error",(err,ctx)=>{
     console.log(new Date(),":",err);
  });
@@ -43,4 +53,10 @@ redis.initRedis(require('./config/redis.json'));
 
 let wechatConf = require('./config/wechat.json');
 app.context.client = wechatAuth(wechatConf.appId,wechatConf.secret);
+
+dbJsonImpl.load(app);
+// load business service here
+service.load(app);
+
+logger.info("app start from dir: %j",app.baseDir);
 app.listen(8000);

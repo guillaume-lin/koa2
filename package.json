@@ -26,5 +26,8 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js"
+    },
+    "devDependencies": {
+        "supertest": "^3.3.0"
     }
 }

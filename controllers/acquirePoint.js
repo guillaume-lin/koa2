@@ -10,8 +10,9 @@ let acquirePoint = async function(ctx, next){
     
     let clickCount = Number.parseInt(ctx.request.body.clickCount || '0');
     let app = ctx.app;
-    
+
     // 从配置表中抽取物品给用户，下发给客户端
+    
     ItemManager = ItemService.getItemManager(ctx.userId);
     ItemManager.addItem(new Item());
 
