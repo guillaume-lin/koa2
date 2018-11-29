@@ -2,6 +2,7 @@
  * user schema
  */
 const mongoose = require('mongoose');
+const logger = require('../../../util/log').getLogger('app');
 
 const Util = require('../../../util/util');
 let UserSchema = new mongoose.Schema({
@@ -20,6 +21,7 @@ UserSchema.statics.createUser = async function(openId,nickName,sex){
         nickName: nickName,
         sex:sex
     }
+    logger.debug('createUser:%j',userInfo);
     return await this.create(userInfo);
 };
 

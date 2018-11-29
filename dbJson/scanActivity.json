@@ -2,16 +2,19 @@
     {
         "prizeId":1100,
         "amount": 100,
-        "probability": 10000
+        "probability": 10000,
+        "maxDrawCount": 10
     },
     {
-        "prizeId": 10001,
-        "amount":100,
-        "probability": 9000
+        "prizeId": 1100,
+        "amount":200,
+        "probability": 5000,
+        "maxDrawCount": 10
     },
     {
         "prizeId": 10002,
-        "amount": 101,
-        "probability": 10000
+        "amount": 1,
+        "probability": 10000,
+        "maxDrawCount": 0
     }
 ]

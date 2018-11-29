@@ -25,7 +25,27 @@ UserItemSchema.statics.createItem = async function(openId,itemId,amount,acquireT
     };
     return await this.create(itemInfo);
 };
-
+/**
+ * 保存奖品到用户账号
+ * awards:
+ *   [
+ *    {itemId:xxx, amount:yyy}    ]
+ */
+UserItemSchema.statics.awardItems = async function(openId,awards){
+    logger.debug('awardItems:%j',awards);
+    let ct = Date.now();
+    let items = awards.map(function(award){
+        let item = {};
+        item.openId = openId;
+        item.itemId = award.prizeId;
+        item.amount = award.amount;
+        item.acquireTime = ct;
+        return item;
+    })
+    let ret = await this.insertMany(items);
+    logger.debug('awardItem insert return:%j',ret);
+    return ret;
+}
 /**
  * 消耗商品
  * 需判断是否有足够的商品

@@ -20,6 +20,9 @@ pro.load = function(){
     let json = require(file);
     this.data = json;  
 }
+/**
+ * 获取奖池中的奖品
+ */
 pro.getPrizes = function(){
     return this.data;
 }

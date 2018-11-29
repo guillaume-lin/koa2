@@ -20,16 +20,18 @@
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+    // request cdkey and use status from server
+    $.get('/queryCdkeyUsage',function(data,status){
+      console.log('queryCdkeyUsage');
+      console.log(data);
+      console.log(status);
+    });
+
     // 扫码登录
     $("#login").click(function(){
       let cdkey = $("#cdkey").val();
-      // 使用ajax登录
-      $.get('/scanActivity?cdkey='+cdkey,function(data,status){
-        console.log('result ');
-        console.log(data);
-        console.log(status);
-      });
-    });
+      document.location.href = '/scanActivity?cdkey='+cdkey;
+    })
 
     // 活动抽奖
     $("#acquirePoint").click(function(){
@@ -39,6 +41,7 @@
         console.log('result ');
         console.log(data);
         console.log(status);
+        $("#result").val(data);
       });
     });
 
@@ -59,7 +62,7 @@
       </div>
       <div>
         <h1>测试结果</h1>
-        <input type="textArea" value="{{ result }}"></input>
+        <input type="textArea" id="result"></input>
       </div>
 
    </body>

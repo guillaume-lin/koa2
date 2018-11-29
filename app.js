@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser')();
+const session = require('koa-session');
 const registerMapping = require('./controllers');
 const nunjucksMw = require('./middleware/nunjucks');
 const log = require('./util/log');
@@ -22,11 +23,14 @@ logger.debug("starting %j ...","koa2");
 let ksOpts = {
 };
 app.use(require('koa-static')(__dirname+'/static',ksOpts));
-
+app.keys = ['im a newer secret', 'i like turtle too'];
 let njOpts = {
     noCache: !isProduction   // 非生产环境不cache模板
 };
 nunjucksMw(app,__dirname+'/views',njOpts); //
+
+// use session
+app.use(session(app));
 
 process.on('unhandledRejection', error => {
     logger.fatal("unhandledRejection: %j",error.stack);
@@ -38,10 +42,20 @@ app.on("error",(err,ctx)=>{
  });
 
 app.use(bodyParser);
+
+app.use(async (ctx,next) => {
+    // 验证下用户是否已经用微信登录
+    ctx.session.uid = ctx.session.uid || '';
+    logger.debug('uid is:%j',ctx.session.uid);
+    if(ctx.session.uid === ''){
+        logger.error('user not login');
+    };
+    await next();
+})
 app.use(async(ctx,next) =>{
     logger.debug("before process %j on %j  req:%j",ctx.request.method,ctx.request.url,ctx.request);
     await next();
-    logger.debug("after process %j on %j\n",ctx.request.method,ctx.request.url);
+    logger.debug("after process %j on %j res:%j\n\n",ctx.request.method,ctx.request.url,ctx.response);
 })
 
 registerMapping(router);

@@ -15,6 +15,7 @@ let scanActivity = async function(ctx, next){
     let code = ctx.request.query.code || '';
     let cdkey = ctx.request.query.cdkey || ''; // 兑换码
     let state = ctx.request.query.state || ''; // 跳转后的cdkey
+    
     let userInfo = null;
     if(code !== ''){
         logger.info("user authorized.");
@@ -38,6 +39,8 @@ let scanActivity = async function(ctx, next){
                     // 获取
                     userInfo = result;
                     logger.debug("userInfo:%j",userInfo);
+                    ctx.session.uid = userInfo.openid;   // FIXME： 用户微信登录成功
+                    ctx.session.cdkey = state;
                     daoCdkey.isValidKey(state,function(err,res){
                         if(err){
                             logger.error("check valid key. err:%j",err.stack);
@@ -69,11 +72,12 @@ let scanActivity = async function(ctx, next){
             // 看看是否已经创建用户记录，如果没有的话，要先创建
             let isUserCreated = await daoUser.findUser(userInfo.openid);
             if(!isUserCreated){
-                let createResult =  await daoUser.createUser(userInfo.openId,userInfo.nickName,userInfo.sex);
+                let createResult =  await daoUser.createUser(userInfo.openid,userInfo.nickname,userInfo.sex);
                 logger.info('createUser: %j',userInfo);
             }
         }
-        ctx.render('index.html',{result:ret}); // test 
+        ctx.session.cdkeyUsage = ret;
+        ctx.response.redirect('/html/index.html'); //FIXME: 定向到前端主页面 
         
         await next();
         return;
@@ -82,7 +86,6 @@ let scanActivity = async function(ctx, next){
     let redirectUrl = ctx.request.href;
     let url = client.getAuthorizeURL(redirectUrl, cdkey, 'snsapi_userinfo');
     logger.debug("redirect to url:%j",url);
-    //ctx.body = "<a href="+url+"> click here</a>";
     ctx.response.redirect(url);
     await next();
     
