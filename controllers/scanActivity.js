@@ -77,6 +77,15 @@ let scanActivity = async function(ctx, next){
             }
         }
         ctx.session.cdkeyUsage = ret;
+        let info = await ctx.wechatAPI.getUser(userInfo.openid);
+        logger.debug('wechat api userInfo: %j',info);
+        if(info && info.subscribe === 1){
+            // 未关注,重定向一张二维码，请用户关注
+            ctx.response.redirect('/subscribe');
+            return await next;
+        }
+
+        // FIXME: 正常
         ctx.response.redirect('/html/index.html'); //FIXME: 定向到前端主页面 
         
         await next();

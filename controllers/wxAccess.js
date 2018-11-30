@@ -35,7 +35,7 @@ let wx = async (ctx, next) => {
         await next();
         return;
     }
-    // 处理正常消息, 根据消息类型进行回复
+    // FIXME: 处理正常消息, 根据消息类型进行回复
     logger.debug('post from wechat: %j',ctx.request.body);
     let ct = Math.ceil(Date.now()/1000);
     let toUserName = openId;

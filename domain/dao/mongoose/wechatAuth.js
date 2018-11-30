@@ -31,5 +31,5 @@ TokenSchema.statics.setToken = function (openid, token, cb) {
         }
     });
   };
-let model = mongoose.model('Token',TokenSchema);
+let model = mongoose.model('AuthToken',TokenSchema);
 module.exports = model;

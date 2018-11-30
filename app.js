@@ -9,6 +9,8 @@ const log = require('./util/log');
 const mongoose = require('./domain/dao/mongoose');
 const redis = require('./domain/dao/redis');
 const wechatAuth = require('./domain/wechat/auth');
+const wechatAPI  = require('./domain/wechat/wechatAPI');
+
 const service = require('./service');
 const dbJsonImpl = require('./dbJsonImpl');
 
@@ -68,6 +70,7 @@ redis.initRedis(require('./config/redis.json'));
 
 let wechatConf = require('./config/wechat.json');
 app.context.client = wechatAuth(wechatConf.appId,wechatConf.secret);
+app.context.wechatAPI = wechatAPI(wechatConf.appId,wechatConf.secret);
 
 dbJsonImpl.load(app);
 // load business service here
