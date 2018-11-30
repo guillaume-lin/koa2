@@ -10,6 +10,11 @@ let registerFile = function(router,file){
             case 'post':
                 router.post(mod.url,mod.fn);
                 break;
+            case 'get|post':
+            case 'post|get':
+                router.get(mod.url,mod.fn);
+                router.post(mod.url,mod.fn);
+                break;
             default:
                 router.all(mod.url,mod.fn);
                 break;

@@ -16,23 +16,38 @@ const WX_TOKEN = "wx";
 
 let wx = async (ctx, next) => {
     logger.debug('wx request from: %j/%j,%j',ctx.request.ip,ctx.request.method,ctx.request);
-    ctx.cookies.set("mycookie",123);
+   
+
     let token = WX_TOKEN;
+    let openId = ctx.request.query.openid;
     let timestamp = ctx.request.query.timestamp || '';
     let nonce = ctx.request.query.nonce || '';
     let echoStr = ctx.request.query.echostr || '';
     let sign = ctx.request.query.signature || '';
-    if(WxUtil.checkWxSignature(token,timestamp,nonce,sign)){
-        logger.debug("wechat token verified.");
-        ctx.body = echoStr;
-    }else{
+    if(!WxUtil.checkWxSignature(token,timestamp,nonce,sign)){
         ctx.body = 'failed';
+        return await next();
     }
 
+    logger.debug("wechat token verified.");
+    if(ctx.request.method === 'GET'){  // 处理验证消息
+        ctx.body = echoStr;
+        await next();
+        return;
+    }
+    // 处理正常消息, 根据消息类型进行回复
+    logger.debug('post from wechat: %j',ctx.request.body);
+    let ct = Math.ceil(Date.now()/1000);
+    let toUserName = openId;
+    let fromUserName = ctx.request.body.xml.ToUserName[0];
+    ctx.type = 'application/xml';
+    ctx.body = "<xml><ToUserName><![CDATA["+ toUserName +"]]></ToUserName><FromUserName><![CDATA["+fromUserName+"]]> </FromUserName><CreateTime>"+ct+"</CreateTime> <MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[你好]]></Content></xml>";
+    //ctx.body = "success";
+    logger.debug("reply to user: %j",ctx.body);
     await next();
 }
 module.exports = {
-    'method':'get',
+    'method':'get|post',
     "url": '/wx',
     'fn': wx
 }

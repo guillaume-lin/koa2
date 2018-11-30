@@ -45,6 +45,19 @@ UserItemSchema.statics.awardItems = async function(openId,awards){
     let ret = await this.insertMany(items);
     logger.debug('awardItem insert return:%j',ret);
     return ret;
+};
+UserItemSchema.statics.awardOneItem = async function(openId,award){
+    logger.debug('awardItems:%j',awards);
+    let ct = Date.now();
+    let item = {};
+    item.openId = openId;
+    item.itemId = award.prizeId;
+    item.amount = award.amount;
+    item.acquireTime = ct;
+    
+    let ret = await this.insertMany([item]);
+    logger.debug('awardItem insert return:%j',ret);
+    return ret;
 }
 /**
  * 消耗商品

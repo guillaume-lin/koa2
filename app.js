@@ -1,6 +1,7 @@
 const Koa = require('koa');
 const router = require('koa-router')();
-const bodyParser = require('koa-bodyparser')();
+const bodyParser = require('koa-bodyparser');
+const xmlParser = require('koa-xml-body');
 const session = require('koa-session');
 const registerMapping = require('./controllers');
 const nunjucksMw = require('./middleware/nunjucks');
@@ -40,8 +41,8 @@ process.on('unhandledRejection', error => {
 app.on("error",(err,ctx)=>{
     console.log(new Date(),":",err);
  });
-
-app.use(bodyParser);
+app.use(xmlParser());
+app.use(bodyParser());
 
 app.use(async (ctx,next) => {
     // 验证下用户是否已经用微信登录
