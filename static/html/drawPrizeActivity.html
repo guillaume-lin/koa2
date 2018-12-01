@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Bootstrap 模板</title>
+      <title>抽奖活动</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- 引入 Bootstrap -->
       <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -20,24 +20,19 @@
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
+     // <!-- 查询用户二维码的使用情况，确定不同的网页 -->
     // request cdkey and use status from server
-    $.get('/queryCdkeyUsage',function(data,status){
+    $.get('/wxWeb/api/queryCdkeyUsage',function(data,status){
       console.log('queryCdkeyUsage');
       console.log(data);
       console.log(status);
     });
 
-    // 扫码登录
-    $("#login").click(function(){
-      let cdkey = $("#cdkey").val();
-      document.location.href = '/scanActivity?cdkey='+cdkey;
-    })
-
     // 活动抽奖
     $("#acquirePoint").click(function(){
       let cdkey = $("#cdkey").val();
       // 使用ajax登录
-      $.post('/acquirePoint',{clickCount:10},function(data,status){
+      $.post('/wxWeb/api/acquirePoint',{clickCount:10},function(data,status){
         console.log('result ');
         console.log(data);
         console.log(status);
@@ -51,18 +46,16 @@
    <body>
       <h1>测试页面</h1>
       <div>
-        <h3>扫码登录</h3>
-        <label>cdkey</label>
-        <input type="text" id="cdkey" placeholder="input cdkey here"></input>
-        <button type="submit" id="login">登录</button>
-      </div>
-      <div>
         <h3>活动抽奖</h3>
         <button type="submit" id="acquirePoint">活动抽奖</button>
       </div>
       <div>
         <h1>测试结果</h1>
         <input type="textArea" id="result"></input>
+      </div>
+      <div>
+    <h3>前往用户中心</h3>
+        <a href='/html/userCenter.html'>前往用户中心</a>
       </div>
 
    </body>

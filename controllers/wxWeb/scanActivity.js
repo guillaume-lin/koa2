@@ -79,14 +79,14 @@ let scanActivity = async function(ctx, next){
         ctx.session.cdkeyUsage = ret;
         let info = await ctx.wechatAPI.getUser(userInfo.openid);
         logger.debug('wechat api userInfo: %j',info);
-        if(info && info.subscribe === 1){
+        if(info && info.subscribe !== 1){
             // 未关注,重定向一张二维码，请用户关注
-            ctx.response.redirect('/subscribe');
-            return await next;
+            ctx.response.redirect('/html/subscribe.html');
+            return await next();
         }
 
         // FIXME: 正常
-        ctx.response.redirect('/html/index.html'); //FIXME: 定向到前端主页面 
+        ctx.response.redirect('/html/drawPrizeActivity.html'); //FIXME: 定向到抽奖活动页面 
         
         await next();
         return;
@@ -101,6 +101,5 @@ let scanActivity = async function(ctx, next){
 }
 module.exports = {
     method: 'get',
-    url: '/scanActivity',
     fn: scanActivity
 }

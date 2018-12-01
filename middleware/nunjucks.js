@@ -34,6 +34,9 @@ let mw = function(app,path,opts){
         this.response.body = env.render(view, Object.assign({}, this.state || {}, model || {}))
         this.response.type = 'text/html'
     };
+    app.context.renderString = function(string,data){
+        return nunjucks.renderString(string,data);
+    }
     return async (ctx, next) => {
         await next();
     }
