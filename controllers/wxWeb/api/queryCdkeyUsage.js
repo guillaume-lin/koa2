@@ -1,4 +1,7 @@
-const logger = require('../util/log').getLogger('app');
+/**
+ * 查询用户cdkey的使用情况
+ */
+const logger = require('../../../util/log').getLogger('app');
 
 /**
  * 判断用户是否已微信授权登录
@@ -15,6 +18,5 @@ let queryCdkeyUsage = async function(ctx,next){
 }
 module.exports = {
     method: 'get',
-    url: '/queryCdkeyUsage',
     fn: queryCdkeyUsage
 }

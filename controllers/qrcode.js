@@ -10,6 +10,5 @@ let qrcode = async(ctx,next) =>{
 };
 module.exports = {
     "method": "get",
-    "url": "/qr",
     "fn": qrcode
 }

@@ -41,6 +41,5 @@ let authroize = async (ctx,next) => {
 
 module.exports = {
     'method':'get',
-    "url": '/authorize',
     'fn': authroize
 }

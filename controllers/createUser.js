@@ -37,6 +37,5 @@ let user = async (ctx,next) => {
 }
 module.exports = {
     "method": "all",
-    "url": "/createUser",
     "fn": user
 }

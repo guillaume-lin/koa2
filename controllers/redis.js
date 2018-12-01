@@ -17,6 +17,5 @@ let redisGet = async function(ctx, next){
 }
 module.exports = {
     method: 'get',
-    url: '/redis',
     fn: redisGet
 }

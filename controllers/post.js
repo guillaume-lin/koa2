@@ -9,6 +9,5 @@ let post = async function(ctx, next){
 }
 module.exports = {
     method: 'post',
-    url: '/post',
     fn: post
 }

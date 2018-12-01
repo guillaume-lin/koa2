@@ -9,17 +9,16 @@
  * 6. if not, redirect to page, ask the user to register with mobile phone(page register phone), once registered, redirect to 5
  * 7. show the user's home page (page home)
  */
-const logger = require('../util/log').getLogger('app');
-const WxUtil = require('../domain/wechat/util');
+const logger = require('../../util/log').getLogger('app');
+const WxUtil = require('../../domain/wechat/util');
 
-const WX_TOKEN = "wx";
+const WX_TOKEN = "wx@ha-ecommence";
 
 let wx = async (ctx, next) => {
     logger.debug('wx request from: %j/%j,%j',ctx.request.ip,ctx.request.method,ctx.request);
    
 
     let token = WX_TOKEN;
-    let openId = ctx.request.query.openid;
     let timestamp = ctx.request.query.timestamp || '';
     let nonce = ctx.request.query.nonce || '';
     let echoStr = ctx.request.query.echostr || '';
@@ -37,17 +36,11 @@ let wx = async (ctx, next) => {
     }
     // FIXME: 处理正常消息, 根据消息类型进行回复
     logger.debug('post from wechat: %j',ctx.request.body);
-    let ct = Math.ceil(Date.now()/1000);
-    let toUserName = openId;
-    let fromUserName = ctx.request.body.xml.ToUserName[0];
-    ctx.type = 'application/xml';
-    ctx.body = "<xml><ToUserName><![CDATA["+ toUserName +"]]></ToUserName><FromUserName><![CDATA["+fromUserName+"]]> </FromUserName><CreateTime>"+ct+"</CreateTime> <MsgType><![CDATA[text]]></MsgType> <Content><![CDATA[你好]]></Content></xml>";
-    //ctx.body = "success";
-    logger.debug("reply to user: %j",ctx.body);
+    await ctx.app.messageDispatcher.processMessage(ctx);
     await next();
+    
 }
 module.exports = {
     'method':'get|post',
-    "url": '/wx',
     'fn': wx
 }

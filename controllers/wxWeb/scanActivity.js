@@ -5,10 +5,10 @@
  * 1: 已过期 / 或者不存在
  * 2: 已被使用
  */
-const logger = require('../util/log').getLogger('app');
+const logger = require('../../util/log').getLogger('app');
 const async  = require('async');
-const daoUser = require('../domain/dao/mongoose/user');
-const daoCdkey = require('../domain/dao/mongoose/cdkey');
+const daoUser = require('../../domain/dao/mongoose/user');
+const daoCdkey = require('../../domain/dao/mongoose/cdkey');
 
 let scanActivity = async function(ctx, next){
     let client = ctx.client;

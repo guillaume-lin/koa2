@@ -6,6 +6,5 @@ let login = async function(ctx, next){
 }
 module.exports = {
     method: 'get',
-    url: '/login',
     fn: login
 }

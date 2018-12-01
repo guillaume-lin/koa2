@@ -4,7 +4,7 @@
  * 返回本次请求获取到的积分
  * 如果已经获取到积分，则提示错误
  */
-const logger  = require('../util/log').getLogger('app');
+const logger  = require('../../../util/log').getLogger('app');
 let acquirePoint = async function(ctx, next){
     logger.debug("acquirePoint at %j",Date.now());
 
@@ -20,7 +20,6 @@ let acquirePoint = async function(ctx, next){
     await next();
 }
 module.exports = {
-    method: 'post',
-    url: '/acquirePoint',
+    method: 'post',    
     fn: acquirePoint
 }
