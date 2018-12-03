@@ -18,8 +18,8 @@ pro.start = function(){
 pro.drawAward = async function(openId,cdkey){
     let prizeList = this.app.dbJson.scanActivity.getPrizes();
     logger.debug("drawAward: %j,%j,from: %j",openId,cdkey,prizeList);
-    let awards = await this.scanActivity.drawAward(openId,cdkey);
-    return awards;
+    let award = await this.scanActivity.drawAward(openId,cdkey);
+    return award;
 }
 
 module.exports = ScanActivityService;

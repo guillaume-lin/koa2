@@ -10,92 +10,23 @@ const async  = require('async');
 const daoUser = require('../../domain/dao/mongoose/user');
 const daoCdkey = require('../../domain/dao/mongoose/cdkey');
 
+// 用户扫码 /wxWeb/scanActivity?cdkey=abcdefg12345
+// 根据二维码状态进行入库
+// 跳转到页面/html/scanActivity.html 进行渲染
 let scanActivity = async function(ctx, next){
     let client = ctx.client;
-    let code = ctx.request.query.code || '';
+
     let cdkey = ctx.request.query.cdkey || ''; // 兑换码
-    let state = ctx.request.query.state || ''; // 跳转后的cdkey
-    
-    let userInfo = null;
-    if(code !== ''){
-        logger.info("user authorized.");
-        // 已经获得授权
-        let ret = await new Promise(function(resolve,reject){
-            client.getAccessToken(code, function (err, result) {
-                if(err){
-                    logger.error("getAccessToken error: %j",err.stack);
-                    reject(err);
-                    return;
-                }
-                var accessToken = result.data.access_token;
-                var openId = result.data.openid;
-                logger.debug("accessToken: %j, openId: %j",accessToken,openId);
-                client.getUser(openId, function (err, result) {
-                    if(err){
-                        logger.error("getUser error: %j",err.stack);
-                        reject(err);
-                        return;
-                    }
-                    // 获取
-                    userInfo = result;
-                    logger.debug("userInfo:%j",userInfo);
-                    ctx.session.uid = userInfo.openid;   // FIXME： 用户微信登录成功
-                    ctx.session.cdkey = state;
-                    daoCdkey.isValidKey(state,function(err,res){
-                        if(err){
-                            logger.error("check valid key. err:%j",err.stack);
-                            return reject(err);
-                        }
-                        if(!res){
-                            return resolve(1);
-                        }
-
-                        // 更新cdkey
-                        daoCdkey.acquireCdkey(state,userInfo.openid,function(err,res){
-                            if(err){
-                                logger.error('acquireCdkey: %j',err.stack);
-                                reject(err);
-                                return;
-                            }
-                            logger.debug("acquireCdkey: %j",res);
-                            if(res){
-                                resolve(0);
-                            }else{
-                                resolve(2);
-                            }
-                        })
-                    })                   
-                  });
-              }); 
-        })
-        if(ret === 0){
-            // 看看是否已经创建用户记录，如果没有的话，要先创建
-            let isUserCreated = await daoUser.findUser(userInfo.openid);
-            if(!isUserCreated){
-                let createResult =  await daoUser.createUser(userInfo.openid,userInfo.nickname,userInfo.sex);
-                logger.info('createUser: %j',userInfo);
-            }
-        }
-        ctx.session.cdkeyUsage = ret;
-        let info = await ctx.wechatAPI.getUser(userInfo.openid);
-        logger.debug('wechat api userInfo: %j',info);
-        if(info && info.subscribe !== 1){
-            // 未关注,重定向一张二维码，请用户关注
-            ctx.response.redirect('/html/subscribe.html');
-            return await next();
-        }
-
-        // FIXME: 正常
-        ctx.response.redirect('/html/drawPrizeActivity.html'); //FIXME: 定向到抽奖活动页面 
-        
-        await next();
+    if(cdkey === ''){
+        ctx.body = "<h1>invalid request</h1>"
         return;
     }
-    
-    let redirectUrl = ctx.request.href;
-    let url = client.getAuthorizeURL(redirectUrl, cdkey, 'snsapi_userinfo');
-    logger.debug("redirect to url:%j",url);
-    ctx.response.redirect(url);
+    ctx.session.cdkey = cdkey; // 记录用户当前所扫的cdkey
+    let openId = ctx.session.uid;    
+
+    ret = await daoCdkey.acquireCdkey(openId,cdkey);
+    logger.debug('%j acquire cdkey %j return %j',openId,cdkey,ret);
+    ctx.response.redirect('/html/scanActivity.html'); //FIXME: 重定向的扫码页面     
     await next();
     
 }

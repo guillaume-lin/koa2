@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
    <head>
+      
+          <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+          <meta http-equiv="Pragma" content="no-cache" />
+          <meta http-equiv="Expires" content="0" />
+
+
       <title>扫码参加活动</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <!-- 引入 Bootstrap -->
@@ -19,31 +25,25 @@
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+  // 检查用户当前的cdkey使用情况，根据情况跳转相应页面
   $(document).ready(function(){
     // request cdkey and use status from server
-    $.get('/queryCdkeyUsage',function(data,status){
+    $.get('/wxWeb/api/queryCdkeyUsage',function(data,status){
       console.log('queryCdkeyUsage');
       console.log(data);
       console.log(status);
+      // 根据结果，跳转不同的界面，提示二维码过期或者是可以进行抽奖
+      if(data.code === 0){
+        console.log('cdkey is usable.');
+        document.location.href = '/html/drawPrizeActivity.html';
+      }
     });
 
     // 扫码登录
     $("#login").click(function(){
       let cdkey = $("#cdkey").val();
-      document.location.href = '/scanActivity?cdkey='+cdkey;
+      document.location.href = '/wxWeb/scanActivity?cdkey='+cdkey;
     })
-
-    // 活动抽奖
-    $("#acquirePoint").click(function(){
-      let cdkey = $("#cdkey").val();
-      // 使用ajax登录
-      $.post('/acquirePoint',{clickCount:10},function(data,status){
-        console.log('result ');
-        console.log(data);
-        console.log(status);
-        $("#result").val(data);
-      });
-    });
 
   });
 </script>
@@ -57,11 +57,7 @@
         <button type="submit" id="login">登录</button>
       </div>
       <div>
-        <h3>活动抽奖</h3>
-        <button type="submit" id="acquirePoint">活动抽奖</button>
-      </div>
-      <div>
-        <h1>测试结果</h1>
+        <h1>结果</h1>
         <input type="textArea" id="result"></input>
       </div>
 

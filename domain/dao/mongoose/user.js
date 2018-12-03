@@ -11,7 +11,13 @@ let UserSchema = new mongoose.Schema({
     "sex": {type:Number,default: 0},
     "vipLevel": {type:Number,default:1},
     "phoneNumber": {type:String,default:''},
-    "phoneModel": {type:String, default:''}
+    "babyBirthDay":{type:Number,0},
+    "babySex":{type:Number,default:0},
+    "consignee":{type:String,default:''}, // 收货人
+    "province":{type:Number,default:0}, // 所在省
+    "city":{type:Number,default:0}, // 所在市
+    "address":{type:String,default:''}, // 地址
+    "postCode":{type:String,default:''} // 邮政编码
 });
 
 // define method for this model

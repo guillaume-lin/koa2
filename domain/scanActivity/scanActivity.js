@@ -28,6 +28,7 @@ pro.drawOneAward = function(awards){
         }
         current += award.probability;
     }
+    logger.error('drawOneAward: null');
     return null;
 }
 /**
@@ -40,16 +41,21 @@ pro.drawOneAward = function(awards){
  *   }
  * 消耗一个cdkey
  * 只能抽中一个奖品,确保抽中一个
+ * 
+ * FIXME: 需要考虑事务
  */
 
 pro.drawAward = async function(openId,cdkey){
+    logger.debug('%j drawAward with cdkey: %j',openId,cdkey);
     // 消耗cdkey
     let status = await daoCdkey.markCdkeyUsed(openId,cdkey);
+    
     // 如果成功使用cdkey, 则进行抽奖
     if(status !== 0){
+        logger.debug("drawAward. failed to use cdkey: %j",cdkey);
         let ret = {
             code: 1,
-            award: []
+            award: {}
         };
         return ret;
     }
@@ -59,21 +65,40 @@ pro.drawAward = async function(openId,cdkey){
     let item = null;
     let loopCount = 10;
     while(loopCount-- > 0){
+        logger.info("draw loopCount: %j",loopCount);
+
         // 排除已经达到最大抽奖数的奖品
-        let drawItems = await daoDrawItem.queryDrawCount(items.map(item =>item.prizeId));
+        let drawItems = await daoDrawItem.queryDrawCount(items.map(item =>item.itemId));
         items = items.filter(function(item){
+            if(item.maxDrawCount === 0){
+                // 不限制
+                return true;
+            }
             for(let len=drawItems.length,i=0; i<len; i++){
-                if(item.maxDrawCount > drawItems[i].drawCount){
-                    return true;
+                if(item.itemId === drawItems[i].itemId && drawItems[i].drawCount >= item.maxDrawCount){ // 已达到最大抽取数
+                    return false;
                 }
             }                
-            return false;
+            return true;
         })
 
         // 对每一个奖项配置根据其配置的概率分别进行判断是否抽中
         item = this.drawOneAward(items);
-        // 更新奖品的已抽取数量
-        await daoDrawItem.updateDrawItem(item.prizeId,item.amount,item.maxDrawCount);
+        if(item === null){
+            break;
+        }
+
+        if(item.maxDrawCount > 0){
+            // 更新奖品的已抽取数量    
+            let ret = await daoDrawItem.updateDrawItem(item.itemId,item.amount,item.maxDrawCount);
+            if(ret === 0){  // 更新成功则结束，否则继续重新抽
+                break;
+            }
+            logger.error("updateDrawCount failed. item:%j",item);
+        }else{
+            break; // 不限量物品
+        }
+        
     }
     if(item === null){
         return {
@@ -84,14 +109,17 @@ pro.drawAward = async function(openId,cdkey){
     let ret1 = await daoUserItem.awardOneItem(openId,item); 
 
     if(ret1[0].itemId !== item.itemId){
-        logger.error('save award failed. %j',ret1);
+        logger.error('save drawn award %j for %j failed. ret:%j',item,openId,ret1);
         return {
-            code: 2 // 保存失败
+            code: 1 // 保存失败
         };
     }
     return {
         code: 0,
-        award:item
+        award: {
+            itemId: item.itemId,
+            amount: item.amount
+        }
     }
     
 }

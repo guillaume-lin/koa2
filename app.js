@@ -46,19 +46,39 @@ app.on("error",(err,ctx)=>{
 app.use(xmlParser());
 app.use(bodyParser());
 
+app.use(async(ctx,next) =>{
+    if(ctx.request.url.indexOf('/favicon.ico') !== -1){
+        logger.debug('not process favicon');
+        return;
+    }
+    logger.debug("before process %j on %j  req:%j",ctx.request.method,ctx.request.url,ctx.request);
+    await next();
+    logger.debug("after process %j on %j res:%j\n\n",ctx.request.method,ctx.request.url,ctx.response);
+})
+
+/**
+ * 权限控制
+ */
 app.use(async (ctx,next) => {
     // 验证下用户是否已经用微信登录
     ctx.session.uid = ctx.session.uid || '';
     logger.debug('uid is:%j',ctx.session.uid);
-    if(ctx.session.uid === ''){
+    if(ctx.session.uid === '' && ctx.request.url.indexOf('/wxWeb/wxLogin') === -1){
+        
         logger.error('user not login');
+        if(ctx.request.url.indexOf('/wxWeb/api/') !== -1){
+            // 访问api
+            logger.error('未登录时访问api: %j',ctx.request.url);
+            ctx.body = {code: -1};
+            return;
+        }
+        // 重定向到登录页面
+        let redirectUrl = '/wxWeb/wxLogin?targetUrl=' + ctx.request.url;
+        logger.info('not login redirect to %j',redirectUrl);
+        ctx.response.redirect(redirectUrl);
+        return;
     };
     await next();
-})
-app.use(async(ctx,next) =>{
-    logger.debug("before process %j on %j  req:%j",ctx.request.method,ctx.request.url,ctx.request);
-    await next();
-    logger.debug("after process %j on %j res:%j\n\n",ctx.request.method,ctx.request.url,ctx.response);
 })
 
 registerMapping(router);

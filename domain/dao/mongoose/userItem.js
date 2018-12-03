@@ -47,11 +47,11 @@ UserItemSchema.statics.awardItems = async function(openId,awards){
     return ret;
 };
 UserItemSchema.statics.awardOneItem = async function(openId,award){
-    logger.debug('awardItems:%j',awards);
+    logger.info('awardItem:%j to %j',award,openId);
     let ct = Date.now();
     let item = {};
     item.openId = openId;
-    item.itemId = award.prizeId;
+    item.itemId = award.itemId;
     item.amount = award.amount;
     item.acquireTime = ct;
     

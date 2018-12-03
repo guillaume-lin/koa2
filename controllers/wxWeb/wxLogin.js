@@ -3,11 +3,12 @@
  * 登录成功后，跳转到指定的页面
  */
 
-const logger = require('../../../util/log').getLogger('app');
-const daoUser = require('../../../domain/dao/mongoose/user');
+const logger = require('../../util/log').getLogger('app');
+const daoUser = require('../../domain/dao/mongoose/user');
 
 
 let wxLogin = async function(ctx, next){
+    logger.debug("wxLogin here");
     let client = ctx.client;
     let code = ctx.request.query.code || '';
 

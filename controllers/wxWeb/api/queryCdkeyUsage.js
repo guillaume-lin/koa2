@@ -1,18 +1,17 @@
-/**
- * 查询用户cdkey的使用情况
- */
 const logger = require('../../../util/log').getLogger('app');
-
+const daoCdkey = require('../../../domain/dao/mongoose/cdkey');
 /**
- * 判断用户是否已微信授权登录
- * 从用户的session里面找到用户所扫二维码，返回给用户 
+ * 
+ * 查询用户所扫cdkey的使用情况
+ *
  * @param {*} ctx 
  * @param {*} next 
  */
 let queryCdkeyUsage = async function(ctx,next){
     let cdkey = ctx.session.cdkey;
-    let usage = ctx.session.cdkeyUsage;
-    ctx.body = {cdkey:cdkey,usage:usage};
+    let openId = ctx.session.uid;
+    let ret = await daoCdkey.checkCdkey(openId,cdkey);
+    ctx.body = { code:ret,cdkey:cdkey};
     logger.debug('queryCdkeyUsage: %j',ctx.body);
     await next();
 }
