@@ -43,6 +43,20 @@ UserSchema.statics.setPhoneNumber = async function(openId,phoneNumber){
 UserSchema.statics.findUser = async function(openId){
     return await this.findOne({openId:openId});
 };
+// 修改用户信息
+UserSchema.statics.updateUserInfo = async function(openId,userInfo){
+    let info = {};
+    if(userInfo.nickName){
+        info.nickName;
+    };
+    let ret = await this.updateOne({openId:openId},{$set:info});
+    logger.debug("UserSchema updateUserInfo. openId:%j,info:%j,ret:%j",openId,info,ret);
+    if(ret.ok === 1 && ret.nModified === 1){
+        return 0;
+    }else{
+        return 1;
+    }
+}
 
 let model = mongoose.model('User',UserSchema);
 module.exports = model;

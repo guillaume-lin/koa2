@@ -4,6 +4,7 @@
     "description": "a package for wechat gzh",
     "dependencies": {
         "@alicloud/sms-sdk": "^1.1.6",
+        "ali-oss": "^6.0.1",
         "async": "^2.6.1",
         "bluebird": "^3.5.2",
         "co-wechat-api": "^3.8.1",

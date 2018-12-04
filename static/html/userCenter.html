@@ -43,15 +43,28 @@
               }
               if(data.register !== 1){
                 document.location.href = '/html/register.html'; // 前往注册
+                return;
               }
             });
 
-
+            $("#profile").click(function(){
+              document.location.href = '/html/userProfile.html';
+            });
+            $("#messageCenter").click(function(){
+              document.location.href = '/html/messageCenter.html';
+            });
+            $("#exchangeShop").click(function(){
+              document.location.href = '/html/exchangeShop.html';
+            })
           });
         </script>
            </head>
         
     <body>
         <h1>用户中心</h1>
+
+        <button id="profile">用户头像</button>
+        <button id="messageCenter">消息中心</button>
+        <button id="exchangeShop">兑换商店</button>
     </body>
 </html>
