@@ -10,7 +10,7 @@ const mongoose = require('./domain/dao/mongoose');
 const redis = require('./domain/dao/redis');
 const wechatAuth = require('./domain/wechat/auth');
 const wechatAPI  = require('./domain/wechat/wechatAPI');
-
+const ConstType  = require('./util/constType');
 const service = require('./service');
 const dbJsonImpl = require('./dbJsonImpl');
 
@@ -60,6 +60,9 @@ app.use(async(ctx,next) =>{
  * 权限控制
  */
 app.use(async (ctx,next) => {
+    if(ctx.request.url.indexOf('/wxWeb/wxAccess') !== -1){
+        return await next();
+    }
     // 验证下用户是否已经用微信登录
     ctx.session.uid = ctx.session.uid || '';
     logger.debug('uid is:%j',ctx.session.uid);
@@ -69,7 +72,7 @@ app.use(async (ctx,next) => {
         if(ctx.request.url.indexOf('/wxWeb/api/') !== -1){
             // 访问api
             logger.error('未登录时访问api: %j',ctx.request.url);
-            ctx.body = {code: -1};
+            ctx.body = {code: ConstType.PERMISSION_DENIED};
             return;
         }
         // 重定向到登录页面
@@ -91,7 +94,9 @@ redis.initRedis(require('./config/redis.json'));
 let wechatConf = require('./config/wechat.json');
 app.context.client = wechatAuth(wechatConf.appId,wechatConf.secret);
 app.context.wechatAPI = wechatAPI(wechatConf.appId,wechatConf.secret);
-
+app.config = {};
+app.config.alisms = {};
+app.config.alisms = require('./config/alisms.json');
 dbJsonImpl.load(app);
 // load business service here
 service.load(app);

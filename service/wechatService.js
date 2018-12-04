@@ -20,6 +20,6 @@ pro.afterStart = function(){
     logger.debug("WechatService.afterStart");
 }
 pro.stop = function(){
-    logger.debug("DummyService.stop");
+    logger.debug("WechatService.stop");
 }
 module.exports = WechatService;
