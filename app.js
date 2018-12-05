@@ -37,8 +37,6 @@ app.use(session(app));
 
 process.on('unhandledRejection', error => {
     logger.fatal("unhandledRejection: %j",error.stack);
-    console.error('unhandledRejection', error);
-    process.exit(1) // To exit with a 'failure' code
 });
 app.on("error",(err,ctx)=>{
     console.log(new Date(),":",err);

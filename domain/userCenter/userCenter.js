@@ -7,6 +7,7 @@ const logger = require('../../util/log').getLogger('app');
 const daoUser = require('../dao/mongoose/user');
 const ConstType = require('../../util/constType');
 const SmsCodeManager = require('../smsCodeManager');
+const daoMessage = require('../dao/mongoose/message');
 const Util = require('../../util/util');
 
 class UserCenter {
@@ -81,6 +82,45 @@ class UserCenter {
                 code: ConstType.FAILED
             }
         }
+    }
+    /**
+     * 查询用户积分
+     * 积分为一种SKU，不同的分数视为不同的SKU
+     * @param {*} openId 
+     */
+    async queryUserPoint(openId){
+        // find from userItem table
+    }
+    /**
+     * 发送消息给用户
+     * @param {*} receiver 
+     * @param {*} title 
+     * @param {*} content 
+     */
+    async sendMessage(receiver,title,content){
+        let ret = await daoMessage.sendMessage(receiver,title,content);
+        logger.debug("userCenter sendMessage. title:%j,content:%j, ret:%j",title,content,ret);
+        if(ret === 0){
+            return {
+                code: ConstType.OK
+            }
+        }else{
+            return {
+                code: ConstType.FAILED
+            }
+        }
+    }
+    async getMessagePageCount(receiver){
+        let ret = await daoMessage.getMessagePageCount(receiver);
+        return ret;
+    }
+    async getMessagePage(receiver, pageNumber){
+        let ret = await daoMessage.getMessagePage(receiver,pageNumber);
+        return ret;
+    }
+    //标注消息已读
+    async markMessageRead(receiver,msgId){
+
     }
 };
 module.exports = UserCenter;
