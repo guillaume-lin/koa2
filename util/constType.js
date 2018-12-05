@@ -5,6 +5,7 @@
  module.exports = {
      PERMISSION_DENIED: -1,
      OK:0,
+     FAILED:1,
 
      // 1000 - 1999
      SCAN_ACTIVITY:{
@@ -17,5 +18,6 @@
         INVALID_VERIFY_CODE: 2002,   // 非法的验证码
         SEND_SMS_FAILED: 2003,
         VERIFY_SMS_FAILED: 2004,  // 短信验证失败
+        
      }
  }

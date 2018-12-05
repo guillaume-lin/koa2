@@ -7,17 +7,17 @@ const logger = require('../../../util/log').getLogger('app');
 const Util = require('../../../util/util');
 let UserSchema = new mongoose.Schema({
     "openId": {type:String,unique: true},
-    "nickName": {type:String,default:''},
+    "nickName": {type:String,default:'',maxlength:20},
     "sex": {type:Number,default: 0},
     "vipLevel": {type:Number,default:1},
-    "phoneNumber": {type:String,default:''},
+    "phoneNumber": {type:String,default:'',maxlength:14},
     "babyBirthDay":{type:Number,default:0},
-    "babySex":{type:Number,default:0},
-    "consignee":{type:String,default:''}, // 收货人
-    "province":{type:Number,default:0}, // 所在省
-    "city":{type:Number,default:0}, // 所在市
-    "address":{type:String,default:''}, // 地址
-    "postCode":{type:String,default:''} // 邮政编码
+    "babySex":{type:Number,default:0},  // 0 - 未知 1 - 男生 2 - 女生
+    "consignee":{type:String,default:'',maxlength:10}, // 收货人
+    "province":{type:String,default:'',maxlength:10}, // 所在省
+    "city":{type:String,default:'',maxlength:10}, // 所在市
+    "address":{type:String,default:'',maxlength:50}, // 地址
+    "postCode":{type:String,default:'',maxlength:6} // 邮政编码
 });
 
 // define method for this model
@@ -41,17 +41,14 @@ UserSchema.statics.setPhoneNumber = async function(openId,phoneNumber){
     }
 }
 UserSchema.statics.findUser = async function(openId){
-    return await this.findOne({openId:openId});
+    return await this.findOne({openId:openId}).lean();
 };
 // 修改用户信息
 UserSchema.statics.updateUserInfo = async function(openId,userInfo){
-    let info = {};
-    if(userInfo.nickName){
-        info.nickName;
-    };
+    let info = userInfo;
     let ret = await this.updateOne({openId:openId},{$set:info});
     logger.debug("UserSchema updateUserInfo. openId:%j,info:%j,ret:%j",openId,info,ret);
-    if(ret.ok === 1 && ret.nModified === 1){
+    if(ret.ok === 1 && ret.n === 1){
         return 0;
     }else{
         return 1;

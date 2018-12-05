@@ -3,10 +3,103 @@
                 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
                 <meta http-equiv="Pragma" content="no-cache" />
                 <meta http-equiv="Expires" content="0" />
+
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <!-- 引入 Bootstrap -->
+                <!-- 新 Bootstrap 核心 CSS 文件 -->
+              <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+           
+                <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+                <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+                <!--[if lt IE 9]>
+                   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+                   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+                <![endif]-->
+                <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+            <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+           
+            <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+          <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+          <script type="text/javascript">
+            // 检查用户当前的cdkey使用情况，根据情况跳转相应页面
+            $(document).ready(function(){
+                $.post('/wxWeb/api/userHandler/queryUserInfo',{},function(data,status){
+                    if(status !== 'success'){
+                        alert(status);
+                        return;
+                    };
+                    if(data.code === -1){
+                        document.location.href = '/wxWeb/scanActivity?cdkey=777';
+                        return;
+                    }
+                    data = data.userInfo;
+                    console.log(data);
+                    $("#nickName").val(data.nickName);
+                    $("#phoneNumber").val(data.phoneNumber);
+                    $("#babyBirthDay").val(data.babyBirthDay);
+                    $("#babySex").val(data.babySex);
+                    $("#consignee").val(data.consignee);
+                    $("#province").val(data.consignee);
+                    $("#city").val(data.city);
+                    $("#address").val(data.address);
+                    $('#postCode').val(data.postCode);
+                });
+                $("#updateUserInfo").click(function(){
+                    console.log(arguments);
+                    let userInfo = {};
+                    userInfo.nickName = $("#nickName").val() || '';
+                    userInfo.phoneNumber = $("#phoneNumber").val() || '';
+                    userInfo.babyBirthDay = $("#babyBirthDay").val() || '';
+                    userInfo.babySex = $("#babySex").val() || '';
+                    userInfo.consignee = $("#consignee").val() || '';
+                    userInfo.province = $("#province").val() || '';
+                    userInfo.city = $("#city").val() || '';
+                    userInfo.address = $("#address").val() || '';
+                    userInfo.postCode = $("#postCode").val() || '';
+                    for(var f in userInfo){
+                        if(userInfo.hasOwnProperty(f) && !userInfo[f]){
+                            delete userInfo[f];
+                        }
+                    }
+                    console.log(userInfo);
+                    $.post('/wxWeb/api/userHandler/updateUserInfo',userInfo,function(data,status){
+                        if(status !== 'success'){
+                            alert(status);
+                            return;
+                        }
+                        if(data.code !== 0){
+                            alert(data.code);
+                        }else{
+                            alert("修改成功");
+                        }
+                    })
+                })
+            });
+        </script>
+        <style type="text/css">
+            input {
+                font-size:18;
+                background: green;
+            }
+            button {
+                font-size:18;
+            }
+        </style>
         </head>
     
     <title>用户个人信息</title>
     <body>
-        <h1>用户个人信息</h1>
+        <h1>用户个人信息</h1>      
+            姓名:<input type="text" id="nickName"><br>
+            手机号码:<input type="text" id="phoneNumber"><br>
+            宝宝生日:<input type="text" id="babyBirthDay"><br>
+            宝宝性别:<input type="text" id="babySex"><br>
+            收货人姓名:<input type="text" id="consignee"><br>
+            所在省:<input type="text" id="province"><br>
+            所在市:<input type="text" id="city"><br>
+            收货地址:<input type="text" id="address"><br>
+            邮政编码:<input type="text" id="postCode"><br>
+            <button id="updateUserInfo" >提交修改</button>
+        
     </body>
 </html>
