@@ -19,5 +19,9 @@
         SEND_SMS_FAILED: 2003,
         VERIFY_SMS_FAILED: 2004,  // 短信验证失败
         
+     },
+     // 以下定义商品id, 1000 - 9999
+     SPECIAL_ITEM_ID:{
+         POINT: 1000,   // 积分，芯豆
      }
  }

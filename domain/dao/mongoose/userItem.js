@@ -2,9 +2,11 @@
  * 用户商品表
  * 
  * 积分也是一种特殊的商品
+ * 
+ * 
  */
 const logger = require('../../../util/log').getLogger('app');
-
+const ConstType = require('../../../util/constType');
 const mongoose = require('mongoose');
 let UserItemSchema = new mongoose.Schema({
     "openId":{type:String}, // 用户标识

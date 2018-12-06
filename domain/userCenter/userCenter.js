@@ -100,7 +100,7 @@ class UserCenter {
     async sendMessage(receiver,title,content){
         let ret = await daoMessage.sendMessage(receiver,title,content);
         logger.debug("userCenter sendMessage. title:%j,content:%j, ret:%j",title,content,ret);
-        if(ret === 0){
+        if(ret){
             return {
                 code: ConstType.OK
             }
@@ -110,17 +110,38 @@ class UserCenter {
             }
         }
     }
+    /**
+     * 
+     * @param {*} receiver 
+     */
     async getMessagePageCount(receiver){
         let ret = await daoMessage.getMessagePageCount(receiver);
-        return ret;
+        return { code:ConstType.OK, pageCount: ret};
     }
     async getMessagePage(receiver, pageNumber){
+        pageNumber = pageNumber || 0;
+        logger.debug("getMessagePage. receiver:%j, pageNumber:%j",receiver,pageNumber);
         let ret = await daoMessage.getMessagePage(receiver,pageNumber);
-        return ret;
+        if(ret && ret.length >= 0){
+            return {code:ConstType.OK,messages:ret};
+        }
+        return {code:ConstType.FAILED};
     }
     //标注消息已读
     async markMessageRead(receiver,msgId){
-
+        let ret = await daoMessage.markMessageRead(receiver,msgId);
+        if(ret){
+            return {code:ConstType.OK};
+        }else{
+            return {code:ConstType.FAILED};
+        }
+    };
+    async deleteMessage(receiver,msgIds){
+        let ret = await daoMessage.deleteMessage(receiver,msgIds);
+        if(ret.ok === 1){
+            return {code:ConstType.OK};
+        }
+        return {code:ConstType.FAILED};
     }
 };
 module.exports = UserCenter;

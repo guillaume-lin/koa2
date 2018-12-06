@@ -72,7 +72,14 @@
                       console.log(data);
                       console.log(status);
                   });
-              })
+              });
+              $("#deleteMessage").click(function(){
+                  let msgIds = $("#msgId").val();
+                  $.post('/wxWeb/api/messageHandler/deleteMessage',{msgIds:msgIds},function(data,status){
+                      console.log(data);
+                      console.log(status);
+                  });
+              });
           });
         </script>
 
@@ -83,6 +90,7 @@
         <h1>消息中心</h1>
         <button id='getMessageCount'>获取消息总页数</button><br>
         <input type="text" id="pageNumber"><button id='getMessage'>获取指定页的消息</button><br>
-        消息标题<input type="text" id="title"><br>消息内容<input type="text" id="content"><button id='sendMessage'>发送消息</button>
+        消息标题<input type="text" id="title"><br>消息内容<input type="text" id="content"><button id='sendMessage'>发送消息</button><br>
+        待删除消息的id<input type="text" id="msgId"><button id="deleteMessage">删除消息</button>
     </body>
 </html>

@@ -16,9 +16,9 @@ MessageSchema.statics.sendMessage = async function(receiver,title,content){
     let ct = Date.now();
     let ret = await this.create({receiver:receiver,title:title,content:content,receiveTime:ct});
     if(ret && ret.title === title){
-        return 0;
+        return true;
     }else{
-        return 1;
+        return false;
     }
 };
 /**
@@ -42,6 +42,20 @@ MessageSchema.statics.getMessagePageCount = async function(receiver){
 MessageSchema.statics.markMessageRead = async function(receiver,msgId){
     let ret = await this.updateOne({receiver:receiver,_id:msgId},{$set:{isRead:1}});
     logger.debug("markMessageRead. receiver:%j, msgId:%j, ret:%j",receiver,msgId,ret);
-}
+    if(ret.ok === 1 && ret.n === 1){
+        return true;
+    }else{
+        return false;
+    }
+};
+/**
+ * msgIds:[]
+ */
+MessageSchema.statics.deleteMessage = async function(receiver,msgIds){
+    let ret = await this.remove({receiver:receiver,_id:{$in:msgIds}});
+    logger.debug("deleteMessage: %j",ret);
+    return ret;
+};
+
 let model = mongoose.model('Message',MessageSchema);
 module.exports = model;
