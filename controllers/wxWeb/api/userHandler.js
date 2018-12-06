@@ -9,7 +9,7 @@ pro.queryUserInfo = async function(ctx,next){
     let app = ctx.app;
     let openId = ctx.session.uid;
 
-    let info = await app.userCenter.findUser(openId);
+    let info = await app.userCenter.queryUserInfo(openId);
     if(!info){
         ctx.body = {code: ConstType.FAILED};
         return await next();
@@ -17,6 +17,7 @@ pro.queryUserInfo = async function(ctx,next){
     delete info.openId;
     logger.debug("queryUserInfo: %j",info);
     ctx.body = {code: ConstType.OK,userInfo:info};
+    
     return await next();
 }
 /**

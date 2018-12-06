@@ -8,6 +8,7 @@ const daoUser = require('../dao/mongoose/user');
 const ConstType = require('../../util/constType');
 const SmsCodeManager = require('../smsCodeManager');
 const daoMessage = require('../dao/mongoose/message');
+const daoUserItem = require('../dao/mongoose/userItem');
 const Util = require('../../util/util');
 
 class UserCenter {
@@ -45,9 +46,16 @@ class UserCenter {
     /**
      * find a user
      */
-    async findUser(openId){
-        logger.debug("userCenter findUser :%j",openId);
-        return await daoUser.findUser(openId);
+    async queryUserInfo(openId){
+        logger.debug("userCenter queryUserInfo :%j",openId);
+        let ret = await daoUser.findUser(openId);
+        if(ret && ret.openId === openId){
+            let points = await daoUserItem.getUserPoints(openId);
+            ret.points = points;
+            return ret;
+        }else{
+            return null;
+        }
     }
     verifyUserInfo(userInfo){
         if(userInfo.hasOwnProperty('phoneNumber') && !Util.isPhoneNumber(userInfo.phoneNumber)){
@@ -88,8 +96,10 @@ class UserCenter {
      * 积分为一种SKU，不同的分数视为不同的SKU
      * @param {*} openId 
      */
-    async queryUserPoint(openId){
+    async queryUserPoints(openId){
         // find from userItem table
+        let ret = await daoUserItem.getUserPoints(openId);
+        return ret;
     }
     /**
      * 发送消息给用户

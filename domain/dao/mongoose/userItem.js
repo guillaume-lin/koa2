@@ -109,6 +109,21 @@ UserItemSchema.statics.removeItem = async function(openId,itemId,amount){
     
     logger.debug('removeItem. itemInfo:%j, remove amount:%j, ret: %j',subtractItem,amount,ret);
     return 0;
+};
+/**
+ *  获取用户总的积分
+ */
+UserItemSchema.statics.getUserPoints = async function(openId){
+    let ct = Date.now();
+    let aggregate = this.aggregate([{$match:{openId:openId,itemId:ConstType.SPECIAL_ITEM_ID.POINT,expireTime:{$gt:ct}}},
+        {$project:{_id:0,amount:1}},{$group:{_id:null,points:{$sum:"$amount"}}}]);
+    let ret = await aggregate.exec();
+    logger.debug('getUserPoints openId:%j, ret:%j',openId,ret);
+    if(ret.length > 0){
+        return ret[0].points;
+    }else{
+        return 0;
+    }
 }
 let model = mongoose.model('UserItem',UserItemSchema);
 module.exports = model;
