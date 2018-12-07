@@ -10,11 +10,36 @@ const SmsCodeManager = require('../smsCodeManager');
 const daoMessage = require('../dao/mongoose/message');
 const daoUserItem = require('../dao/mongoose/userItem');
 const Util = require('../../util/util');
+const mongoose = require('mongoose');
+const daoExchangeItem = require('../dao/mongoose/exchangeItem');
+const daoOrder = require('../dao/mongoose/order');
 
 class UserCenter {
     constructor(app){
         this.app = app;
         this.smsCodeManager = new SmsCodeManager(app);
+        let menu = {
+            "button":[
+                {
+                    "type": "view",
+                    "name": "登录",
+                    "url": "http://xkcvqv.natappfree.cc/scanActivity?cdkey=888"
+                }
+            ],
+            "button":[
+                {
+                    "type": "view",
+                    "name": "用户中心",
+                    "url": "http://xkcvqv.natappfree.cc/html/messageCenter.html"
+                }
+            ]
+        }
+        app.wechatAPI.createMenu(menu).then(function(ret){
+            logger.debug("createMenu:%j",ret);
+        }).catch(function(err){
+            logger.debug("createMenu error:%j",err);
+        })
+        
     }
     /**
      * 注册用户,更新电话号码
@@ -152,6 +177,88 @@ class UserCenter {
             return {code:ConstType.OK};
         }
         return {code:ConstType.FAILED};
+    };
+
+    async hasUnreadMessage(receiver){
+        let ret = await daoMessage.queryUnreadMessage(reciever);
+        if(ret > 0){
+            return {code:ConstType.OK,unread:1};
+        }else if(ret === 0){
+            return {code:ConstType.OK,unread:0};
+        }else{
+            return {code:ConstType.FAILED};
+        }
+    }
+    async queryOnSaleItemCount(){
+        let ret = await daoExchangeItem.queryOnSaleItemCount();
+        logger.debug("queryOnSaleItemCount:%j",ret);
+        return {code:ConstType.OK,count:ret};
+    };
+
+    async queryOnSaleItems(from,to){
+        let ret  = await daoExchangeItem.queryOnSaleItems(from,to);
+        return {code:ConstType.OK, items: ret};
+    }
+    /**
+     * 兑换指定的商品
+     *
+     * 从userItem扣减用户积分
+     * 从exchangeItem扣减商品库存
+     * 生成兑换订单
+     *  
+     **/ 
+    async exchangeItem(openId,itemId,amount){
+        // 先判断积分是否足够
+        let userPoints  = await daoUserItem.getUserPoints(openId);
+        let pointsNeed = await daoExchangeItem.getPointsNeed(itemId);
+        pointsNeed = pointsNeed*amount;
+        logger.debug("userPoints:%j, pointsNeed:%j",userPoints,pointsNeed);
+        if(userPoints < pointsNeed){
+            return {code:ConstType.USER_CENTER.NO_ENOUGH_POINTS,reason:"no enough points"};
+        }
+
+        // 开始事务
+        let ret;
+        let session = await mongoose.startSession();
+        logger.debug("start session: %j",session);
+        try{
+            ret = await session.startTransaction();
+            logger.debug("startTransaction ret:%j",ret);
+            let opts = {session:session};
+            // 创建兑换订单
+            let orderInfo = {
+                itemId:itemId,
+                itemAmount:amount,
+            };
+            ret = await daoOrder.createOrder(orderInfo,opts);
+            logger.debug("createOrder %j ret: %j",orderInfo,ret);
+            // 扣减用户积分
+            ret = await daoUserItem.removeItem(openId,ConstType.SPECIAL_ITEM_ID.POINT,pointsNeed, opts);
+            logger.debug("consume points %j ret:%j",pointsNeed,ret);
+            if(ret !== 0){
+                session.abortTransaction();
+                return {code:ConstType.FAILED,reason:"not enough points"};
+            }
+            // 扣减商品库存
+            ret = await daoExchangeItem.removeItem(itemId,amount,opts);
+            logger.debug("consume exchangeItem %j ret:%j",itemId,ret);
+            if(ret !== 0){
+                session.abortTransaction();
+                return {code:ConstType.FAILED,reason:"no enough item"};
+            }
+            ret = await session.commitTransaction();
+            logger.debug("commitTransaction ret:%j",ret);
+            if(ret.result.ok === 1){
+                return {code:ConstType.OK};
+            }else{
+                return {code:ConstType.FAILED,reason:"commit failed."};
+            }
+        }catch(err){
+            logger.error("exchangeItem err: %j",err.stack);
+            ret = await session.abortTransaction();
+            logger.debug("abortTransaction ret:%j",ret);
+            return {code:ConstType.FAILED,reason:"exception got. abort transaction"};
+        }
     }
 };
 module.exports = UserCenter;

@@ -56,6 +56,12 @@ MessageSchema.statics.deleteMessage = async function(receiver,msgIds){
     logger.debug("deleteMessage: %j",ret);
     return ret;
 };
-
+/**
+ * 获取未读消息数
+ */
+MessageSchema.statics.queryUnreadMessage = async function(receiver){
+    let ret = await this.count({receiver:receiver,isRead:0});
+    return ret;
+}
 let model = mongoose.model('Message',MessageSchema);
 module.exports = model;

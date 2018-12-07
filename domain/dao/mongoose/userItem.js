@@ -67,10 +67,12 @@ UserItemSchema.statics.awardOneItem = async function(openId,award){
  * 返回：
  *  0: 扣减成功,
  *  1: 商品不足
+ *  2: 删除出错
  */
-UserItemSchema.statics.removeItem = async function(openId,itemId,amount){
+UserItemSchema.statics.removeItem = async function(openId,itemId,amount,opts){
+    opts = opts || {};
     let ct = Date.now();
-    let itemInfos = await this.find({openId:openId,itemId: itemId});
+    let itemInfos = await this.find({openId:openId,itemId: itemId}).setOptions(opts);
     if(itemInfos.length < 1){
         return 1;
     };
@@ -98,13 +100,19 @@ UserItemSchema.statics.removeItem = async function(openId,itemId,amount){
         return 1; // 物品不足
     }
 
-    removeItems.map(function(item){
+    let ids = removeItems.map(function(item){
         logger.debug("removeItem. itemInfo: %j",item);
-        item.remove();
+        //item.remove(opts);
+        return item._id;
     });
-
-    let ret = await subtractItem.update({$inc:{amount:-total}});
-
+    let ret = await this.deleteMany({_id:{$in:ids}}).setOptions(opts);
+    if(ret.ok !== 1){
+        return 2;
+    }
+    ret = await subtractItem.updateOne({$inc:{amount:-total}}).setOptions(opts);
+    if(ret.ok !== 1){
+        return 2;
+    }
     // 扣减
     
     logger.debug('removeItem. itemInfo:%j, remove amount:%j, ret: %j',subtractItem,amount,ret);

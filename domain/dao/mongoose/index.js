@@ -18,8 +18,13 @@ let dbInit = function(config){
     let connOpts = {
         autoReconnect: true,
         keepAlive: true, 
-        keepAliveInitialDelay: 300000
+        keepAliveInitialDelay: 300000,
+        useNewUrlParser: true
     };
+    if(process.env.NODE_ENV !== 'production'){
+        mongoose.set('debug',true);
+    }
+    
     mongoose.connect(connStr,connOpts,function(err){
         if(err){
             logger.error("mongoose connect error: %j",err.stack);

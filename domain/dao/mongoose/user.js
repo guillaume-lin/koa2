@@ -21,6 +21,15 @@ let UserSchema = new mongoose.Schema({
 });
 
 // define method for this model
+UserSchema.statics.isAddressComplete = async function(openId){
+    let ret = await this.findOne({openId:openId},{openId:1,phoneNumber:1,province:1,city:1,consignee:1,address:1});
+    if(ret.phoneNumber.length === 11 && ret.province.length > 0 && ret.city.length > 0 && ret.consignee.length > 0 && ret.address.length > 0){
+        return 0;
+    }else{
+        logger.error("address not complete: %j",ret);
+        return 1;
+    }
+}
 UserSchema.statics.createUser = async function(openId,nickName,sex){
     let userInfo = {
         openId: openId,

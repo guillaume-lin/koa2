@@ -105,6 +105,7 @@ pro.drawAward = async function(openId,cdkey){
             code:1
         };
     }
+    logger.info("user %j draw item: %",openId,item);
     // 保存奖品到用户账号中
     let ret1 = await daoUserItem.awardOneItem(openId,item); 
 

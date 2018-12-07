@@ -1,15 +1,15 @@
 [
     {
-        "itemId":"1100",
+        "itemId":"1000",
         "amount": 100,
         "probability": 10000,
-        "maxDrawCount": 10
+        "maxDrawCount": 1000
     },
     {
-        "itemId": "1100",
+        "itemId": "1000",
         "amount":200,
         "probability": 5000,
-        "maxDrawCount": 10
+        "maxDrawCount": 1000
     },
     {
         "itemId": "10002",

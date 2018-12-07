@@ -14,7 +14,7 @@ const ConstType  = require('./util/constType');
 const service = require('./service');
 const dbJsonImpl = require('./dbJsonImpl');
 
-const isProduction = process.env.NODE_ENV == 'production'; // production environment
+const isProduction = process.env.NODE_ENV === 'production'; // production environment
 let app = new Koa();
 
 app.baseDir = __dirname;
@@ -90,8 +90,8 @@ mongoose.dbInit(require('./config/mongodb.json'));
 redis.initRedis(require('./config/redis.json'));
 
 let wechatConf = require('./config/wechat.json');
-app.context.client = wechatAuth(wechatConf.appId,wechatConf.secret);
-app.context.wechatAPI = wechatAPI(wechatConf.appId,wechatConf.secret);
+app.context.client = app.wechatAuth = wechatAuth(wechatConf.appId,wechatConf.secret);
+app.context.wechatAPI = app.wechatAPI = wechatAPI(wechatConf.appId,wechatConf.secret);
 app.config = {};
 app.config.alisms = {};
 app.config.alisms = require('./config/alisms.json');

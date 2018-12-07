@@ -17,7 +17,7 @@ DrawItemSchema.statics.updateDrawItem = async function(itemId, currentDrawCount,
     let ret = await this.updateOne({itemId:itemId,drawCount:{$lte:maxDrawCount-currentDrawCount}},
         {$inc:{drawCount:currentDrawCount}},{upsert:true});
     logger.debug("updateDrawCount: %j,ret:%j",currentDrawCount,ret);
-    if(ret.nModifed === 1){
+    if(ret.nModified === 1 || ret.upserted.length > 0){
         return 0;
     }else{
         return 1;

@@ -1,31 +1,45 @@
 const ConstType = require('../../../util/constType');
 const logger = require('../../../util/log').getLogger('app');
 
-let MessageHandler = function(){
+let ExchangeShopHandler = function(){
 
 }
 
-let pro = MessageHandler.prototype;
+let pro = ExchangeShopHandler.prototype;
 /**
- * 获取消息页数
+ * 获取商品总数
  */
-pro.getMessagePageCount = async function(ctx,next){
+pro.queryOnSaleItemCount = async function(ctx,next){
     let app = ctx.app;
     let receiver = ctx.session.uid;
-    let ret = await app.userCenter.getMessagePageCount(receiver);
+    let ret = await app.userCenter.queryOnSaleItemCount();
     ctx.body = ret;
 };
 
 /**
- * 获取消息页
+ * 获取商品信息
  */
-pro.getMessagePage = async function(ctx,next){
+pro.queryOnSaleItems = async function(ctx,next){
     let app = ctx.app;
-    let receiver = ctx.session.uid;
-    let pageNumber = ctx.request.body.pageNumber;
-    let ret = await app.userCenter.getMessagePage(receiver,pageNumber);
+    let from = ctx.request.body.from || 0;
+    let to = ctx.request.body.to || 0;
+    from = parseInt(from);
+    to = parseInt(to);
+    let ret = await app.userCenter.queryOnSaleItems(from,to);
     ctx.body = ret;
 };
+/**
+ * 兑换商品
+ */
+pro.exchangeItem = async function(ctx, next){
+    let app = ctx.app;
+    let openId = ctx.session.uid;
+    let itemId = ctx.request.body.itemId;
+    let amount = ctx.request.body.amount;
+    amount = parseInt(amount);
+    let ret = await app.userCenter.exchangeItem(openId,itemId,amount);
+    ctx.body = ret;
+}
 /**
  * 发送消息给用户
  */
@@ -56,11 +70,5 @@ pro.deleteMessage = async function(ctx,next){
     let msgIds = ctx.request.body.msgIds.split(';');  // 使用分号分隔
     let ret = await app.userCenter.deleteMessage(receiver,msgIds);
     ctx.body = ret;
-};
-pro.hasUnreadMessage = async function(ctx,next){
-    let app = ctx.app;
-    let receiver = ctx.session.uid;
-    let ret = await app.userCenter.hasUnreadMessage(receiver);
-    ctx.body = ret;
 }
-module.exports = MessageHandler;
+module.exports = ExchangeShopHandler;
