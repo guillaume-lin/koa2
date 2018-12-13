@@ -8,7 +8,7 @@ let TaskSchema = new mongoose.Schema({
     openId: {type:String,unique:true}, // 任务执行者
     taskId: {type:Number}, // 当前任务id
     resetDaily:{type: Boolean}, // 是否每天刷新重置
-    progress: {type:Number,default:0}, // 任务进度，-1代表已领取奖励，关闭    
+    progress: {type:Number,default:0}, // 任务进度，-1代表已领取奖励，关闭 , -2 代表已完成，可领取奖励   
 });
 
 /**
@@ -24,23 +24,28 @@ TaskSchema.statics.assignTask = async function(openId,taskId,resetDaily){
     }
 }
 /**
- * 完成一次任务
+ * 完成部分任务
  */
-TaskSchema.statics.completeTask = async function(openId,taskId){
-    let ret = await this.updateOne({openId:openId,taskId:taskId,progress:{$ne:-1}},{$inc:{progress:1}});
+TaskSchema.statics.completeTaskPiece = async function(openId,taskId){
+    let ret = await this.updateOne({openId:openId,taskId:taskId,progress:{$gte:0}},{$inc:{progress:1}});
     logger.debug("completeTask: %j",ret);
     return ret;
 };
 /**
+ * 完成整个任务
+ */
+TaskSchema.statics.tryCompleteFullTask = async function(openId,taskId,goal){
+    let ret = await this.updateOne({openId:openId,taskId:taskId,progress:{$gte:goal}},{$set:{progress:-2}});
+    logger.debug("try complete full task. %j",ret);
+    return ret;
+}
+/**
  * 复位任务
  */
-TaskSchema.statics.resetTask = async function(openId, taskId,goal){
-    let ret = await this.updateOne({
+TaskSchema.statics.resetAllTask = async function(){
+    let ret = await this.updateMany({
         $and:[
-            {openId:{$eq:openId}},
-            {taskId:{$eq:taskId}},
-            {progress:{$ne:-1}},
-            {progress:{$lt:goal}},
+            {progress:{$gt:0}},
             {resetDaily:true}   // 只复位那些需要复位的
         ]
     },{$set:{progress:0}});

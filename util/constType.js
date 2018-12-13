@@ -19,6 +19,7 @@
         SEND_SMS_FAILED: 2003,
         VERIFY_SMS_FAILED: 2004,  // 短信验证失败
         NO_ENOUGH_POINTS: 2005, // 积分不足
+        PERSONAL_INFO_NOT_COMPLETE: 2006, // 个人信息不完整
      },
      // 以下定义商品id, 1000 - 9999
      SPECIAL_ITEM_ID:{

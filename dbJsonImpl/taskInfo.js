@@ -46,7 +46,7 @@ pro.load = function(){
 pro.getTaskList = function(){
     return this.taskList;
 };
-// 任务对应事件表
+// 任务goalSort对应事件表
 const goalEvent = {
     '1':ConstType.TASK_EVENT.LOGIN,
     '2':ConstType.TASK_EVENT.SHARE,
@@ -93,8 +93,8 @@ pro.getTaskAwards = function(taskId){
     let items = [];
     for(let i=0; i<award.length; i+=2){
         items.push({
-            itemId: i+"",
-            amount: i+1,
+            itemId: award[i]+"",
+            amount: award[i+1],
         })
     }
     return items;

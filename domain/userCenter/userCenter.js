@@ -221,6 +221,12 @@ class UserCenter {
      *  
      **/ 
     async exchangeItem(openId,itemId,amount){
+        // 判断是否个人信息完整
+        let complete = await this.isAddressComplete(openId);
+        if(!complete){
+            logger.error("personal info not complete");
+            return {code:ConstType.USER_CENTER.PERSONAL_INFO_NOT_COMPLETE,reason: "personal info not complete"};
+        }
         // 先判断积分是否足够
         let userPoints  = await daoUserItem.getUserPoints(openId);
         let pointsNeed = await daoExchangeItem.getPointsNeed(itemId);

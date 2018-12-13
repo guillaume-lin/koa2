@@ -28,6 +28,10 @@ const logger = require('../../util/log').getLogger('app');
 const ConstType = require('../../util/constType');
 const daoTask = require('../dao/mongoose/task');
 const daoUserItem = require('../dao/mongoose/userItem');
+const schedule = require('node-schedule');
+
+const TASK_COMPLETE = -2;
+const TASK_CLOSED =  -1;
 
 class TaskManager {
     constructor(app){
@@ -39,16 +43,21 @@ class TaskManager {
      * 每天午夜复位需要复位的任务
      */
     scheduleTaskReset(){
-        
+        let self = this;
+        schedule.scheduleJob('0 0 0 * * *', function(){  // 午夜时分执行
+            logger.debug("schedule job");
+            self.resetDailyTask();
+        }); 
     }
     registerEventHandler(){
         let app = this.app;
         let self = this;
         
-        for(let event in ConstType.TASK_EVENT){
-            if(!ConstType.TASK_EVENT.hasOwnProperty(event)){
+        for(let evt in ConstType.TASK_EVENT){
+            if(!ConstType.TASK_EVENT.hasOwnProperty(evt)){
                 continue;
             }
+            let event = ConstType.TASK_EVENT[evt];
             logger.debug("register event: %j",event);
             app.eventBus.on(event,function(openId){
                 logger.debug('user %j event %j fired',openId,event);
@@ -69,10 +78,11 @@ class TaskManager {
      */
     async processEvent(openId,event){
         let taskInfo = await daoTask.queryTask(openId);  // 当前任务信息
+        let ti = this.app.dbJson.taskInfo.getTaskInfo(taskInfo.taskId);
         let taskEvent = this.app.dbJson.taskInfo.getTaskGoalEvent(taskInfo.taskId);
         if(taskEvent === event){ // 事件对应当前任务
             logger.info("complete task %j with event %j",taskInfo,event);
-            return await this.completeCurrentTask(openId,taskInfo.taskId);
+            return await this.completeCurrentTask(openId,taskInfo.taskId,ti.goal);
         }
     }
     /**
@@ -81,7 +91,8 @@ class TaskManager {
      * @param {*} taskId 
      */
     async assignCurrentTask(openId,taskId){
-        let ret = await daoTask.assignTask(openId,taskId);
+        let taskInfo = this.app.dbJson.taskInfo.getTaskInfo(taskId);
+        let ret = await daoTask.assignTask(openId,taskId,taskInfo.resetDaily);
         if(ret){
             return {
                 code: ConstType.OK,
@@ -95,16 +106,21 @@ class TaskManager {
      * 完成一次任务
      * @param {*} taskId
      */
-    async completeCurrentTask(openId,taskId){
-        await daoTask.completeTask(openId,taskId);
+    async completeCurrentTask(openId,taskId,goal){
+        let ret = await daoTask.completeTaskPiece(openId,taskId);
+        if(ret && ret.nModified===1){
+            let ret2 = await daoTask.tryCompleteFullTask(openId,taskId,goal);
+            return ret2;
+        }
+        
     };
 
     /**
      * 刷新每日任务,只刷新未达目标的
      * @param {} taskId 
      */
-    async resetDailyTask(openId,taskId,goal){
-        ret = await daoTask.resetTask(openId,taskId,goal);
+    async resetDailyTask(){
+        let ret = await daoTask.resetAllTask();
         logger.debug("resetDailyTask: %j",ret);
     };
 
@@ -152,8 +168,8 @@ class TaskManager {
         if(!currentTask || currentTask.taskId !== taskId){
             return {code:ConstType.FAILED};
         }
-        let goal = this.app.dbJson.taskInfo.getTaskGoal(taskId);
-        if(currentTask.progress < goal){
+        
+        if(currentTask.progress !== TASK_COMPLETE){
             return {code:ConstType.FAILED};
         }
         
@@ -166,9 +182,9 @@ class TaskManager {
             let ret = await daoTask.closeTask(openId,taskId);
             if(ret && ret.nModified === 1){
                 // 发放奖励
-                ret = daoUserItem.awardItems(openId,items);
+                ret = await daoUserItem.awardItems(openId,items);
                 // 设置下一个任务
-                return this.assignCurrentTask(openId,taskId+1);
+                return await this.assignCurrentTask(openId,taskId+1);
             }
         }catch(error){
             logger.error("%j reward task %j error: %j",openId, taskId,error.stack);

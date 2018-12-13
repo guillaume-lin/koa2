@@ -1,0 +1,1251 @@
+[2018-12-13T18:10:53.398] [DEBUG] app - starting "koa2" ...
+[2018-12-13T18:10:53.408] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T18:10:53.408] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T18:10:53.417] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T18:10:53.419] [DEBUG] app - initRedisSession
+[2018-12-13T18:10:53.421] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T18:10:53.434] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T18:10:53.435] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T18:10:53.435] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T18:10:53.436] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T18:10:53.436] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T18:10:53.437] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T18:10:53.437] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T18:10:53.438] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T18:10:53.438] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T18:10:53.440] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T18:10:53.440] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T18:10:53.441] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T18:10:53.441] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T18:10:53.442] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T18:10:53.442] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T18:10:53.443] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T18:10:53.445] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T18:10:53.445] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T18:10:53.445] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T18:10:53.446] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T18:10:53.446] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T18:10:53.446] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T18:10:53.447] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T18:10:53.447] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T18:10:53.448] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T18:10:53.448] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T18:10:53.448] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T18:10:53.448] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T18:10:53.448] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T18:10:53.449] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T18:10:53.449] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T18:10:53.453] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T18:10:53.453] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T18:10:53.454] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T18:10:53.454] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T18:10:53.455] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T18:10:53.456] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T18:10:53.456] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T18:10:53.456] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T18:10:53.457] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T18:10:53.457] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T18:10:53.458] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T18:10:53.458] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T18:10:53.458] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T18:10:53.459] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T18:10:53.459] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T18:10:53.460] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T18:10:53.461] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T18:10:53.461] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T18:10:53.463] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T18:10:53.464] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T18:10:53.465] [DEBUG] app - DummyService.start
+[2018-12-13T18:10:53.467] [DEBUG] app - start scan activity
+[2018-12-13T18:10:53.549] [DEBUG] app - register event: "LOGIN"
+[2018-12-13T18:10:53.549] [DEBUG] app - register event: "COMPLETE_PERSON_INFO"
+[2018-12-13T18:10:53.550] [DEBUG] app - register event: "SHARE"
+[2018-12-13T18:10:53.550] [DEBUG] app - register event: "ACQUIRE_POINTS"
+[2018-12-13T18:10:53.550] [DEBUG] app - register event: "READ"
+[2018-12-13T18:10:53.557] [DEBUG] app - UserService.start
+[2018-12-13T18:10:53.558] [DEBUG] app - WechatService.start
+[2018-12-13T18:10:53.558] [DEBUG] app - DummyService.afterStart
+[2018-12-13T18:10:53.558] [DEBUG] app - UserService.afterStart
+[2018-12-13T18:10:53.559] [DEBUG] app - WechatService.afterStart
+[2018-12-13T18:10:53.559] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T18:10:53.575] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T18:10:53.592] [INFO] app - mongoose connect successfully.
+[2018-12-13T18:10:53.622] [DEBUG] app - before process "GET" on "/"  req:{"method":"GET","url":"/","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close"}}
+[2018-12-13T18:10:53.623] [DEBUG] app - before check privillege
+[2018-12-13T18:10:53.624] [DEBUG] app - uid is:""
+[2018-12-13T18:10:53.624] [ERROR] app - user not login
+[2018-12-13T18:10:53.624] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/"
+[2018-12-13T18:10:53.626] [DEBUG] app - after process "GET" on "/" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/","content-type":"text/html; charset=utf-8","content-length":"83"}}
+
+
+[2018-12-13T18:10:53.626] [DEBUG] app - redis session set "1544695853621-HfTiPXJ4Mf5YRyWBTsyCI4Lbmw_ECDgm",{"uid":"","_expire":1544782253626,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T18:10:54.335] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T18:20:53.679] [DEBUG] app - starting "koa2" ...
+[2018-12-13T18:20:53.689] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T18:20:53.689] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T18:20:53.698] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T18:20:53.700] [DEBUG] app - initRedisSession
+[2018-12-13T18:20:53.701] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T18:20:53.711] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T18:20:53.712] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T18:20:53.713] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T18:20:53.714] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T18:20:53.715] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T18:20:53.716] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T18:20:53.716] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T18:20:53.717] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T18:20:53.717] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T18:20:53.718] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T18:20:53.718] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T18:20:53.719] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T18:20:53.719] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T18:20:53.720] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T18:20:53.720] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T18:20:53.721] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T18:20:53.722] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T18:20:53.722] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T18:20:53.722] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T18:20:53.722] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T18:20:53.723] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T18:20:53.723] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T18:20:53.724] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T18:20:53.724] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T18:20:53.724] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T18:20:53.724] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T18:20:53.725] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T18:20:53.725] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T18:20:53.725] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T18:20:53.726] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T18:20:53.726] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T18:20:53.730] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T18:20:53.730] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T18:20:53.731] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T18:20:53.732] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T18:20:53.732] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T18:20:53.733] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T18:20:53.733] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T18:20:53.733] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T18:20:53.733] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T18:20:53.734] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T18:20:53.734] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T18:20:53.735] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T18:20:53.735] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T18:20:53.736] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T18:20:53.736] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T18:20:53.737] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T18:20:53.738] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T18:20:53.738] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T18:20:53.740] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T18:20:53.741] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T18:20:53.742] [DEBUG] app - DummyService.start
+[2018-12-13T18:20:53.745] [DEBUG] app - start scan activity
+[2018-12-13T18:20:53.816] [DEBUG] app - register event: "LOGIN"
+[2018-12-13T18:20:53.817] [DEBUG] app - register event: "COMPLETE_PERSON_INFO"
+[2018-12-13T18:20:53.817] [DEBUG] app - register event: "SHARE"
+[2018-12-13T18:20:53.817] [DEBUG] app - register event: "ACQUIRE_POINTS"
+[2018-12-13T18:20:53.818] [DEBUG] app - register event: "READ"
+[2018-12-13T18:20:53.824] [DEBUG] app - UserService.start
+[2018-12-13T18:20:53.825] [DEBUG] app - WechatService.start
+[2018-12-13T18:20:53.825] [DEBUG] app - DummyService.afterStart
+[2018-12-13T18:20:53.826] [DEBUG] app - UserService.afterStart
+[2018-12-13T18:20:53.826] [DEBUG] app - WechatService.afterStart
+[2018-12-13T18:20:53.826] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T18:20:53.848] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T18:20:53.867] [INFO] app - mongoose connect successfully.
+[2018-12-13T18:20:53.895] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T18:20:53.896] [DEBUG] app - before check privillege
+[2018-12-13T18:20:53.897] [DEBUG] app - uid is:""
+[2018-12-13T18:20:53.897] [ERROR] app - user not login
+[2018-12-13T18:20:53.897] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T18:20:53.898] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T18:20:53.899] [DEBUG] app - redis session set "1544696453893-c6tdF3ONnckG5kYC_a8cDhbDrJvXm_9_",{"uid":"","_expire":1544782853899,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T18:20:54.629] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T18:23:08.725] [DEBUG] app - starting "koa2" ...
+[2018-12-13T18:23:08.735] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T18:23:08.736] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T18:23:08.746] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T18:23:08.747] [DEBUG] app - initRedisSession
+[2018-12-13T18:23:08.749] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T18:23:08.760] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T18:23:08.761] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T18:23:08.761] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T18:23:08.762] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T18:23:08.762] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T18:23:08.763] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T18:23:08.763] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T18:23:08.764] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T18:23:08.764] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T18:23:08.768] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T18:23:08.768] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T18:23:08.768] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T18:23:08.769] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T18:23:08.770] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T18:23:08.770] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T18:23:08.771] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T18:23:08.771] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T18:23:08.771] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T18:23:08.771] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T18:23:08.772] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T18:23:08.772] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T18:23:08.772] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T18:23:08.773] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T18:23:08.773] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T18:23:08.773] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T18:23:08.774] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T18:23:08.774] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T18:23:08.774] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T18:23:08.774] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T18:23:08.775] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T18:23:08.775] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T18:23:08.779] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T18:23:08.780] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T18:23:08.781] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T18:23:08.782] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T18:23:08.782] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T18:23:08.783] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T18:23:08.783] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T18:23:08.783] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T18:23:08.784] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T18:23:08.784] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T18:23:08.785] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T18:23:08.785] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T18:23:08.785] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T18:23:08.786] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T18:23:08.786] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T18:23:08.788] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T18:23:08.789] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T18:23:08.790] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T18:23:08.791] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T18:23:08.792] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T18:23:08.794] [DEBUG] app - DummyService.start
+[2018-12-13T18:23:08.798] [DEBUG] app - start scan activity
+[2018-12-13T18:23:08.871] [DEBUG] app - register event: "LOGIN"
+[2018-12-13T18:23:08.872] [DEBUG] app - register event: "COMPLETE_PERSON_INFO"
+[2018-12-13T18:23:08.872] [DEBUG] app - register event: "SHARE"
+[2018-12-13T18:23:08.872] [DEBUG] app - register event: "ACQUIRE_POINTS"
+[2018-12-13T18:23:08.873] [DEBUG] app - register event: "READ"
+[2018-12-13T18:23:08.878] [DEBUG] app - UserService.start
+[2018-12-13T18:23:08.880] [DEBUG] app - WechatService.start
+[2018-12-13T18:23:08.880] [DEBUG] app - DummyService.afterStart
+[2018-12-13T18:23:08.880] [DEBUG] app - UserService.afterStart
+[2018-12-13T18:23:08.880] [DEBUG] app - WechatService.afterStart
+[2018-12-13T18:23:08.881] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T18:23:08.900] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T18:23:08.919] [INFO] app - mongoose connect successfully.
+[2018-12-13T18:23:08.948] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T18:23:08.948] [DEBUG] app - before check privillege
+[2018-12-13T18:23:08.949] [DEBUG] app - uid is:""
+[2018-12-13T18:23:08.949] [ERROR] app - user not login
+[2018-12-13T18:23:08.949] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T18:23:08.950] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T18:23:08.954] [DEBUG] app - redis session set "1544696588947-ZcRTRZN0rAd_tHXrnj-mBELiN5krgcCM",{"uid":"","_expire":1544782988954,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T18:23:09.696] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T18:23:34.487] [DEBUG] app - starting "koa2" ...
+[2018-12-13T18:23:34.498] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T18:23:34.498] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T18:23:34.507] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T18:23:34.509] [DEBUG] app - initRedisSession
+[2018-12-13T18:23:34.510] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T18:23:34.520] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T18:23:34.523] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T18:23:34.523] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T18:23:34.524] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T18:23:34.525] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T18:23:34.526] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T18:23:34.526] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T18:23:34.527] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T18:23:34.527] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T18:23:34.528] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T18:23:34.528] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T18:23:34.528] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T18:23:34.529] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T18:23:34.529] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T18:23:34.530] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T18:23:34.530] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T18:23:34.531] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T18:23:34.531] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T18:23:34.531] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T18:23:34.531] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T18:23:34.532] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T18:23:34.532] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T18:23:34.533] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T18:23:34.533] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T18:23:34.533] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T18:23:34.533] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T18:23:34.534] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T18:23:34.534] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T18:23:34.534] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T18:23:34.535] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T18:23:34.535] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T18:23:34.540] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T18:23:34.540] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T18:23:34.541] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T18:23:34.541] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T18:23:34.541] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T18:23:34.542] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T18:23:34.542] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T18:23:34.543] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T18:23:34.543] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T18:23:34.543] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T18:23:34.544] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T18:23:34.544] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T18:23:34.544] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T18:23:34.545] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T18:23:34.545] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T18:23:34.546] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T18:23:34.547] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T18:23:34.547] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T18:23:34.549] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T18:23:34.550] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T18:23:34.551] [DEBUG] app - DummyService.start
+[2018-12-13T18:23:34.554] [DEBUG] app - start scan activity
+[2018-12-13T18:23:34.627] [DEBUG] app - register event: "LOGIN"
+[2018-12-13T18:23:34.627] [DEBUG] app - register event: "COMPLETE_PERSON_INFO"
+[2018-12-13T18:23:34.627] [DEBUG] app - register event: "SHARE"
+[2018-12-13T18:23:34.628] [DEBUG] app - register event: "ACQUIRE_POINTS"
+[2018-12-13T18:23:34.628] [DEBUG] app - register event: "READ"
+[2018-12-13T18:23:34.634] [DEBUG] app - UserService.start
+[2018-12-13T18:23:34.635] [DEBUG] app - WechatService.start
+[2018-12-13T18:23:34.635] [DEBUG] app - DummyService.afterStart
+[2018-12-13T18:23:34.635] [DEBUG] app - UserService.afterStart
+[2018-12-13T18:23:34.636] [DEBUG] app - WechatService.afterStart
+[2018-12-13T18:23:34.636] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T18:23:34.654] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T18:23:34.672] [INFO] app - mongoose connect successfully.
+[2018-12-13T18:23:34.681] [FATAL] app - unhandledRejection: "TypeError: Cannot read property 'resetDaily' of undefined\n    at TaskManager.assignCurrentTask (D:\\workspace\\koa2\\domain\\task\\taskManager.js:90:67)\n    at Context.it (D:\\workspace\\koa2\\test\\taskManger.test.js:28:35)\n    at callFn (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runnable.js:372:21)\n    at Test.Runnable.run (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runnable.js:364:7)\n    at Runner.runTest (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runner.js:455:10)\n    at C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runner.js:573:12\n    at next (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runner.js:369:14)\n    at C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runner.js:379:7\n    at next (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runner.js:303:14)\n    at C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runner.js:342:7\n    at done (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runnable.js:319:5)\n    at callFn (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runnable.js:395:7)\n    at Hook.Runnable.run (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runnable.js:364:7)\n    at next (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runner.js:317:10)\n    at Immediate._onImmediate (C:\\Users\\EDZ\\AppData\\Roaming\\npm\\node_modules\\mocha\\lib\\runner.js:347:5)\n    at runCallback (timers.js:705:18)\n    at tryOnImmediate (timers.js:676:5)\n    at processImmediate (timers.js:658:5)"
+[2018-12-13T18:23:34.702] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T18:23:34.703] [DEBUG] app - before check privillege
+[2018-12-13T18:23:34.703] [DEBUG] app - uid is:""
+[2018-12-13T18:23:34.704] [ERROR] app - user not login
+[2018-12-13T18:23:34.704] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T18:23:34.705] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T18:23:34.706] [DEBUG] app - redis session set "1544696614701-docyIwULjjFx0trAC-LMmBHpP3kEjwFb",{"uid":"","_expire":1544783014706,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T18:23:35.393] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T18:24:08.040] [DEBUG] app - starting "koa2" ...
+[2018-12-13T18:24:08.050] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T18:24:08.051] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T18:24:08.060] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T18:24:08.061] [DEBUG] app - initRedisSession
+[2018-12-13T18:24:08.063] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T18:24:08.073] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T18:24:08.074] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T18:24:08.074] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T18:24:08.075] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T18:24:08.075] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T18:24:08.076] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T18:24:08.076] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T18:24:08.077] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T18:24:08.077] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T18:24:08.078] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T18:24:08.079] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T18:24:08.080] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T18:24:08.080] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T18:24:08.081] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T18:24:08.081] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T18:24:08.082] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T18:24:08.082] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T18:24:08.083] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T18:24:08.083] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T18:24:08.083] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T18:24:08.083] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T18:24:08.084] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T18:24:08.084] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T18:24:08.084] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T18:24:08.085] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T18:24:08.085] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T18:24:08.085] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T18:24:08.085] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T18:24:08.086] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T18:24:08.086] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T18:24:08.086] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T18:24:08.091] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T18:24:08.091] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T18:24:08.092] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T18:24:08.092] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T18:24:08.093] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T18:24:08.093] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T18:24:08.094] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T18:24:08.094] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T18:24:08.094] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T18:24:08.095] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T18:24:08.095] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T18:24:08.095] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T18:24:08.095] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T18:24:08.097] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T18:24:08.097] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T18:24:08.098] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T18:24:08.098] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T18:24:08.099] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T18:24:08.100] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T18:24:08.101] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T18:24:08.102] [DEBUG] app - DummyService.start
+[2018-12-13T18:24:08.104] [DEBUG] app - start scan activity
+[2018-12-13T18:24:08.178] [DEBUG] app - register event: "LOGIN"
+[2018-12-13T18:24:08.178] [DEBUG] app - register event: "COMPLETE_PERSON_INFO"
+[2018-12-13T18:24:08.179] [DEBUG] app - register event: "SHARE"
+[2018-12-13T18:24:08.180] [DEBUG] app - register event: "ACQUIRE_POINTS"
+[2018-12-13T18:24:08.180] [DEBUG] app - register event: "READ"
+[2018-12-13T18:24:08.186] [DEBUG] app - UserService.start
+[2018-12-13T18:24:08.187] [DEBUG] app - WechatService.start
+[2018-12-13T18:24:08.188] [DEBUG] app - DummyService.afterStart
+[2018-12-13T18:24:08.188] [DEBUG] app - UserService.afterStart
+[2018-12-13T18:24:08.188] [DEBUG] app - WechatService.afterStart
+[2018-12-13T18:24:08.189] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T18:24:08.204] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T18:24:08.224] [INFO] app - mongoose connect successfully.
+[2018-12-13T18:24:08.260] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T18:24:08.260] [DEBUG] app - before check privillege
+[2018-12-13T18:24:08.260] [DEBUG] app - uid is:""
+[2018-12-13T18:24:08.261] [ERROR] app - user not login
+[2018-12-13T18:24:08.261] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T18:24:08.262] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T18:24:08.263] [DEBUG] app - redis session set "1544696648258-hOaQurgAJnQaKbhVW6vmcfpUKI9xqyfE",{"uid":"","_expire":1544783048263,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T18:24:08.272] [DEBUG] app - assignTask:{"n":1,"nModified":0,"upserted":[{"index":0,"_id":"5c123348ac2eea0183a35d87"}],"opTime":{"ts":"6634421585400823809","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634421585400823809","$clusterTime":{"clusterTime":"6634421585400823809","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T18:24:09.128] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T18:27:27.683] [DEBUG] app - starting "koa2" ...
+[2018-12-13T18:27:27.694] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T18:27:27.694] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T18:27:27.703] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T18:27:27.705] [DEBUG] app - initRedisSession
+[2018-12-13T18:27:27.706] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T18:27:27.716] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T18:27:27.718] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T18:27:27.718] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T18:27:27.719] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T18:27:27.719] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T18:27:27.720] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T18:27:27.720] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T18:27:27.720] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T18:27:27.721] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T18:27:27.721] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T18:27:27.722] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T18:27:27.722] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T18:27:27.723] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T18:27:27.724] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T18:27:27.724] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T18:27:27.725] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T18:27:27.725] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T18:27:27.725] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T18:27:27.725] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T18:27:27.726] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T18:27:27.726] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T18:27:27.726] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T18:27:27.727] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T18:27:27.727] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T18:27:27.727] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T18:27:27.728] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T18:27:27.728] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T18:27:27.728] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T18:27:27.728] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T18:27:27.729] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T18:27:27.730] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T18:27:27.735] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T18:27:27.735] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T18:27:27.736] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T18:27:27.737] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T18:27:27.737] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T18:27:27.738] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T18:27:27.738] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T18:27:27.738] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T18:27:27.738] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T18:27:27.740] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T18:27:27.740] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T18:27:27.740] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T18:27:27.740] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T18:27:27.741] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T18:27:27.742] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T18:27:27.743] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T18:27:27.743] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T18:27:27.744] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T18:27:27.745] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T18:27:27.749] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T18:27:27.751] [DEBUG] app - DummyService.start
+[2018-12-13T18:27:27.753] [DEBUG] app - start scan activity
+[2018-12-13T18:27:27.826] [DEBUG] app - register event: "LOGIN"
+[2018-12-13T18:27:27.826] [DEBUG] app - register event: "COMPLETE_PERSON_INFO"
+[2018-12-13T18:27:27.827] [DEBUG] app - register event: "SHARE"
+[2018-12-13T18:27:27.827] [DEBUG] app - register event: "ACQUIRE_POINTS"
+[2018-12-13T18:27:27.827] [DEBUG] app - register event: "READ"
+[2018-12-13T18:27:27.833] [DEBUG] app - UserService.start
+[2018-12-13T18:27:27.834] [DEBUG] app - WechatService.start
+[2018-12-13T18:27:27.835] [DEBUG] app - DummyService.afterStart
+[2018-12-13T18:27:27.835] [DEBUG] app - UserService.afterStart
+[2018-12-13T18:27:27.835] [DEBUG] app - WechatService.afterStart
+[2018-12-13T18:27:27.836] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T18:27:27.855] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T18:27:27.873] [INFO] app - mongoose connect successfully.
+[2018-12-13T18:27:27.901] [DEBUG] app - assignTask:{"n":1,"nModified":0,"opTime":{"ts":"6634422414329511937","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634422414329511937","$clusterTime":{"clusterTime":"6634422414329511937","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T18:27:27.905] [DEBUG] app - query task for undefined, ret:{"progress":8,"_id":"5c1202b9961e8945fce75a30","goal":10}
+[2018-12-13T18:27:27.906] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":8,"_id":"5c1202b9961e8945fce75a30","goal":10}}
+[2018-12-13T18:27:27.913] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T18:27:27.914] [DEBUG] app - before check privillege
+[2018-12-13T18:27:27.914] [DEBUG] app - uid is:""
+[2018-12-13T18:27:27.915] [ERROR] app - user not login
+[2018-12-13T18:27:27.915] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T18:27:27.917] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T18:27:27.918] [DEBUG] app - redis session set "1544696847912-k3ptsb-zHrP8efz7KuhWu0EOpN1wcDQG",{"uid":"","_expire":1544783247918,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T18:27:28.630] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T19:35:33.944] [DEBUG] app - starting "koa2" ...
+[2018-12-13T19:35:33.954] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T19:35:33.954] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T19:35:33.964] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T19:35:33.967] [DEBUG] app - initRedisSession
+[2018-12-13T19:35:33.968] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T19:35:33.979] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T19:35:33.980] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T19:35:33.980] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T19:35:33.981] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T19:35:33.981] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T19:35:33.982] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T19:35:33.982] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T19:35:33.983] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T19:35:33.983] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T19:35:33.984] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T19:35:33.984] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T19:35:33.985] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T19:35:33.985] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T19:35:33.986] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T19:35:33.986] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T19:35:33.987] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T19:35:33.987] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T19:35:33.988] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T19:35:33.988] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T19:35:33.988] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T19:35:33.989] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T19:35:33.989] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T19:35:33.990] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T19:35:33.991] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T19:35:33.991] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T19:35:33.991] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T19:35:33.991] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T19:35:33.992] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T19:35:33.992] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T19:35:33.993] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T19:35:33.993] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T19:35:33.997] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T19:35:33.997] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T19:35:33.998] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T19:35:33.998] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T19:35:33.998] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T19:35:33.999] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T19:35:33.999] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T19:35:34.000] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T19:35:34.000] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T19:35:34.001] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T19:35:34.001] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T19:35:34.001] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T19:35:34.002] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T19:35:34.004] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T19:35:34.004] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T19:35:34.006] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T19:35:34.006] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T19:35:34.008] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T19:35:34.009] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T19:35:34.010] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T19:35:34.011] [DEBUG] app - DummyService.start
+[2018-12-13T19:35:34.014] [DEBUG] app - start scan activity
+[2018-12-13T19:35:34.088] [DEBUG] app - register event: "LOGIN"
+[2018-12-13T19:35:34.088] [DEBUG] app - register event: "COMPLETE_PERSON_INFO"
+[2018-12-13T19:35:34.089] [DEBUG] app - register event: "SHARE"
+[2018-12-13T19:35:34.089] [DEBUG] app - register event: "ACQUIRE_POINTS"
+[2018-12-13T19:35:34.089] [DEBUG] app - register event: "READ"
+[2018-12-13T19:35:34.095] [DEBUG] app - UserService.start
+[2018-12-13T19:35:34.096] [DEBUG] app - WechatService.start
+[2018-12-13T19:35:34.097] [DEBUG] app - DummyService.afterStart
+[2018-12-13T19:35:34.097] [DEBUG] app - UserService.afterStart
+[2018-12-13T19:35:34.097] [DEBUG] app - WechatService.afterStart
+[2018-12-13T19:35:34.098] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T19:35:34.119] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T19:35:34.141] [INFO] app - mongoose connect successfully.
+[2018-12-13T19:35:34.171] [DEBUG] app - assignTask:{"n":1,"nModified":0,"opTime":{"ts":"6634439989335687169","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634439989335687169","$clusterTime":{"clusterTime":"6634439989335687169","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:35:34.178] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:35:34.178] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}}
+[2018-12-13T19:35:34.183] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:35:34.187] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T19:35:34.188] [DEBUG] app - before check privillege
+[2018-12-13T19:35:34.188] [DEBUG] app - uid is:""
+[2018-12-13T19:35:34.189] [ERROR] app - user not login
+[2018-12-13T19:35:34.189] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T19:35:34.190] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T19:35:34.191] [DEBUG] app - redis session set "1544700934186-MAPzc5jrtydDn1hOIsnxzgVOQsuOYFQ_",{"uid":"","_expire":1544787334191,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T19:35:34.894] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T19:40:52.266] [DEBUG] app - starting "koa2" ...
+[2018-12-13T19:40:52.276] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T19:40:52.277] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T19:40:52.286] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T19:40:52.289] [DEBUG] app - initRedisSession
+[2018-12-13T19:40:52.290] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T19:40:52.299] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T19:40:52.300] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T19:40:52.301] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T19:40:52.301] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T19:40:52.302] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T19:40:52.302] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T19:40:52.304] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T19:40:52.305] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T19:40:52.305] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T19:40:52.306] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T19:40:52.306] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T19:40:52.307] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T19:40:52.307] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T19:40:52.312] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T19:40:52.312] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T19:40:52.313] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T19:40:52.313] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T19:40:52.314] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T19:40:52.314] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T19:40:52.314] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T19:40:52.315] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T19:40:52.315] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T19:40:52.315] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T19:40:52.316] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T19:40:52.316] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T19:40:52.316] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T19:40:52.316] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T19:40:52.317] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T19:40:52.317] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T19:40:52.318] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T19:40:52.318] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T19:40:52.322] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T19:40:52.322] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T19:40:52.323] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T19:40:52.323] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T19:40:52.324] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T19:40:52.324] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T19:40:52.324] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T19:40:52.325] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T19:40:52.325] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T19:40:52.326] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T19:40:52.327] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T19:40:52.327] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T19:40:52.327] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T19:40:52.329] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T19:40:52.329] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T19:40:52.330] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T19:40:52.330] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T19:40:52.331] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T19:40:52.332] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T19:40:52.333] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T19:40:52.335] [DEBUG] app - DummyService.start
+[2018-12-13T19:40:52.338] [DEBUG] app - start scan activity
+[2018-12-13T19:40:52.410] [DEBUG] app - register event: "LOGIN"
+[2018-12-13T19:40:52.410] [DEBUG] app - register event: "COMPLETE_PERSON_INFO"
+[2018-12-13T19:40:52.411] [DEBUG] app - register event: "SHARE"
+[2018-12-13T19:40:52.411] [DEBUG] app - register event: "ACQUIRE_POINTS"
+[2018-12-13T19:40:52.411] [DEBUG] app - register event: "READ"
+[2018-12-13T19:40:52.418] [DEBUG] app - UserService.start
+[2018-12-13T19:40:52.419] [DEBUG] app - WechatService.start
+[2018-12-13T19:40:52.419] [DEBUG] app - DummyService.afterStart
+[2018-12-13T19:40:52.419] [DEBUG] app - UserService.afterStart
+[2018-12-13T19:40:52.420] [DEBUG] app - WechatService.afterStart
+[2018-12-13T19:40:52.420] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T19:40:52.455] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T19:40:52.455] [INFO] app - mongoose connect successfully.
+[2018-12-13T19:40:52.483] [DEBUG] app - assignTask:{"n":1,"nModified":0,"opTime":{"ts":"6634441359430254593","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634441359430254593","$clusterTime":{"clusterTime":"6634441359430254593","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:40:52.486] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:40:52.488] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}}
+[2018-12-13T19:40:52.492] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:40:52.499] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T19:40:52.500] [DEBUG] app - before check privillege
+[2018-12-13T19:40:52.500] [DEBUG] app - uid is:""
+[2018-12-13T19:40:52.500] [ERROR] app - user not login
+[2018-12-13T19:40:52.501] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T19:40:52.502] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T19:40:52.503] [DEBUG] app - redis session set "1544701252498-vE8JDjIfKYOxr2QPsKLmfUxZP5v2Idq8",{"uid":"","_expire":1544787652503,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T19:40:53.156] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T19:46:24.291] [DEBUG] app - starting "koa2" ...
+[2018-12-13T19:46:24.302] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T19:46:24.302] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T19:46:24.311] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T19:46:24.313] [DEBUG] app - initRedisSession
+[2018-12-13T19:46:24.314] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T19:46:24.324] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T19:46:24.325] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T19:46:24.326] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T19:46:24.326] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T19:46:24.327] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T19:46:24.327] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T19:46:24.328] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T19:46:24.329] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T19:46:24.329] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T19:46:24.330] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T19:46:24.331] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T19:46:24.331] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T19:46:24.332] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T19:46:24.332] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T19:46:24.333] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T19:46:24.333] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T19:46:24.334] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T19:46:24.334] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T19:46:24.334] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T19:46:24.335] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T19:46:24.340] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T19:46:24.340] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T19:46:24.341] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T19:46:24.341] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T19:46:24.342] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T19:46:24.342] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T19:46:24.342] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T19:46:24.343] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T19:46:24.343] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T19:46:24.344] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T19:46:24.344] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T19:46:24.348] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T19:46:24.348] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T19:46:24.349] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T19:46:24.349] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T19:46:24.349] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T19:46:24.350] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T19:46:24.350] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T19:46:24.351] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T19:46:24.351] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T19:46:24.352] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T19:46:24.352] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T19:46:24.352] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T19:46:24.353] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T19:46:24.354] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T19:46:24.354] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T19:46:24.355] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T19:46:24.355] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T19:46:24.356] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T19:46:24.357] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T19:46:24.358] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T19:46:24.360] [DEBUG] app - DummyService.start
+[2018-12-13T19:46:24.364] [DEBUG] app - start scan activity
+[2018-12-13T19:46:24.437] [DEBUG] app - register event: "login"
+[2018-12-13T19:46:24.438] [DEBUG] app - register event: "completePersonInfo"
+[2018-12-13T19:46:24.438] [DEBUG] app - register event: "share"
+[2018-12-13T19:46:24.438] [DEBUG] app - register event: "acquirePoints"
+[2018-12-13T19:46:24.438] [DEBUG] app - register event: "read"
+[2018-12-13T19:46:24.444] [DEBUG] app - UserService.start
+[2018-12-13T19:46:24.446] [DEBUG] app - WechatService.start
+[2018-12-13T19:46:24.446] [DEBUG] app - DummyService.afterStart
+[2018-12-13T19:46:24.446] [DEBUG] app - UserService.afterStart
+[2018-12-13T19:46:24.446] [DEBUG] app - WechatService.afterStart
+[2018-12-13T19:46:24.447] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T19:46:24.479] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T19:46:24.480] [INFO] app - mongoose connect successfully.
+[2018-12-13T19:46:24.508] [DEBUG] app - assignTask:{"n":1,"nModified":0,"opTime":{"ts":"6634442776769462273","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634442776769462273","$clusterTime":{"clusterTime":"6634442776769462273","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:46:24.513] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:46:24.514] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}}
+[2018-12-13T19:46:24.516] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:46:24.518] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:46:24.522] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:46:24.522] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:46:24.528] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T19:46:24.529] [DEBUG] app - before check privillege
+[2018-12-13T19:46:24.529] [DEBUG] app - uid is:""
+[2018-12-13T19:46:24.529] [ERROR] app - user not login
+[2018-12-13T19:46:24.530] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T19:46:24.531] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T19:46:24.536] [DEBUG] app - redis session set "1544701584527-ep5NMnBIaA8jiU5UXuGBMLKjdse3f5J0",{"uid":"","_expire":1544787984536,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T19:46:24.537] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634442785359396865","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634442785359396865","$clusterTime":{"clusterTime":"6634442785359396865","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:46:24.539] [FATAL] app - unhandledRejection: "ReferenceError: goal is not defined\n    at TaskManager.completeCurrentTask (D:\\workspace\\koa2\\domain\\task\\taskManager.js:108:72)"
+[2018-12-13T19:46:25.264] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T19:51:03.331] [DEBUG] app - starting "koa2" ...
+[2018-12-13T19:51:03.346] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T19:51:03.346] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T19:51:03.356] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T19:51:03.357] [DEBUG] app - initRedisSession
+[2018-12-13T19:51:03.359] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T19:51:03.369] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T19:51:03.370] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T19:51:03.370] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T19:51:03.371] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T19:51:03.371] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T19:51:03.371] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T19:51:03.372] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T19:51:03.372] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T19:51:03.372] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T19:51:03.373] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T19:51:03.373] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T19:51:03.374] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T19:51:03.374] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T19:51:03.375] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T19:51:03.375] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T19:51:03.376] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T19:51:03.377] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T19:51:03.377] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T19:51:03.378] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T19:51:03.378] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T19:51:03.378] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T19:51:03.379] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T19:51:03.379] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T19:51:03.380] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T19:51:03.380] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T19:51:03.380] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T19:51:03.381] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T19:51:03.381] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T19:51:03.382] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T19:51:03.382] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T19:51:03.383] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T19:51:03.387] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T19:51:03.387] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T19:51:03.388] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T19:51:03.388] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T19:51:03.388] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T19:51:03.389] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T19:51:03.389] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T19:51:03.390] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T19:51:03.390] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T19:51:03.391] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T19:51:03.391] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T19:51:03.391] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T19:51:03.392] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T19:51:03.393] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T19:51:03.393] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T19:51:03.394] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T19:51:03.394] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T19:51:03.395] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T19:51:03.397] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T19:51:03.398] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T19:51:03.399] [DEBUG] app - DummyService.start
+[2018-12-13T19:51:03.401] [DEBUG] app - start scan activity
+[2018-12-13T19:51:03.480] [DEBUG] app - register event: "login"
+[2018-12-13T19:51:03.480] [DEBUG] app - register event: "completePersonInfo"
+[2018-12-13T19:51:03.481] [DEBUG] app - register event: "share"
+[2018-12-13T19:51:03.481] [DEBUG] app - register event: "acquirePoints"
+[2018-12-13T19:51:03.482] [DEBUG] app - register event: "read"
+[2018-12-13T19:51:03.487] [DEBUG] app - UserService.start
+[2018-12-13T19:51:03.488] [DEBUG] app - WechatService.start
+[2018-12-13T19:51:03.489] [DEBUG] app - DummyService.afterStart
+[2018-12-13T19:51:03.489] [DEBUG] app - UserService.afterStart
+[2018-12-13T19:51:03.490] [DEBUG] app - WechatService.afterStart
+[2018-12-13T19:51:03.490] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T19:51:03.505] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T19:51:03.528] [INFO] app - mongoose connect successfully.
+[2018-12-13T19:51:03.557] [DEBUG] app - assignTask:{"n":1,"nModified":0,"opTime":{"ts":"6634443979360305153","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634443979360305153","$clusterTime":{"clusterTime":"6634443979360305153","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:51:03.561] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:51:03.562] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}}
+[2018-12-13T19:51:03.564] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:51:03.566] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:51:03.571] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:51:03.572] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:51:03.577] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T19:51:03.578] [DEBUG] app - before check privillege
+[2018-12-13T19:51:03.578] [DEBUG] app - uid is:""
+[2018-12-13T19:51:03.578] [ERROR] app - user not login
+[2018-12-13T19:51:03.579] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T19:51:03.580] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T19:51:03.581] [DEBUG] app - redis session set "1544701863576-0T1kvU9VjSd1JDhTlI7o4wGjxFzuB3re",{"uid":"","_expire":1544788263581,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T19:51:03.582] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634443983655272449","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634443983655272449","$clusterTime":{"clusterTime":"6634443983655272449","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:51:03.591] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634443983655272449","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634443983655272449","$clusterTime":{"clusterTime":"6634443983655272449","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:51:04.323] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T19:53:23.911] [DEBUG] app - starting "koa2" ...
+[2018-12-13T19:53:23.921] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T19:53:23.921] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T19:53:23.931] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T19:53:23.933] [DEBUG] app - initRedisSession
+[2018-12-13T19:53:23.935] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T19:53:23.945] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T19:53:23.946] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T19:53:23.947] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T19:53:23.947] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T19:53:23.948] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T19:53:23.948] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T19:53:23.949] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T19:53:23.949] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T19:53:23.949] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T19:53:23.950] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T19:53:23.951] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T19:53:23.951] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T19:53:23.952] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T19:53:23.952] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T19:53:23.953] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T19:53:23.954] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T19:53:23.954] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T19:53:23.954] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T19:53:23.955] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T19:53:23.955] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T19:53:23.955] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T19:53:23.956] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T19:53:23.957] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T19:53:23.957] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T19:53:23.958] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T19:53:23.959] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T19:53:23.959] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T19:53:23.959] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T19:53:23.959] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T19:53:23.960] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T19:53:23.960] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T19:53:23.964] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T19:53:23.964] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T19:53:23.965] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T19:53:23.965] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T19:53:23.966] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T19:53:23.967] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T19:53:23.967] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T19:53:23.967] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T19:53:23.968] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T19:53:23.968] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T19:53:23.969] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T19:53:23.969] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T19:53:23.969] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T19:53:23.971] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T19:53:23.971] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T19:53:23.973] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T19:53:23.973] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T19:53:23.973] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T19:53:23.975] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T19:53:23.976] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T19:53:23.977] [DEBUG] app - DummyService.start
+[2018-12-13T19:53:23.979] [DEBUG] app - start scan activity
+[2018-12-13T19:53:24.051] [DEBUG] app - register event: "login"
+[2018-12-13T19:53:24.052] [DEBUG] app - register event: "completePersonInfo"
+[2018-12-13T19:53:24.053] [DEBUG] app - register event: "share"
+[2018-12-13T19:53:24.054] [DEBUG] app - register event: "acquirePoints"
+[2018-12-13T19:53:24.054] [DEBUG] app - register event: "read"
+[2018-12-13T19:53:24.060] [DEBUG] app - UserService.start
+[2018-12-13T19:53:24.061] [DEBUG] app - WechatService.start
+[2018-12-13T19:53:24.062] [DEBUG] app - DummyService.afterStart
+[2018-12-13T19:53:24.062] [DEBUG] app - UserService.afterStart
+[2018-12-13T19:53:24.063] [DEBUG] app - WechatService.afterStart
+[2018-12-13T19:53:24.064] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T19:53:24.081] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T19:53:24.100] [INFO] app - mongoose connect successfully.
+[2018-12-13T19:53:24.128] [DEBUG] app - assignTask:{"n":1,"nModified":0,"opTime":{"ts":"6634444580655726593","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634444580655726593","$clusterTime":{"clusterTime":"6634444580655726593","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:53:24.134] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:53:24.135] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}}
+[2018-12-13T19:53:24.135] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:53:24.137] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:53:24.139] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:53:24.140] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:53:24.141] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:53:24.144] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634444589245661185","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634444589245661185","$clusterTime":{"clusterTime":"6634444589245661185","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:53:24.147] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:53:24.148] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:53:24.149] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:53:24.151] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634444589245661185","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634444589245661185","$clusterTime":{"clusterTime":"6634444589245661185","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:53:24.153] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634444589245661186","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634444589245661186","$clusterTime":{"clusterTime":"6634444589245661186","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:53:24.155] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:53:24.156] [DEBUG] app - query task for "abcdef", ret:{"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:53:24.156] [INFO] app - complete task {"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:53:24.158] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634444589245661186","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634444589245661186","$clusterTime":{"clusterTime":"6634444589245661186","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:53:24.160] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634444589245661187","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634444589245661187","$clusterTime":{"clusterTime":"6634444589245661187","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:53:24.164] [DEBUG] app - query task for "abcdef", ret:{"progress":2,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:53:24.165] [INFO] app - complete task {"progress":2,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:53:24.168] [DEBUG] app - try complete full task. {"n":1,"nModified":1,"opTime":{"ts":"6634444589245661188","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634444589245661188","$clusterTime":{"clusterTime":"6634444589245661188","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:53:24.169] [DEBUG] app - completeTask: {"n":0,"nModified":0,"opTime":{"ts":"6634444589245661188","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634444589245661188","$clusterTime":{"clusterTime":"6634444589245661188","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:53:24.179] [DEBUG] app - before process "POST" on "/wxWeb/taskHandler/queryTaskList"  req:{"method":"POST","url":"/wxWeb/taskHandler/queryTaskList","header":{"host":"127.0.0.1:9900","accept-encoding":"gzip, deflate","user-agent":"node-superagent/3.8.3","connection":"close","content-length":"0"}}
+[2018-12-13T19:53:24.180] [DEBUG] app - before check privillege
+[2018-12-13T19:53:24.180] [DEBUG] app - uid is:""
+[2018-12-13T19:53:24.181] [ERROR] app - user not login
+[2018-12-13T19:53:24.181] [INFO] app - not login redirect to "/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList"
+[2018-12-13T19:53:24.182] [DEBUG] app - after process "POST" on "/wxWeb/taskHandler/queryTaskList" res:{"status":302,"message":"Found","header":{"location":"/wxWeb/wxLogin?targetUrl=/wxWeb/taskHandler/queryTaskList","content-type":"text/html; charset=utf-8","content-length":"145"}}
+
+
+[2018-12-13T19:53:24.183] [DEBUG] app - redis session set "1544702004178-UOzF-wUVXO9VjelxOFtjZCdXNk33wL6X",{"uid":"","_expire":1544788404183,"_maxAge":86400000},86410000,{"changed":true}
+[2018-12-13T19:53:25.074] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T19:55:04.467] [DEBUG] app - starting "koa2" ...
+[2018-12-13T19:55:04.477] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T19:55:04.477] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T19:55:04.486] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T19:55:04.488] [DEBUG] app - initRedisSession
+[2018-12-13T19:55:04.489] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T19:55:04.501] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T19:55:04.503] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T19:55:04.503] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T19:55:04.504] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T19:55:04.504] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T19:55:04.505] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T19:55:04.506] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T19:55:04.506] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T19:55:04.507] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T19:55:04.507] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T19:55:04.508] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T19:55:04.508] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T19:55:04.508] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T19:55:04.509] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T19:55:04.509] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T19:55:04.510] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T19:55:04.510] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T19:55:04.511] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T19:55:04.511] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T19:55:04.517] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T19:55:04.517] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T19:55:04.518] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T19:55:04.519] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T19:55:04.519] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T19:55:04.519] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T19:55:04.520] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T19:55:04.520] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T19:55:04.520] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T19:55:04.520] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T19:55:04.521] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T19:55:04.521] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T19:55:04.525] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T19:55:04.525] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T19:55:04.526] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T19:55:04.527] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T19:55:04.527] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T19:55:04.527] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T19:55:04.528] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T19:55:04.528] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T19:55:04.528] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T19:55:04.529] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T19:55:04.529] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T19:55:04.529] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T19:55:04.529] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T19:55:04.530] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T19:55:04.531] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T19:55:04.532] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T19:55:04.532] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T19:55:04.532] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T19:55:04.534] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T19:55:04.535] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T19:55:04.536] [DEBUG] app - DummyService.start
+[2018-12-13T19:55:04.538] [DEBUG] app - start scan activity
+[2018-12-13T19:55:04.611] [DEBUG] app - register event: "login"
+[2018-12-13T19:55:04.611] [DEBUG] app - register event: "completePersonInfo"
+[2018-12-13T19:55:04.611] [DEBUG] app - register event: "share"
+[2018-12-13T19:55:04.612] [DEBUG] app - register event: "acquirePoints"
+[2018-12-13T19:55:04.612] [DEBUG] app - register event: "read"
+[2018-12-13T19:55:04.618] [DEBUG] app - UserService.start
+[2018-12-13T19:55:04.619] [DEBUG] app - WechatService.start
+[2018-12-13T19:55:04.619] [DEBUG] app - DummyService.afterStart
+[2018-12-13T19:55:04.620] [DEBUG] app - UserService.afterStart
+[2018-12-13T19:55:04.620] [DEBUG] app - WechatService.afterStart
+[2018-12-13T19:55:04.620] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T19:55:04.638] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T19:55:04.657] [INFO] app - mongoose connect successfully.
+[2018-12-13T19:55:04.690] [DEBUG] app - assignTask:{"n":1,"nModified":1,"opTime":{"ts":"6634445018742390785","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634445018742390785","$clusterTime":{"clusterTime":"6634445018742390785","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:55:04.704] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:55:04.705] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}}
+[2018-12-13T19:55:04.706] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:55:04.710] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:55:04.711] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:55:04.711] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:55:04.713] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:55:04.715] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634445018742390786","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634445018742390786","$clusterTime":{"clusterTime":"6634445018742390786","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:55:04.718] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:55:04.719] [DEBUG] app - query task for "abcdef", ret:{"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:55:04.719] [INFO] app - complete task {"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:55:04.721] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634445018742390786","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634445018742390786","$clusterTime":{"clusterTime":"6634445018742390786","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:55:04.722] [DEBUG] app - query task for "abcdef", ret:{"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:55:04.723] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634445018742390787","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634445018742390787","$clusterTime":{"clusterTime":"6634445018742390787","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:55:04.723] [INFO] app - complete task {"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:55:04.726] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:55:04.728] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634445018742390787","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634445018742390787","$clusterTime":{"clusterTime":"6634445018742390787","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:55:04.730] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634445018742390788","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634445018742390788","$clusterTime":{"clusterTime":"6634445018742390788","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:55:04.732] [DEBUG] app - query task for "abcdef", ret:{"progress":3,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:55:04.733] [INFO] app - complete task {"progress":3,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:55:04.735] [DEBUG] app - try complete full task. {"n":1,"nModified":1,"opTime":{"ts":"6634445018742390789","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634445018742390789","$clusterTime":{"clusterTime":"6634445018742390789","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:55:04.737] [DEBUG] app - completeTask: {"n":0,"nModified":0,"opTime":{"ts":"6634445018742390789","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634445018742390789","$clusterTime":{"clusterTime":"6634445018742390789","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:55:04.738] [DEBUG] app - query task for "abcdef", ret:{"progress":-2,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:55:05.574] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T19:59:03.524] [DEBUG] app - starting "koa2" ...
+[2018-12-13T19:59:03.533] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T19:59:03.534] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T19:59:03.543] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T19:59:03.545] [DEBUG] app - initRedisSession
+[2018-12-13T19:59:03.546] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T19:59:03.558] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T19:59:03.559] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T19:59:03.559] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T19:59:03.559] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T19:59:03.560] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T19:59:03.560] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T19:59:03.561] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T19:59:03.561] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T19:59:03.561] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T19:59:03.562] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T19:59:03.562] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T19:59:03.563] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T19:59:03.563] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T19:59:03.564] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T19:59:03.564] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T19:59:03.565] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T19:59:03.565] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T19:59:03.566] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T19:59:03.566] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T19:59:03.566] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T19:59:03.566] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T19:59:03.566] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T19:59:03.567] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T19:59:03.567] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T19:59:03.568] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T19:59:03.568] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T19:59:03.568] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T19:59:03.568] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T19:59:03.568] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T19:59:03.570] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T19:59:03.570] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T19:59:03.574] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T19:59:03.574] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T19:59:03.575] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T19:59:03.575] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T19:59:03.576] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T19:59:03.576] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T19:59:03.577] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T19:59:03.577] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T19:59:03.584] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T19:59:03.584] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T19:59:03.585] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T19:59:03.586] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T19:59:03.586] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T19:59:03.587] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T19:59:03.587] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T19:59:03.588] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T19:59:03.589] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T19:59:03.589] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T19:59:03.591] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T19:59:03.592] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T19:59:03.593] [DEBUG] app - DummyService.start
+[2018-12-13T19:59:03.595] [DEBUG] app - start scan activity
+[2018-12-13T19:59:03.670] [DEBUG] app - register event: "login"
+[2018-12-13T19:59:03.670] [DEBUG] app - register event: "completePersonInfo"
+[2018-12-13T19:59:03.670] [DEBUG] app - register event: "share"
+[2018-12-13T19:59:03.671] [DEBUG] app - register event: "acquirePoints"
+[2018-12-13T19:59:03.671] [DEBUG] app - register event: "read"
+[2018-12-13T19:59:03.677] [DEBUG] app - UserService.start
+[2018-12-13T19:59:03.678] [DEBUG] app - WechatService.start
+[2018-12-13T19:59:03.678] [DEBUG] app - DummyService.afterStart
+[2018-12-13T19:59:03.678] [DEBUG] app - UserService.afterStart
+[2018-12-13T19:59:03.679] [DEBUG] app - WechatService.afterStart
+[2018-12-13T19:59:03.679] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T19:59:03.711] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T19:59:03.711] [INFO] app - mongoose connect successfully.
+[2018-12-13T19:59:03.742] [DEBUG] app - assignTask:{"n":1,"nModified":1,"opTime":{"ts":"6634446045239574529","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574529","$clusterTime":{"clusterTime":"6634446045239574529","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:03.747] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:59:03.748] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}}
+[2018-12-13T19:59:03.750] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:59:03.751] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:59:03.754] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:59:03.755] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:59:03.755] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:59:03.766] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634446045239574530","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574530","$clusterTime":{"clusterTime":"6634446045239574530","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:03.768] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:59:03.769] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:59:03.769] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:59:03.771] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634446045239574530","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574530","$clusterTime":{"clusterTime":"6634446045239574530","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:03.774] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634446045239574531","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574531","$clusterTime":{"clusterTime":"6634446045239574531","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:03.777] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T19:59:03.777] [DEBUG] app - query task for "abcdef", ret:{"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:59:03.777] [INFO] app - complete task {"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:59:03.779] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634446045239574531","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574531","$clusterTime":{"clusterTime":"6634446045239574531","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:03.780] [DEBUG] app - query task for "abcdef", ret:{"progress":2,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:59:03.781] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634446045239574532","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574532","$clusterTime":{"clusterTime":"6634446045239574532","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:03.781] [INFO] app - complete task {"progress":2,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T19:59:03.786] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634446045239574533","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574533","$clusterTime":{"clusterTime":"6634446045239574533","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:03.798] [DEBUG] app - query task for "abcdef", ret:{"progress":4,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T19:59:03.798] [DEBUG] app - try complete full task. {"n":1,"nModified":1,"opTime":{"ts":"6634446045239574534","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574534","$clusterTime":{"clusterTime":"6634446045239574534","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:03.905] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634446045239574534","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446045239574534","$clusterTime":{"clusterTime":"6634446045239574534","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T19:59:04.681] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-13T20:01:28.497] [DEBUG] app - starting "koa2" ...
+[2018-12-13T20:01:28.507] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-13T20:01:28.507] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-13T20:01:28.516] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-13T20:01:28.518] [DEBUG] app - initRedisSession
+[2018-12-13T20:01:28.519] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-13T20:01:28.530] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-13T20:01:28.531] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-13T20:01:28.531] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-13T20:01:28.532] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-13T20:01:28.532] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-13T20:01:28.532] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-13T20:01:28.533] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-13T20:01:28.533] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-13T20:01:28.533] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-13T20:01:28.534] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-13T20:01:28.534] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-13T20:01:28.535] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-13T20:01:28.535] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-13T20:01:28.536] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-13T20:01:28.536] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-13T20:01:28.537] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-13T20:01:28.537] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-13T20:01:28.537] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-13T20:01:28.537] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/exchangeShopHandler/sendMessage"
+[2018-12-13T20:01:28.537] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/exchangeShopHandler/markMessageRead"
+[2018-12-13T20:01:28.538] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/exchangeShopHandler/deleteMessage"
+[2018-12-13T20:01:28.538] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-13T20:01:28.538] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-13T20:01:28.539] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-13T20:01:28.539] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-13T20:01:28.539] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-13T20:01:28.539] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-13T20:01:28.539] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-13T20:01:28.539] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-13T20:01:28.540] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-13T20:01:28.541] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-13T20:01:28.546] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-13T20:01:28.546] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-13T20:01:28.546] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-13T20:01:28.546] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-13T20:01:28.547] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-13T20:01:28.547] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-13T20:01:28.547] [DEBUG] app - register handler method: "rewardTask" on "/wxWeb/api/taskHandler/rewardTask"
+[2018-12-13T20:01:28.548] [DEBUG] app - register handler method: "queryTaskInfo" on "/wxWeb/api/taskHandler/queryTaskInfo"
+[2018-12-13T20:01:28.548] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-13T20:01:28.548] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-13T20:01:28.548] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-13T20:01:28.549] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-13T20:01:28.549] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-13T20:01:28.550] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-13T20:01:28.550] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-13T20:01:28.551] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-13T20:01:28.551] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-13T20:01:28.551] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-13T20:01:28.553] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-13T20:01:28.555] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-13T20:01:28.556] [DEBUG] app - DummyService.start
+[2018-12-13T20:01:28.565] [DEBUG] app - start scan activity
+[2018-12-13T20:01:28.642] [DEBUG] app - register event: "login"
+[2018-12-13T20:01:28.642] [DEBUG] app - register event: "completePersonInfo"
+[2018-12-13T20:01:28.642] [DEBUG] app - register event: "share"
+[2018-12-13T20:01:28.643] [DEBUG] app - register event: "acquirePoints"
+[2018-12-13T20:01:28.643] [DEBUG] app - register event: "read"
+[2018-12-13T20:01:28.649] [DEBUG] app - UserService.start
+[2018-12-13T20:01:28.650] [DEBUG] app - WechatService.start
+[2018-12-13T20:01:28.650] [DEBUG] app - DummyService.afterStart
+[2018-12-13T20:01:28.650] [DEBUG] app - UserService.afterStart
+[2018-12-13T20:01:28.651] [DEBUG] app - WechatService.afterStart
+[2018-12-13T20:01:28.651] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-13T20:01:28.666] [INFO] app - redis "redis_cache" ready.
+[2018-12-13T20:01:28.691] [INFO] app - mongoose connect successfully.
+[2018-12-13T20:01:28.718] [DEBUG] app - assignTask:{"n":1,"nModified":1,"opTime":{"ts":"6634446668009832449","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832449","$clusterTime":{"clusterTime":"6634446668009832449","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:28.722] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T20:01:28.723] [DEBUG] app - queryTaskList: {"code":0,"taskList":[{"taskId":1,"desc":"【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务","goalSort":1,"goal":3,"resetDaily":true,"award":[1000,100,1200,100]},{"taskId":2,"desc":"【任务描述】 完成个人信息填写","goalSort":2,"goal":1,"resetDaily":false,"award":[1000,1000,1200,100]},{"taskId":3,"desc":"【任务描述】每日分享一次","goalSort":3,"goal":1,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":4,"desc":"【任务描述】获得积分超过600","goalSort":4,"goal":600,"resetDaily":true,"award":[1001,2,1200,100]},{"taskId":5,"desc":"【任务描述】获得积分超过1000","goalSort":4,"goal":1000,"resetDaily":true,"taskAward":[1001,2,1200,100]}],"currentTask":{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}}
+[2018-12-13T20:01:28.725] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T20:01:28.728] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T20:01:28.729] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T20:01:28.730] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T20:01:28.730] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T20:01:28.734] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634446668009832450","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832450","$clusterTime":{"clusterTime":"6634446668009832450","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:28.737] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T20:01:28.738] [DEBUG] app - query task for "abcdef", ret:{"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T20:01:28.738] [INFO] app - complete task {"progress":0,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T20:01:28.740] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634446668009832450","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832450","$clusterTime":{"clusterTime":"6634446668009832450","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:28.741] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634446668009832451","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832451","$clusterTime":{"clusterTime":"6634446668009832451","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:28.743] [DEBUG] app - user "abcdef" event "login" fired
+[2018-12-13T20:01:28.744] [DEBUG] app - query task for "abcdef", ret:{"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T20:01:28.744] [INFO] app - complete task {"progress":1,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T20:01:28.746] [DEBUG] app - try complete full task. {"n":0,"nModified":0,"opTime":{"ts":"6634446668009832451","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832451","$clusterTime":{"clusterTime":"6634446668009832451","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:28.747] [DEBUG] app - completeTask: {"n":1,"nModified":1,"opTime":{"ts":"6634446668009832452","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832452","$clusterTime":{"clusterTime":"6634446668009832452","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:28.758] [DEBUG] app - query task for "abcdef", ret:{"progress":2,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T20:01:28.758] [INFO] app - complete task {"progress":2,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-13T20:01:28.760] [DEBUG] app - try complete full task. {"n":1,"nModified":1,"opTime":{"ts":"6634446668009832453","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832453","$clusterTime":{"clusterTime":"6634446668009832453","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:28.762] [DEBUG] app - completeTask: {"n":0,"nModified":0,"opTime":{"ts":"6634446668009832453","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832453","$clusterTime":{"clusterTime":"6634446668009832453","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:28.764] [DEBUG] app - query task for "abcdef", ret:{"progress":-2,"_id":"5c123348ac2eea0183a35d87","openId":"abcdef","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-13T20:01:28.767] [DEBUG] app - awardItems:[{"itemId":"0","amount":1},{"itemId":"2","amount":3}]
+[2018-12-13T20:01:28.823] [DEBUG] app - awardItems insert return:[{"amount":1,"acquireTime":1544702488767,"expireTime":9007199254740991,"_id":"5c124a18fbb09505b0241f4f","openId":"abcdef","itemId":"0","__v":0},{"amount":3,"acquireTime":1544702488767,"expireTime":9007199254740991,"_id":"5c124a18fbb09505b0241f50","openId":"abcdef","itemId":"2","__v":0}]
+[2018-12-13T20:01:28.825] [DEBUG] app - assignTask:{"n":1,"nModified":1,"opTime":{"ts":"6634446668009832457","t":2},"electionId":"7fffffff0000000000000002","ok":1,"operationTime":"6634446668009832457","$clusterTime":{"clusterTime":"6634446668009832457","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-13T20:01:29.367] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}

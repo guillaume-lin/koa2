@@ -3,12 +3,14 @@ const request = require('supertest');
 const app = require('../app');
 
 describe("#test suite", () => {
+    let server = app.listen(9900);
     before(function () {
         console.log('before:');
     });
 
     after(function () {
         console.log('after.');
+        server.close();
     });
 
     beforeEach(function () {
@@ -19,7 +21,7 @@ describe("#test suite", () => {
         console.log('  afterEach.');
     });
 
-    let server = app.listen(9900);
+    
     
     it ('#test case',()=>{
         assert.equal(0,0);
