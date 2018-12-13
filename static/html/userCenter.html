@@ -55,7 +55,26 @@
             });
             $("#exchangeShop").click(function(){
               document.location.href = '/html/exchangeShop.html';
-            })
+            });
+            $("#taskList").click(function(){
+              $.post('/wxWeb/api/taskHandler/queryTaskList',{},function(data,status){
+                console.log(data);
+                console.log(status);
+              });
+            });
+            $("#getTaskInfo").click(function(){
+              $.post('/wxWeb/api/taskHandler/queryCurrentTaskInfo',{},function(data,status){
+                console.log(data);
+                console.log(status);
+              });
+            });
+            $("#rewardTask").click(function(){
+              let taskId = $("#taskId").val();
+              $.post('/wxWeb/api/taskHandler/rewardCurrentTask',{},function(data,status){
+                console.log(data);
+                console.log(status);
+              });
+            });
           });
         </script>
            </head>
@@ -65,6 +84,9 @@
 
         <button id="profile">用户信息</button>
         <button id="messageCenter">消息中心</button>
-        <button id="exchangeShop">兑换商店</button>
+        <button id="exchangeShop">兑换商店</button><br>
+        <button id="taskList">获取任务列表</button><br>
+        任务id<input type="text" id="taskId"><button id="getTaskInfo">获取任务详情</button><br>
+        <button id="rewardTask">领取任务奖励</button>
     </body>
 </html>

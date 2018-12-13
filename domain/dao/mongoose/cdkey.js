@@ -13,6 +13,10 @@ let CdkeySchema = new mongoose.Schema({
 });
 
 // define method for this model
+CdkeySchema.statics.insertCdkey = async function(cdkey){
+    let ret = await this.insertMany([{cdkey:cdkey}]);
+    return ret;
+}
 /**
  * 尝试获得二维码，需考虑并发操作
  * 返回

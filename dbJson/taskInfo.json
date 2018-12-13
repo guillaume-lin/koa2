@@ -1,0 +1,42 @@
+[
+    {
+        "taskId": 1,
+        "desc": "【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务",
+        "goalSort": 1,
+        "goal": 3,
+        "resetDaily":true,
+        "award":[1000,100,1200,100]
+    },
+    {
+        "taskId": 2,
+        "desc": "【任务描述】 完成个人信息填写",
+        "goalSort": 2,
+        "goal": 1,
+        "resetDaily":false,
+        "award":[1000,1000,1200,100]
+    },          
+    {
+        "taskId": 3,
+        "desc": "【任务描述】每日分享一次",
+        "goalSort": 3,
+        "goal": 1,
+        "resetDaily":true,
+        "award":[1001,2,1200,100]
+    },
+    {
+        "taskId": 4,
+        "desc": "【任务描述】获得积分超过600", 
+        "goalSort": 4,
+        "goal": 600,
+        "resetDaily":true,
+        "award":[1001,2,1200,100]
+    },
+    {
+        "taskId": 5,
+        "desc": "【任务描述】获得积分超过1000", 
+        "goalSort": 4,
+        "goal": 1000,
+        "resetDaily":true,
+        "taskAward":[1001,2,1200,100]
+    }
+]

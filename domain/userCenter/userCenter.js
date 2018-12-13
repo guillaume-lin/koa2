@@ -77,6 +77,7 @@ class UserCenter {
         if(ret && ret.openId === openId){
             let points = await daoUserItem.getUserPoints(openId);
             ret.points = points;
+            this.app.eventBus.emit(ConstType.TASK_EVENT.LOGIN,openId); // FIXME: 查询一次用户信息，视为一次登录
             return ret;
         }else{
             return null;
@@ -125,6 +126,18 @@ class UserCenter {
         // find from userItem table
         let ret = await daoUserItem.getUserPoints(openId);
         return ret;
+    }
+    /**
+     * 判断用户收货地址是否完整
+     * @param {} openId 
+     */
+    async isAddressComplete(openId){
+        let ret = await daoUser.isAddressComplete(openId);
+        if(ret === 0){
+            return {code:ConstType.OK,complete:true};
+        }else{
+            return {code:ConstType.OK,complete:false};
+        }
     }
     /**
      * 发送消息给用户
@@ -259,6 +272,7 @@ class UserCenter {
             logger.debug("abortTransaction ret:%j",ret);
             return {code:ConstType.FAILED,reason:"exception got. abort transaction"};
         }
-    }
+    };
+
 };
 module.exports = UserCenter;

@@ -25,5 +25,12 @@
          POINT: '1000',   // 积分，芯豆
      },
      // 订单状态
-     
+     // 任务事件
+     TASK_EVENT:{
+         LOGIN: 'login', // 每日登录
+         COMPLETE_PERSON_INFO:"completePersonInfo", // 完善个人信息
+         SHARE: 'share',   // 分享
+         ACQUIRE_POINTS: 'acquirePoints',  // 获得积分
+         READ: 'read',    // 阅读公众号文章
+     }
  }

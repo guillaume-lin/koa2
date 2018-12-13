@@ -1,5 +1,5 @@
 /**
- * 
+ *  扫码抽奖的奖池
  */
 const logger = require('../util/log').getLogger('app');
 

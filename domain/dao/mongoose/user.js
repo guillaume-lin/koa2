@@ -10,6 +10,7 @@ let UserSchema = new mongoose.Schema({
     "nickName": {type:String,default:'',maxlength:20},
     "sex": {type:Number,default: 0},
     "vipLevel": {type:Number,default:1},
+    "lastAccess": {type:Number,default:0}, // 上次访问用户中心的时间
     "phoneNumber": {type:String,default:'',maxlength:14},
     "babyBirthDay":{type:Number,default:0},
     "babySex":{type:Number,default:0},  // 0 - 未知 1 - 男生 2 - 女生

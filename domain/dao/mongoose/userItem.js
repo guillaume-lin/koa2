@@ -39,13 +39,13 @@ UserItemSchema.statics.awardItems = async function(openId,awards){
     let items = awards.map(function(award){
         let item = {};
         item.openId = openId;
-        item.itemId = award.prizeId;
+        item.itemId = award.itemId;
         item.amount = award.amount;
         item.acquireTime = ct;
         return item;
     })
     let ret = await this.insertMany(items);
-    logger.debug('awardItem insert return:%j',ret);
+    logger.debug('awardItems insert return:%j',ret);
     return ret;
 };
 UserItemSchema.statics.awardOneItem = async function(openId,award){

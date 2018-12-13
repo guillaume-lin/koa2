@@ -48,5 +48,13 @@ pro.updateUserInfo = async function(ctx,next){
     let ret = await app.userCenter.updateUserInfo(openId,userInfo);
     ctx.body = ret;
     return await next();
+};
+// 检查用户的收货地址是否完全
+pro.isAddressComplete = async function(ctx,next){
+    let app = ctx.app;
+    let openId = ctx.session.uid;
+    let ret = await app.userCenter.isAddressComplete(openId);
+    ctx.body = ret;
+    return await next();
 }
 module.exports = UserHandler;

@@ -18,7 +18,7 @@ let scanActivity = async function(ctx, next){
 
     let cdkey = ctx.request.query.cdkey || ''; // 兑换码
     if(cdkey === ''){
-        ctx.body = "<h1>invalid request</h1>";
+        ctx.body = "<h1><strong>invalid request</strong></h1>";
         return;
     }
     ctx.session.cdkey = cdkey; // 记录用户当前所扫的cdkey

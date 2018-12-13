@@ -41,14 +41,20 @@ pro.sendSmsCode = async function(openId,phoneNumber){
     // 验证电话号码格式
 
     // 发送频率检查
-
+    let res = await this.redisClient.getAsync(phoneNumber+'-lastSend');
+    logger.debug("check send frequence. %j",res);
+    if(res){
+        logger.error("request too fast. %j",res);
+        return {code:ConstType.FAILED};
+    };
+    this.redisClient.setAsync(phoneNumber+'-lastSend',Date.now(),'EX',CODE_SEND_FREQ); // 设置已发送标识
     // 发送次数检查，是否超过当日上限
 
     // 请求IP是否在黑名单里
 
     // 生成验证码，存储到redis, 设定超时时间
     let smsCode = this.genSmsCode();
-    let res = await this.redisClient.setAsync(phoneNumber,smsCode,'EX',CODE_EXPIRE_SEC); 
+    res = await this.redisClient.setAsync(phoneNumber,smsCode,'EX',CODE_EXPIRE_SEC); 
     logger.debug("redis set res: %j",res);
 
     try{

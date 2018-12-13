@@ -11,7 +11,7 @@ let wxLogin = async function(ctx, next){
     logger.debug("wxLogin here");
     let client = ctx.client;
     let code = ctx.request.query.code || '';
-
+    let app = ctx.app;
     
     
     let userInfo = null;
@@ -58,6 +58,7 @@ let wxLogin = async function(ctx, next){
         if(!isUserCreated){
             let createResult =  await daoUser.createUser(userInfo.openid,userInfo.nickname,userInfo.sex);
             logger.info('createUser: %j',userInfo);
+            app.eventBus.emit('createUser',userInfo.openid); // 通知创建用户
         }
         // FIXME: 正常
         let state = ctx.request.query.state || '';

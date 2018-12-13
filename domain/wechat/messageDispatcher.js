@@ -57,7 +57,7 @@ pro.processEventMessage = function(ctx){
     let content = '';
     switch(eventType){
         case 'subscribe':
-            content = "欢迎关注";
+            content = "欢迎关注, http://www.baidu.com/";
             ctx.body = ctx.renderString(msgTpl,{toUserName: fromUserName, fromUserName:toUserName,createTime:ct,content:content});
             break;
         case 'unsubscribe':

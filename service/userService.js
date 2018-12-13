@@ -1,9 +1,12 @@
 const logger = require('../util/log').getLogger('app');
 const UserCenter = require('../domain/userCenter/userCenter');
+const TaskManager = require('../domain/task/taskManager');
 const SERVICE_NAME = "UserService";
+
 let UserService = function(app){
     this.app = app;
     app.userCenter = new UserCenter(app);
+    app.taskManager = new TaskManager(app);
 };
 
 let pro = UserService.prototype;

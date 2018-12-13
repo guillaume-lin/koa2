@@ -1,8 +1,10 @@
+const EventEmitter = require('events');
 const Koa = require('koa');
 const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser');
 const xmlParser = require('koa-xml-body');
-const session = require('koa-session');
+const koaBody = require('koa-body');
+const session = require('./domain/redisSession');
 const registerMapping = require('./controllers');
 const nunjucksMw = require('./middleware/nunjucks');
 const log = require('./util/log');
@@ -16,7 +18,7 @@ const dbJsonImpl = require('./dbJsonImpl');
 
 const isProduction = process.env.NODE_ENV === 'production'; // production environment
 let app = new Koa();
-
+app.eventBus = new EventEmitter(); // event bus
 app.baseDir = __dirname;
 
 log.configure(require('./config/log4js.json'));
@@ -30,7 +32,15 @@ app.keys = ['im a newer secret', 'i like turtle too'];
 let njOpts = {
     noCache: !isProduction   // 非生产环境不cache模板
 };
-nunjucksMw(app,__dirname+'/views',njOpts); //
+nunjucksMw(app,__dirname+'/views',njOpts); 
+
+// init database here
+mongoose.dbInit(require('./config/mongodb.json'));
+redis.initRedis(require('./config/redis.json'));
+
+let wechatConf = require('./config/wechat.json');
+app.context.client = app.wechatAuth = wechatAuth(wechatConf.appId,wechatConf.secret);
+app.context.wechatAPI = app.wechatAPI = wechatAPI(wechatConf.appId,wechatConf.secret);
 
 // use session
 app.use(session(app));
@@ -42,8 +52,21 @@ app.on("error",(err,ctx)=>{
     console.log(new Date(),":",err);
  });
 app.use(xmlParser());
-app.use(bodyParser());
-
+//app.use(bodyParser());
+app.use(koaBody({
+    patchKoa: true,
+    multipart: true,
+    maxFileSize: 20*1024*1024, // 20M
+    formidable:{
+        uploadDir:'upload',
+        onFileBegin:function(name,file){
+            logger.debug("onFileBegin: %j,%j",name,file);
+        }        
+    },
+    onError:function(err){
+        logger.error("koaBody error: %j",err.stack);
+    }
+}))
 app.use(async(ctx,next) =>{
     if(ctx.request.url.indexOf('/favicon.ico') !== -1){
         logger.debug('not process favicon');
@@ -58,7 +81,11 @@ app.use(async(ctx,next) =>{
  * 权限控制
  */
 app.use(async (ctx,next) => {
+    logger.debug("before check privillege");
     if(ctx.request.url.indexOf('/wxWeb/wxAccess') !== -1){
+        return await next();
+    };
+    if(ctx.request.url.indexOf('/manage') !== -1){  // FIXME: 此处应使用其他认证方式
         return await next();
     }
     // 验证下用户是否已经用微信登录
@@ -85,13 +112,7 @@ app.use(async (ctx,next) => {
 registerMapping(router);
 app.use(router.routes());
 
-// init database here
-mongoose.dbInit(require('./config/mongodb.json'));
-redis.initRedis(require('./config/redis.json'));
 
-let wechatConf = require('./config/wechat.json');
-app.context.client = app.wechatAuth = wechatAuth(wechatConf.appId,wechatConf.secret);
-app.context.wechatAPI = app.wechatAPI = wechatAPI(wechatConf.appId,wechatConf.secret);
 app.config = {};
 app.config.alisms = {};
 app.config.alisms = require('./config/alisms.json');
@@ -100,4 +121,5 @@ dbJsonImpl.load(app);
 service.load(app);
 
 logger.info("app start from dir: %j",app.baseDir);
-app.listen(8000);
+//app.listen(8000);
+module.exports = app;
