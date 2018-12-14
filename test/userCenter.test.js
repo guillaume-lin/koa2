@@ -21,7 +21,7 @@ describe("#test userCenter", () => {
     afterEach(function () {
         console.log('  afterEach.');
     });
-    let openId = "ab1";
+    let openId = "ab12";
     it ("#createUser", async () => {
         let ret = await app.userCenter.createUser(openId,"haha",1);
         assert.equal(ret.openId,openId);

@@ -85,6 +85,7 @@ class UserCenter {
         let createResult =  await daoUser.createUser(openId,nickname,sex);
         logger.info('createUser: %j,%j,%j',openId,nickname,sex);
         this.app.eventBus.emit('createUser',openId); // 通知创建用户
+        this.sendMessage(openId,"欢迎新用户","欢迎关注公众号");
         logger.debug("createResult:%j",createResult);
         return createResult;
     }

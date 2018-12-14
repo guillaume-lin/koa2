@@ -24,7 +24,7 @@ TaskSchema.statics.assignTask = async function(openId,taskId,resetDaily){
  */
 TaskSchema.statics.completeTaskPiece = async function(openId,taskId){
     let ret = await this.updateOne({openId:openId,taskId:taskId,progress:{$gte:0}},{$inc:{progress:1}});
-    logger.debug("completeTask: %j",ret);
+    logger.debug("completeTaskPiece: %j",ret);
     return ret;
 };
 /**

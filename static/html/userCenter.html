@@ -63,14 +63,17 @@
               });
             });
             $("#getTaskInfo").click(function(){
-              $.post('/wxWeb/api/taskHandler/queryCurrentTaskInfo',{},function(data,status){
+              let taskId = $("#taskId").val();
+              taskId = parseInt(taskId);
+              $.post('/wxWeb/api/taskHandler/queryCurrentTaskInfo',{taskId:taskId},function(data,status){
                 console.log(data);
                 console.log(status);
               });
             });
             $("#rewardTask").click(function(){
               let taskId = $("#taskId").val();
-              $.post('/wxWeb/api/taskHandler/rewardCurrentTask',{},function(data,status){
+              taskId = parseInt(taskId);
+              $.post('/wxWeb/api/taskHandler/rewardCurrentTask',{taskId:taskId},function(data,status){
                 console.log(data);
                 console.log(status);
               });

@@ -24,20 +24,21 @@ pro.queryTaskList = async function(ctx, next){
 /**
  * 领取任务奖励
  */
-pro.rewardTask = async function(ctx, next){
+pro.rewardCurrentTask = async function(ctx, next){
     let taskId = ctx.request.body.taskId;
+    taskId = parseInt(taskId);
+    logger.debug("taskId: %j",taskId);
     let openId = ctx.session.uid;
-    let ret = await app.taskManager.rewardTask(openId,taskId);
+    let ret = await ctx.app.taskManager.rewardCurrentTask(openId,taskId);
     ctx.body = ret;
 };
 
 /**
  * 查询任务详细信息
  */
-pro.queryTaskInfo = async function(ctx, next){
-    let taskId = ctx.request.body.taskId;
+pro.queryCurrentTaskInfo = async function(ctx, next){
     let openId = ctx.session.uid;
-    let ret = await app.taskManager.queryTaskInfo(openId,taskId);
+    let ret = await ctx.app.taskManager.queryCurrentTaskInfo(openId);
     ctx.body = ret;
 };
 module.exports = TaskHandler;

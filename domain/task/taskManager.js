@@ -166,15 +166,18 @@ class TaskManager {
     async rewardCurrentTask(openId,taskId){
         let currentTask = await daoTask.queryTask(openId);
         if(!currentTask || currentTask.taskId !== taskId){
+            logger.error("not found currentTask: %j for openId:%j, taskId:%j",currentTask,openId,taskId);
             return {code:ConstType.FAILED};
         }
         
         if(currentTask.progress !== TASK_COMPLETE){
+            logger.error("task not in complete state: %j",taskId);
             return {code:ConstType.FAILED};
         }
         
         let items = this.app.dbJson.taskInfo.getTaskAwards(taskId);
         if(!items){
+            logger.error("not found award items: %j, taskId:%j",items,taskId);
             return {code:ConstType.FAILED};
         }
         // 可领取奖励
@@ -184,6 +187,7 @@ class TaskManager {
                 // 发放奖励
                 ret = await daoUserItem.awardItems(openId,items);
                 if(!ret || ret.length !== items.length){
+                    logger.error("award item failed: %j",ret);
                    return {code: ConstType.FAILED};
                 }
                 // 设置下一个任务
