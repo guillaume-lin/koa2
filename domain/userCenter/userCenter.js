@@ -22,15 +22,15 @@ class UserCenter {
             "button":[
                 {
                     "type": "view",
-                    "name": "登录",
-                    "url": "http://xkcvqv.natappfree.cc/scanActivity?cdkey=888"
+                    "name": "用户中心",
+                    "url": "http://xkcvqv.natappfree.cc/html/messageCenter.html"
                 }
             ],
             "button":[
                 {
                     "type": "view",
-                    "name": "用户中心",
-                    "url": "http://xkcvqv.natappfree.cc/html/messageCenter.html"
+                    "name": "登录",
+                    "url": "http://xkcvqv.natappfree.cc/scanActivity?cdkey=888"
                 }
             ]
         }
@@ -69,6 +69,26 @@ class UserCenter {
         return ret;
     }
     /**
+     * 判断用户账号是否建立
+     * @param {*} openId 
+     */
+    async isUserCreated(openId){
+        return await daoUser.findUser(openId);
+    }
+    /**
+     * 创建用户
+     * @param {*} openId 
+     * @param {*} nickname 
+     * @param {*} sex 
+     */
+    async createUser(openId,nickname,sex){
+        let createResult =  await daoUser.createUser(openId,nickname,sex);
+        logger.info('createUser: %j,%j,%j',openId,nickname,sex);
+        this.app.eventBus.emit('createUser',openId); // 通知创建用户
+        logger.debug("createResult:%j",createResult);
+        return createResult;
+    }
+    /**
      * find a user
      */
     async queryUserInfo(openId){
@@ -77,6 +97,7 @@ class UserCenter {
         if(ret && ret.openId === openId){
             let points = await daoUserItem.getUserPoints(openId);
             ret.points = points;
+            ret.vipLevel = this.app.dbJson.vipLevel.getLevel(ret.totalPoints);
             this.app.eventBus.emit(ConstType.TASK_EVENT.LOGIN,openId); // FIXME: 查询一次用户信息，视为一次登录
             return ret;
         }else{
@@ -126,6 +147,62 @@ class UserCenter {
         // find from userItem table
         let ret = await daoUserItem.getUserPoints(openId);
         return ret;
+    };
+    /**
+     * 给用户物品
+     * @param {*} openId 
+     * @param {*} items 
+     */
+    async rewardUserItems(openId, items){
+        // 过滤下看物品里面有没有积分，如果有的话，需要更新用户的vip等级
+        let ret = await daoUserItem.awardItems(openId,items);
+        let pointItem = items.filter(function(item){
+            return item.itemId === ConstType.SPECIAL_ITEM_ID.POINT;
+        });
+        let points = pointItem.reduce(function(acc,cur){
+            return acc + cur.amount;
+        },0);
+        if(points > 0){
+            // 用户刚刚获得积分, 
+            await this.incTotalPoints(openId,points);
+        };
+        if(ret.length === item.length){
+            return {code:ConstType.OK};
+        }else{
+            logger.error("rewardUserItems. openId:%j, items:%j, ret:%j",openId,items,ret);
+            return {code:ConstType.FAILED};
+        }
+    }
+    /**
+     * 奖励用户积分
+     * @param {} openId 
+     */
+    async rewardUserPoints(openId, points){
+        let award = {
+            itemId:ConstType.SPECIAL_ITEM_ID.POINT,
+            amount:points
+        };
+        let ret = await daoUserItem.awardItems(openId,[award]);
+        
+        if(!ret || ret.openId === openId){
+            return {code:ConstType.FAILED};
+        };
+        await this.incTotalPoints(openId,points);
+        return {code:ConstType.OK};
+    }
+    /**
+     * 更新用户的总积分
+     * @param {*} openId 
+     */
+    async incTotalPoints(openId,points){
+        let ret = await daoUser.incTotalPoints(openId,points);
+        
+        if(ret && ret.ok === 1){
+            return {code:ConstType.OK};
+        }else{
+            logger.error("incTotalPoints failed. openId:%j, ret:%j",openId,ret);
+            return {code:ConstType.FAILED};
+        }
     }
     /**
      * 判断用户收货地址是否完整

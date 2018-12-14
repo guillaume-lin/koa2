@@ -93,7 +93,7 @@ class TaskManager {
     async assignCurrentTask(openId,taskId){
         let taskInfo = this.app.dbJson.taskInfo.getTaskInfo(taskId);
         let ret = await daoTask.assignTask(openId,taskId,taskInfo.resetDaily);
-        if(ret){
+        if(ret && ret.nModified === 1){
             return {
                 code: ConstType.OK,
             }
@@ -183,13 +183,18 @@ class TaskManager {
             if(ret && ret.nModified === 1){
                 // 发放奖励
                 ret = await daoUserItem.awardItems(openId,items);
+                if(!ret || ret.length !== items.length){
+                   return {code: ConstType.FAILED};
+                }
                 // 设置下一个任务
-                return await this.assignCurrentTask(openId,taskId+1);
+                ret = await this.assignCurrentTask(openId,taskId+1);
+                logger.debug("go to next task. %j",ret);
+                return ret;
             }
         }catch(error){
             logger.error("%j reward task %j error: %j",openId, taskId,error.stack);
-            return {code:ConstType.FAILED};
-        }      
+        }   
+        return {code:ConstType.FAILED};   
     }
 };
 

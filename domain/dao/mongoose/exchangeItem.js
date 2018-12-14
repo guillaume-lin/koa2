@@ -11,9 +11,31 @@ let ExchangeItemSchema = new mongoose.Schema({
     pointsNeed:{type:Number}, // 兑换所需积分
     stockQuantity:{type:Number}, // 库存数量
     stockTotal: {type:Number}, // 总数量
-    isOnSale:{type:Number,default:0} // 是否上架，0下架，1上架，默认下架
+    isOnSale:{type:Number,default:0}, // 是否上架，0下架，1上架，默认下架
+    isHot:{type:Number,default:0}, // 是否热门商品, 0 不是, 1是，默认不是
 });
 
+/**
+ * 查询所有已上架的热门商品
+ */
+ExchangeItemSchema.statics.queryOnSaleItems = async function(from,to){
+    let ret = await this.find({isOnSale:1,isHot:1}).skip(from).limit(to-from).sort({_id:1});
+    return ret;
+};
+/**
+ * 返回已上架热门商品总数
+ */
+ExchangeItemSchema.statics.queryOnSaleItemCount = async function(){
+    let ret = await this.countDocuments({isOnSale:1,isHot:1});
+    return ret;
+};
+/**
+ * 标注商品为热门商品
+ */
+ExchangeItemSchema.statics.markHotItem = async function(itemId){
+    let ret = await this.updateOne({itemId:itemId},{$set:{isHot:1}});
+    return ret;
+};
 /**
  * 
  * 查询所有已上架的商品

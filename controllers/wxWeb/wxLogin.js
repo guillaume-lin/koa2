@@ -4,8 +4,6 @@
  */
 
 const logger = require('../../util/log').getLogger('app');
-const daoUser = require('../../domain/dao/mongoose/user');
-
 
 let wxLogin = async function(ctx, next){
     logger.debug("wxLogin here");
@@ -54,11 +52,9 @@ let wxLogin = async function(ctx, next){
     })
     if(ret === 0){
         // 看看是否已经创建用户记录，如果没有的话，要先创建
-        let isUserCreated = await daoUser.findUser(userInfo.openid);
+        let isUserCreated = await app.userCenter.isUserCreated(userInfo.openid);
         if(!isUserCreated){
-            let createResult =  await daoUser.createUser(userInfo.openid,userInfo.nickname,userInfo.sex);
-            logger.info('createUser: %j',userInfo);
-            app.eventBus.emit('createUser',userInfo.openid); // 通知创建用户
+            await app.userCenter.createUser(userInfo.openid,userInfo.nickname,userInfo.sex);
         }
         // FIXME: 正常
         let state = ctx.request.query.state || '';

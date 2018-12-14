@@ -33,5 +33,6 @@
          SHARE: 'share',   // 分享
          ACQUIRE_POINTS: 'acquirePoints',  // 获得积分
          READ: 'read',    // 阅读公众号文章
+         EXCHANGE: 'exchange', // 兑换商品
      }
  }

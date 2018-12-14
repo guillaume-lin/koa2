@@ -32,6 +32,8 @@ UserItemSchema.statics.createItem = async function(openId,itemId,amount,acquireT
  * awards:
  *   [
  *    {itemId:xxx, amount:yyy}    ]
+ * 
+ * FIXME: 外界不直接调用这个接口，通过userCenter来调用，因为给的物品中可能有积分，需要做一些特殊处理
  */
 UserItemSchema.statics.awardItems = async function(openId,awards){
     logger.debug('awardItems:%j',awards);
@@ -48,19 +50,6 @@ UserItemSchema.statics.awardItems = async function(openId,awards){
     logger.debug('awardItems insert return:%j',ret);
     return ret;
 };
-UserItemSchema.statics.awardOneItem = async function(openId,award){
-    logger.info('awardItem:%j to %j',award,openId);
-    let ct = Date.now();
-    let item = {};
-    item.openId = openId;
-    item.itemId = award.itemId;
-    item.amount = award.amount;
-    item.acquireTime = ct;
-    
-    let ret = await this.insertMany([item]);
-    logger.debug('awardItem insert return:%j',ret);
-    return ret;
-}
 /**
  * 消耗商品
  * 需判断是否有足够的商品

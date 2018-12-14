@@ -52,7 +52,8 @@ const goalEvent = {
     '2':ConstType.TASK_EVENT.SHARE,
     '3':ConstType.TASK_EVENT.COMPLETE_PERSON_INFO,
     '4':ConstType.TASK_EVENT.ACQUIRE_POINTS,
-    '5':ConstType.TASK_EVENT.READ
+    '5':ConstType.TASK_EVENT.READ,
+    '6':ConstType.TASK_EVENT.EXCHANGE
 }
 /**
  * 获取任务目标对应的事件

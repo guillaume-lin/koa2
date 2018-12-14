@@ -9,7 +9,8 @@ let UserSchema = new mongoose.Schema({
     "openId": {type:String,unique: true},
     "nickName": {type:String,default:'',maxlength:20},
     "sex": {type:Number,default: 0},
-    "vipLevel": {type:Number,default:1},
+    // "vipLevel": {type:Number,default:1}, 由totalPoints推断出来
+    "totalPoints":{type:Number,default:0}, // 获得的总积分
     "lastAccess": {type:Number,default:0}, // 上次访问用户中心的时间
     "phoneNumber": {type:String,default:'',maxlength:14},
     "babyBirthDay":{type:Number,default:0},
@@ -20,7 +21,13 @@ let UserSchema = new mongoose.Schema({
     "address":{type:String,default:'',maxlength:50}, // 地址
     "postCode":{type:String,default:'',maxlength:6} // 邮政编码
 });
-
+/**
+ * 增加总的积分
+ */
+UserSchema.statics.incTotalPoints = async function(openId,points){
+    let ret = await this.updateOne({openId:openId},{$inc:{totalPoints:points}});
+    return ret;
+}
 // define method for this model
 UserSchema.statics.isAddressComplete = async function(openId){
     let ret = await this.findOne({openId:openId},{openId:1,phoneNumber:1,province:1,city:1,consignee:1,address:1});
@@ -31,6 +38,9 @@ UserSchema.statics.isAddressComplete = async function(openId){
         return 1;
     }
 }
+/**
+ * 创建用户
+ */
 UserSchema.statics.createUser = async function(openId,nickName,sex){
     let userInfo = {
         openId: openId,

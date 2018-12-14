@@ -17,11 +17,7 @@ let TaskSchema = new mongoose.Schema({
 TaskSchema.statics.assignTask = async function(openId,taskId,resetDaily){
     let ret = await this.updateOne({openId:openId},{$set:{openId:openId,taskId:taskId,resetDaily:resetDaily,progress:0}},{upsert:true});
     logger.debug("assignTask:%j",ret);
-    if(ret.openId === openId){
-        return true;
-    }else{
-        return false;
-    }
+    return  ret;
 }
 /**
  * 完成部分任务
