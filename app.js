@@ -15,11 +15,14 @@ const wechatAPI  = require('./domain/wechat/wechatAPI');
 const ConstType  = require('./util/constType');
 const service = require('./service');
 const dbJsonImpl = require('./dbJsonImpl');
+const statsd = require('./middleware/stat');
 
 const isProduction = process.env.NODE_ENV === 'production'; // production environment
+
 let app = new Koa();
 app.eventBus = new EventEmitter(); // event bus
 app.baseDir = __dirname;
+app.name = process.argv[2] || 'noname' ; // node app.js <name>
 
 log.configure(require('./config/log4js.json'));
 let logger = log.getLogger('app');
@@ -45,6 +48,8 @@ app.context.wechatAPI = app.wechatAPI = wechatAPI(wechatConf.appId,wechatConf.se
 // use session
 app.use(session(app));
 
+app.use(statsd(app,require('./config/statsd.json')));
+
 process.on('unhandledRejection', error => {
     logger.fatal("unhandledRejection: %j",error.stack);
 });
@@ -68,12 +73,16 @@ app.use(koaBody({
     }
 }))
 app.use(async(ctx,next) =>{
+    app.sdc.increment(app.name+'.req',1); // inc
     if(ctx.request.url.indexOf('/favicon.ico') !== -1){
         logger.debug('not process favicon');
         return;
     }
     logger.debug("before process %j on %j  req:%j",ctx.request.method,ctx.request.url,ctx.request);
+    let ct = Date.now();
     await next();
+    let dt = Date.now();
+    app.sdc.timing(app.name+'.req',dt-ct);
     logger.debug("after process %j on %j res:%j\n\n",ctx.request.method,ctx.request.url,ctx.response);
 })
 
@@ -86,6 +95,9 @@ app.use(async (ctx,next) => {
         return await next();
     };
     if(ctx.request.url.indexOf('/manage') !== -1){  // FIXME: 此处应使用其他认证方式
+        return await next();
+    };
+    if(ctx.request.url.indexOf('/wxWeb/wxGetAuthorizeUrl') !== -1 || ctx.request.url.indexOf('/wxWeb/wxLoginCallback') !== -1){
         return await next();
     }
     // 验证下用户是否已经用微信登录

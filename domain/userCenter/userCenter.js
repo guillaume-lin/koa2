@@ -23,16 +23,17 @@ class UserCenter {
                 {
                     "type": "view",
                     "name": "用户中心",
-                    "url": "http://xkcvqv.natappfree.cc/html/messageCenter.html"
+                    "url": "http://fcbufr.natappfree.cc/html/messageCenter.html"
                 }
-            ],
+            ]
+            /*,
             "button":[
                 {
                     "type": "view",
                     "name": "登录",
                     "url": "http://xkcvqv.natappfree.cc/scanActivity?cdkey=888"
                 }
-            ]
+            ]*/
         }
         app.wechatAPI.createMenu(menu).then(function(ret){
             logger.debug("createMenu:%j",ret);

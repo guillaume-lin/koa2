@@ -78,7 +78,16 @@
                 console.log(status);
               });
             });
+            $("#login").click(function(){
+              $.post('/wxWeb/wxGetAuthorizeUrl',{targetUrl:document.location.href},function(data,status){
+                console.log(data);
+                console.log(status);
+                let url = data.url;
+                document.location.href = url; // 开始登录
+              })
+            });
           });
+
         </script>
            </head>
         
@@ -91,5 +100,6 @@
         <button id="taskList">获取任务列表</button><br>
         任务id<input type="text" id="taskId"><button id="getTaskInfo">获取任务详情</button><br>
         <button id="rewardTask">领取任务奖励</button>
+        <button id="login">登录</button>
     </body>
 </html>
