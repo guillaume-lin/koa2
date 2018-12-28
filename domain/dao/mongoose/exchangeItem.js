@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const logger = require('../../../util/log').getLogger('app');
 
 let ExchangeItemSchema = new mongoose.Schema({
-    itemId:{type:String,unique:true},  // 商品id
-    name: {type:String},  // 商品名称
-    pic:{type:String},    // 商品图片
+    itemId:{type:String,unique:true,maxlength:100},  // 商品id
+    name: {type:String,maxlength:100},  // 商品名称
+    picUrl:{type:String,maxlength:500},    // 商品图片
     pointsNeed:{type:Number}, // 兑换所需积分
     stockQuantity:{type:Number}, // 库存数量
     stockTotal: {type:Number}, // 总数量
@@ -55,7 +55,6 @@ ExchangeItemSchema.statics.queryOnSaleItemCount = async function(){
  * 入库商品
  */
 ExchangeItemSchema.statics.addItem = async function(itemInfo){
-    itemInfo.isOnSale = 0; // 默认下架
     let ret = await this.create(itemInfo);
     return ret;
 };
@@ -66,6 +65,13 @@ ExchangeItemSchema.statics.setOnSaleStatus = async function(itemId,status){
     let ret = await this.updateOne({itemId:itemId},{$set:{isOnSale:status}});
     return ret;
 };
+/**
+ * 查询物品详情
+ */
+ExchangeItemSchema.statics.queryItem = async function(itemId){
+    let ret = await this.findOne({itemId:itemId},{itemId:1,name:1,picUrl:1});
+    return ret;
+}
 /**
  * 消耗商品
  */

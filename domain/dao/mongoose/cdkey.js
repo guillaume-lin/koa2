@@ -3,6 +3,8 @@
  */
 const logger = require('../../../util/log').getLogger('app');
 const mongoose = require('mongoose');
+const ConstType = require('../../../util/constType');
+
 let CdkeySchema = new mongoose.Schema({
     "cdkey": {type:String,unique: true}, // the cdkey, 必须唯一
     "expireTime":{type:Number,default:Number.MAX_SAFE_INTEGER},   // 过期时间,unix TimeStamp
@@ -47,13 +49,13 @@ CdkeySchema.statics.checkCdkey = async function(openId,cdkey){
     let doc = await this.findOne({openId:openId,cdkey:cdkey});
     logger.debug("checkCdkey:%j,%j result:%j",openId,cdkey,doc);
     if(doc === null){
-        return 1;
+        return ConstType.USER_CENTER.INVALID_CDKEY;
     }
     if(doc.expireTime < Date.now()){
-        return 2;
+        return ConstType.USER_CENTER.CDKEY_EXPIRE;
     }
     if(doc.isUsed === 1){
-        return 3; // 
+        return ConstType.USER_CENTER.CDKEY_USED; // 
     }
     return 0;
 };

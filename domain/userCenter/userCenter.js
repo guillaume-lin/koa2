@@ -13,6 +13,7 @@ const Util = require('../../util/util');
 const mongoose = require('mongoose');
 const daoExchangeItem = require('../dao/mongoose/exchangeItem');
 const daoOrder = require('../dao/mongoose/order');
+const daoPictureResource = require('../dao/mongoose/pictureResource');
 
 class UserCenter {
     constructor(app){
@@ -23,7 +24,7 @@ class UserCenter {
                 {
                     "type": "view",
                     "name": "用户中心",
-                    "url": "http://fcbufr.natappfree.cc/html/messageCenter.html"
+                    "url": "http://fcbufr.natappfree.cc/html/userCenter.html"
                 }
             ]
             /*,
@@ -52,13 +53,16 @@ class UserCenter {
         let ret = await this.smsCodeManager.verifySmsCode(phoneNumber,verifyCode);
         if(!ret){
             logger.error("verify sms code failed.");
-            return {
-                code: ConstType.USER_CENTER.VERIFY_SMS_FAILED
-            };
+            return {code:ConstType.USER_CENTER.VERIFY_SMS_FAILED};
         }
         // 更新用户电话号码
         ret = await daoUser.setPhoneNumber(openId,phoneNumber);
-        return ret;
+        if(ret === 0){
+            return {code: ConstType.OK};
+        }else{
+            return {code: ConstType.FAILED};
+        }
+        
     }
     /**
      * 发送验证码给用户的手机
@@ -82,9 +86,9 @@ class UserCenter {
      * @param {*} nickname 
      * @param {*} sex 
      */
-    async createUser(openId,nickname,sex){
-        let createResult =  await daoUser.createUser(openId,nickname,sex);
-        logger.info('createUser: %j,%j,%j',openId,nickname,sex);
+    async createUser(openId,nickname,headImage,sex){
+        let createResult =  await daoUser.createUser(openId,nickname,headImage,sex);
+        logger.info('createUser: %j,%j,%j,%j',openId,nickname,headImage,sex);
         this.app.eventBus.emit('createUser',openId); // 通知创建用户
         this.sendMessage(openId,"欢迎新用户","欢迎关注公众号");
         logger.debug("createResult:%j",createResult);
@@ -100,7 +104,7 @@ class UserCenter {
             let points = await daoUserItem.getUserPoints(openId);
             ret.points = points;
             ret.vipLevel = this.app.dbJson.vipLevel.getLevel(ret.totalPoints);
-            this.app.eventBus.emit(ConstType.TASK_EVENT.LOGIN,openId); // FIXME: 查询一次用户信息，视为一次登录
+            //this.app.eventBus.emit(ConstType.TASK_EVENT.LOGIN,openId); // FIXME: 查询一次用户信息，视为一次登录
             return ret;
         }else{
             return null;
@@ -241,14 +245,18 @@ class UserCenter {
      * 
      * @param {*} receiver 
      */
-    async getMessagePageCount(receiver){
-        let ret = await daoMessage.getMessagePageCount(receiver);
-        return { code:ConstType.OK, pageCount: ret};
+    async getMessageCount(receiver){
+        let ret = await daoMessage.getMessageCount(receiver);
+        return { code:ConstType.OK, messageCount: ret};
     }
-    async getMessagePage(receiver, pageNumber){
-        pageNumber = pageNumber || 0;
-        logger.debug("getMessagePage. receiver:%j, pageNumber:%j",receiver,pageNumber);
-        let ret = await daoMessage.getMessagePage(receiver,pageNumber);
+    async getUnreadMessageCount(receiver){
+        let ret = await daoMessage.getUnreadMessageCount(receiver);
+        return { code:ConstType.OK, messageCount: ret};
+    }
+    
+    async getMessages(receiver, from,to){
+        logger.debug("getMessagePage. receiver:%j, from:%j, to:%j",receiver,from,to);
+        let ret = await daoMessage.getMessages(receiver,from,to);
         if(ret && ret.length >= 0){
             return {code:ConstType.OK,messages:ret};
         }
@@ -257,6 +265,15 @@ class UserCenter {
     //标注消息已读
     async markMessageRead(receiver,msgId){
         let ret = await daoMessage.markMessageRead(receiver,msgId);
+        if(ret){
+            return {code:ConstType.OK};
+        }else{
+            return {code:ConstType.FAILED};
+        }
+    };
+       //标注消息已读
+    async markAllMessageRead(receiver){
+        let ret = await daoMessage.markAllMessageRead(receiver);
         if(ret){
             return {code:ConstType.OK};
         }else{
@@ -335,14 +352,14 @@ class UserCenter {
             logger.debug("consume points %j ret:%j",pointsNeed,ret);
             if(ret !== 0){
                 session.abortTransaction();
-                return {code:ConstType.FAILED,reason:"not enough points"};
+                return {code:ConstType.USER_CENTER.NO_ENOUGH_POINTS,reason:"not enough points"};
             }
             // 扣减商品库存
             ret = await daoExchangeItem.removeItem(itemId,amount,opts);
             logger.debug("consume exchangeItem %j ret:%j",itemId,ret);
             if(ret !== 0){
                 session.abortTransaction();
-                return {code:ConstType.FAILED,reason:"no enough item"};
+                return {code:ConstType.EXCHANGE_SHOP.ITEM_SOLD_OUT,reason:"no enough item"};
             }
             ret = await session.commitTransaction();
             logger.debug("commitTransaction ret:%j",ret);
@@ -359,5 +376,84 @@ class UserCenter {
         }
     };
 
+    /**
+     * 新增可兑换商品
+     * 
+     * itemId 自动生成
+     */
+    async addItem(itemInfo){
+        let ret = daoExchangeItem.addItem(itemInfo);
+        return ret;
+    }
+
+    /**
+     * 查询id
+     * @param {*} itemId 
+     */
+    async queryItem(itemId){
+        let ret = daoExchangeItem.queryItem(itemId);
+        if(ret && ret.itemId === itemId){
+            return {
+                code: ConstType.OK,
+                itemInfo:ret
+            }
+        }else{
+            logger.error("queryItem %j failed. ret:%j",itemId,ret);
+            return {
+                code: ConstType.FAILED
+            }
+        }
+        
+    }
+    // 活动图
+    async getActivityPic(){
+        let ret = await daoPictureResource.getAllPicture(ConstType.PIC_TYPE_ACTIVITY);
+        return {code: ConstType.OK,pics:ret};
+    }
+
+    async insertActivityPic(picUrl,redirectUrl,order){
+        let ret = await daoPictureResource.insertPic(ConstType.PIC_TYPE_ACTIVITY,picUrl,redirectUrl,order);
+        if(ret.length === 1 && ret[0].picUrl === picUrl){
+            return {code: ConstType.OK};
+        }else{
+            logger.error("insertActivityPic. ret:%j",ret);
+            return {code:ConstType.FAILED};
+        }
+    }
+    async deleteActivityPic(picUrl){
+        let ret = await daoPictureResource.deletePic(picUrl);
+        if(ret && ret.n === 1){
+            return {code:ConstType.OK};
+        }else{
+            logger.error("deleteActivityPic. ret:%j",ret);
+            return {code:ConstType.FAILED};
+        }
+        
+    }
+    // 轮播图
+    async getCarouselPic(){
+        let ret = await daoPictureResource.getAllPicture(ConstType.PIC_TYPE_CAROUSEL);
+        return {code: ConstType.OK, pics:ret};
+    }
+
+    async insertCarouselPic(picUrl,redirectUrl,order){
+        let ret = await daoPictureResource.insertPic(ConstType.PIC_TYPE_CAROUSEL,picUrl,redirectUrl,order);
+        if(ret.length === 1 && ret[0].picUrl === picUrl){
+            return {code: ConstType.OK};
+        }else{
+            logger.error("insertCarouselPic. ret:%j",ret);
+            return {code: ConstType.FAILED};
+        }
+    }
+
+    async deleteCarouselPic(picUrl){
+        let ret = await daoPictureResource.deletePic(picUrl);
+        if(ret && ret.n === 1){
+            return {code: ConstType.OK};
+        }else{
+            logger.error("deleteCarouselPic. ret:%j",ret);
+            return {code: ConstType.FAILED};
+        }
+    }
 };
 module.exports = UserCenter;

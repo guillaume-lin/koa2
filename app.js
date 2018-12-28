@@ -16,10 +16,23 @@ const ConstType  = require('./util/constType');
 const service = require('./service');
 const dbJsonImpl = require('./dbJsonImpl');
 const statsd = require('./middleware/stat');
+const cors = require('koa2-cors');
 
 const isProduction = process.env.NODE_ENV === 'production'; // production environment
 
 let app = new Koa();
+app.use(cors(
+    {
+        origin: function(ctx) {
+          return '127.0.0.1:8080';
+        },
+        exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+        maxAge: 5,
+        credentials: true,
+        allowMethods: ['GET', 'POST', 'DELETE'],
+        allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+    }
+));
 app.eventBus = new EventEmitter(); // event bus
 app.baseDir = __dirname;
 app.name = process.argv[2] || 'noname' ; // node app.js <name>

@@ -6,6 +6,7 @@
  *       "desc": "【任务描述】每日完成3次登录. taskGoal [taskType,param] , 指定任务类型及目标。任务有顺序，每次只有一个当前任务，完成了当前任务才能开启后续任务",
  *       "goalSort": 1,
  *       "goal": 3,
+ *       "isStage": false,  // 是否阶段性大奖
  *       "resetDaily":true,
  *      "award":[1001,2,1200,100]
  *  },

@@ -10,6 +10,7 @@ let wxGetAuthorizeUrl = async function(ctx,next){
     let openId = ctx.session.uid || '';
     if(openId !== ''){
         // 已经登录
+        app.eventBus.emit('login',openId);
         ctx.body =  {code: ConstType.USER_CENTER.ALREADY_LOGIN};
         return;
     }

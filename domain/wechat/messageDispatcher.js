@@ -73,8 +73,13 @@ pro.processEventMessage = function(ctx){
 pro.processMessage = function(ctx){
     let ct = Math.ceil(Date.now()/1000);
     let xml = ctx.request.body.xml;
+    if(!xml){
+        ctx.body = "no xml";
+        return;
+    }
     let fromUserName = xml.FromUserName[0];
     let toUserName = xml.ToUserName[0];
+
 
     let msgType = xml.MsgType[0];
 

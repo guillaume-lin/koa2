@@ -29,6 +29,7 @@ pro.updateUserInfo = async function(ctx,next){
     let userInfo = {};
     let b = ctx.request.body;
     userInfo.nickName = b.nickName || '';
+    userInfo.name = b.name || '';
     userInfo.phoneNumber = b.phoneNumber || '';
     userInfo.babyBirthDay = b.babyBirthDay || 0;
     userInfo.babySex = b.babySex || 0;
@@ -40,7 +41,7 @@ pro.updateUserInfo = async function(ctx,next){
 
     for(let f in userInfo){
         if(userInfo.hasOwnProperty(f) && !userInfo[f]){
-            delete userInfo[f];
+            delete userInfo[f];  // 去掉没有设置的属性
         }
     }
     

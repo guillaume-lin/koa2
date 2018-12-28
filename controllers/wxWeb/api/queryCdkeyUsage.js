@@ -1,5 +1,6 @@
 const logger = require('../../../util/log').getLogger('app');
 const daoCdkey = require('../../../domain/dao/mongoose/cdkey');
+
 /**
  * 
  * 查询用户所扫cdkey的使用情况

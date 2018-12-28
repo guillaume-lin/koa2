@@ -45,12 +45,13 @@ let wxLoginCallback = async function(ctx, next){
         // 看看是否已经创建用户记录，如果没有的话，要先创建
         let isUserCreated = await app.userCenter.isUserCreated(userInfo.openid);
         if(!isUserCreated){
-            await app.userCenter.createUser(userInfo.openid,userInfo.nickname,userInfo.sex);
+            await app.userCenter.createUser(userInfo.openid,userInfo.nickname,userInfo.headimgurl,userInfo.sex);
         }
         // FIXME: 正常
         let targetUrl = ctx.request.query.state || '';
         logger.info("login ok. goto %j",targetUrl);
         ctx.response.redirect(targetUrl); //FIXME: 定向到目标地址
+        app.eventBus.emit('login',userInfo.openid);
     }else{
         ctx.body = ctx.renderString("<h1>authorize failed.code: {{ret}}</h1>",{ret:ret});
     }

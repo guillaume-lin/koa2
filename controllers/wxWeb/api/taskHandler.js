@@ -17,7 +17,7 @@ pro.queryTaskList = async function(ctx, next){
     let openId = ctx.session.uid;
     logger.debug(app.dbJson.taskInfo);
     let ret = await app.taskManager.queryTaskList(openId);
-    app.eventBus.emit('login',openId);
+    
     ctx.body = ret;
 };
 

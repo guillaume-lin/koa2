@@ -41,4 +41,14 @@ pro.exchangeItem = async function(ctx, next){
     ctx.body = ret;
 }
 
+/**
+ * 查询商品信息
+ */
+pro.queryItem = async function(ctx, next){
+    let app = ctx.app;
+    let itemId = ctx.request.body.itemId;
+    let ret = await app.userCenter.queryItem(itemId);
+    ctx.body = ret;
+}
+
 module.exports = ExchangeShopHandler;

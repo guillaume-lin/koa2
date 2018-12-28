@@ -19,7 +19,7 @@ pro.registerPhone = async function(ctx, next){
     let phoneNumber = ctx.request.body.phoneNumber || '';
     let verifyCode = ctx.request.body.verifyCode || '';
     let ret = await app.userCenter.registerPhone(openId,phoneNumber,verifyCode);
-    ctx.body = {code:ret};
+    ctx.body = ret;
     return await next();
 }
 /**

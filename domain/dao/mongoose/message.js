@@ -25,19 +25,27 @@ MessageSchema.statics.sendMessage = async function(receiver,title,content){
  * 返回用户的消息, 最近的消息排在前面
  * 
  */
-MessageSchema.statics.getMessagePage = async function(receiver,pageNumber){
-    let ret = await this.find({receiver:receiver}).skip(pageNumber*MAX_MESSAGE_PER_PAGE).limit(MAX_MESSAGE_PER_PAGE).sort({receiveTime:1});
-    logger.debug("getMessagePage. %j",ret);
+MessageSchema.statics.getMessages = async function(receiver,from,to){
+    let ret = await this.find({receiver:receiver}).skip(from).limit(to-from).sort({receiveTime:1});
+    logger.debug("getMessages. %j",ret);
     return ret;
 };
 /**
  * 消息总数
  */
-MessageSchema.statics.getMessagePageCount = async function(receiver){
+MessageSchema.statics.getMessageCount = async function(receiver){
     let ret = await this.count({receiver:receiver});
-    let pageCount = Math.ceil(ret/MAX_MESSAGE_PER_PAGE);  // 0 - pageCount-1
-    return pageCount;
+    return ret;
 };
+/**
+ * 未读消息总数
+ */
+MessageSchema.statics.getUnreadMessageCount = async function(receiver){
+    let ret = await this.count({receiver:receiver,isRead:0});
+    return ret;
+};
+
+
 // 标记消息已读
 MessageSchema.statics.markMessageRead = async function(receiver,msgId){
     let ret = await this.updateOne({receiver:receiver,_id:msgId},{$set:{isRead:1}});
@@ -48,6 +56,18 @@ MessageSchema.statics.markMessageRead = async function(receiver,msgId){
         return false;
     }
 };
+
+// 标记所有消息已读
+MessageSchema.statics.markAllMessageRead = async function(receiver){
+    let ret = await this.updateMany({receiver:receiver},{$set:{isRead:1}});
+    logger.debug("markAllMessageRead. receiver:%j, msgId:%j, ret:%j",receiver,msgId,ret);
+    if(ret.ok === 1){
+        return true;
+    }else{
+        return false;
+    }
+};
+
 /**
  * msgIds:[]
  */

@@ -7,7 +7,9 @@ const logger = require('../../../util/log').getLogger('app');
 const Util = require('../../../util/util');
 let UserSchema = new mongoose.Schema({
     "openId": {type:String,unique: true},
-    "nickName": {type:String,default:'',maxlength:20},
+    "nickName": {type:String,default:'',maxlength:20},// 微信昵称
+    "headImage":{type:String,default:'',maxlength:500}, // 微信头像
+    "name":{type:String,default:"",maxlength:20}, // 名称
     "sex": {type:Number,default: 0},
     // "vipLevel": {type:Number,default:1}, 由totalPoints推断出来
     "totalPoints":{type:Number,default:0}, // 获得的总积分
@@ -17,7 +19,8 @@ let UserSchema = new mongoose.Schema({
     "babySex":{type:Number,default:0},  // 0 - 未知 1 - 男生 2 - 女生
     "consignee":{type:String,default:'',maxlength:10}, // 收货人
     "province":{type:String,default:'',maxlength:10}, // 所在省
-    "city":{type:String,default:'',maxlength:10}, // 所在市
+    "city":{type:String,default:'',maxlength:100}, // 所在市
+    "county":{type:String, default:'',maxlength:100}, // 所在县
     "address":{type:String,default:'',maxlength:50}, // 地址
     "postCode":{type:String,default:'',maxlength:6} // 邮政编码
 });
@@ -41,10 +44,11 @@ UserSchema.statics.isAddressComplete = async function(openId){
 /**
  * 创建用户
  */
-UserSchema.statics.createUser = async function(openId,nickName,sex){
+UserSchema.statics.createUser = async function(openId,nickName,headImage,sex){
     let userInfo = {
         openId: openId,
         nickName: nickName,
+        headImage:headImage,
         sex:sex
     }
     logger.debug('createUser:%j',userInfo);

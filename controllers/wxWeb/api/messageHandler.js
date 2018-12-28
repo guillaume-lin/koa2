@@ -7,23 +7,30 @@ let MessageHandler = function(){
 
 let pro = MessageHandler.prototype;
 /**
- * 获取消息页数
+ * 获取消息总数
  */
-pro.getMessagePageCount = async function(ctx,next){
+pro.getMessageCount = async function(ctx,next){
     let app = ctx.app;
     let receiver = ctx.session.uid;
-    let ret = await app.userCenter.getMessagePageCount(receiver);
+    let ret = await app.userCenter.getMessageCount(receiver);
     ctx.body = ret;
 };
 
-/**
- * 获取消息页
- */
-pro.getMessagePage = async function(ctx,next){
+pro.getUnreadMessageCount = async function(ctx,next){
     let app = ctx.app;
     let receiver = ctx.session.uid;
-    let pageNumber = ctx.request.body.pageNumber;
-    let ret = await app.userCenter.getMessagePage(receiver,pageNumber);
+    let ret = await app.userCenter.getUnreadMessageCount(receiver);
+    ctx.body = ret;
+};
+/**
+ * 获取消息
+ */
+pro.getMessages = async function(ctx,next){
+    let app = ctx.app;
+    let receiver = ctx.session.uid;
+    let from = ctx.request.body.from;
+    let to = ctx.request.body.to;
+    let ret = await app.userCenter.getMessages(receiver,from,to);
     ctx.body = ret;
 };
 /**
@@ -45,6 +52,15 @@ pro.markMessageRead = async function(ctx,next){
     let receiver = ctx.session.uid;
     let msgId = ctx.request.body.msgId;
     let ret = await app.userCenter.markMessageRead(receiver,msgId);
+    ctx.body = ret;
+};
+/**
+ * 所有消息设为已读
+ */
+pro.markAllMessageRead = async function(ctx,next){
+    let app = ctx.app;
+    let receiver = ctx.session.uid;
+    let ret = await app.userCenter.markAllMessageRead(receiver);
     ctx.body = ret;
 };
 /**
