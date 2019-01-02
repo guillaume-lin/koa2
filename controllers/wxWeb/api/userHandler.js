@@ -36,6 +36,7 @@ pro.updateUserInfo = async function(ctx,next){
     userInfo.consignee = b.consignee || '';
     userInfo.province = b.province || '';
     userInfo.city = b.city || '';
+    userInfo.county = b.county || '';
     userInfo.address = b.address || '';
     userInfo.postCode = b.postCode || '';
 

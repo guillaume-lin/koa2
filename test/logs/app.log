@@ -3424,3 +3424,110 @@
 [2018-12-26T12:11:31.577] [INFO] app - complete task {"progress":-2,"_id":"5c137074ac2eea0183a78c6f","openId":"ab12","__v":0,"resetDaily":true,"taskId":1} with event "login"
 [2018-12-26T12:11:31.581] [DEBUG] app - completeTaskPiece: {"n":0,"nModified":0,"opTime":{"ts":"6639149670083854340","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6639149670083854340","$clusterTime":{"clusterTime":"6639149670083854340","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
 [2018-12-26T12:11:32.248] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-26T14:50:06.326] [DEBUG] app - starting "koa2" ...
+[2018-12-26T14:50:06.340] [INFO] app - init mongoose "127.0.0.1":27017/"usercenter" ...
+[2018-12-26T14:50:06.341] [DEBUG] app - mongodb connStr:"mongodb://127.0.0.1:27017/usercenter"
+[2018-12-26T14:50:06.351] [DEBUG] app - create redis instance for "redis_cache"
+[2018-12-26T14:50:06.353] [DEBUG] app - initRedisSession
+[2018-12-26T14:50:06.355] [DEBUG] app - loading statsd here {"host":"39.98.164.58","port":8125,"debug":false,"tags":{},"prefix":""}
+[2018-12-26T14:50:06.357] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/cdkeyHandler.js"  ...
+[2018-12-26T14:50:06.370] [DEBUG] app - register handler method: "importCdkey" on "/manage/cdkeyHandler/importCdkey"
+[2018-12-26T14:50:06.371] [DEBUG] app - register handler method: "genQrCode" on "/manage/cdkeyHandler/genQrCode"
+[2018-12-26T14:50:06.372] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/manage/login.js"  ...
+[2018-12-26T14:50:06.373] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/manage/login.js" to "/manage/login"
+[2018-12-26T14:50:06.373] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/post.js"  ...
+[2018-12-26T14:50:06.375] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/post.js" to "/post"
+[2018-12-26T14:50:06.375] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/qrcode.js"  ...
+[2018-12-26T14:50:06.376] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/qrcode.js" to "/qrcode"
+[2018-12-26T14:50:06.377] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/redis.js"  ...
+[2018-12-26T14:50:06.378] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/redis.js" to "/redis"
+[2018-12-26T14:50:06.378] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/root.js"  ...
+[2018-12-26T14:50:06.379] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/root.js" to "/"
+[2018-12-26T14:50:06.380] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js"  ...
+[2018-12-26T14:50:06.381] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/drawAward.js" to "/wxWeb/api/drawAward"
+[2018-12-26T14:50:06.382] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/exchangeShopHandler.js"  ...
+[2018-12-26T14:50:06.383] [DEBUG] app - register handler method: "queryOnSaleItemCount" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItemCount"
+[2018-12-26T14:50:06.383] [DEBUG] app - register handler method: "queryOnSaleItems" on "/wxWeb/api/exchangeShopHandler/queryOnSaleItems"
+[2018-12-26T14:50:06.384] [DEBUG] app - register handler method: "exchangeItem" on "/wxWeb/api/exchangeShopHandler/exchangeItem"
+[2018-12-26T14:50:06.384] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/messageHandler.js"  ...
+[2018-12-26T14:50:06.386] [DEBUG] app - register handler method: "getMessagePageCount" on "/wxWeb/api/messageHandler/getMessagePageCount"
+[2018-12-26T14:50:06.386] [DEBUG] app - register handler method: "getMessagePage" on "/wxWeb/api/messageHandler/getMessagePage"
+[2018-12-26T14:50:06.386] [DEBUG] app - register handler method: "sendMessage" on "/wxWeb/api/messageHandler/sendMessage"
+[2018-12-26T14:50:06.387] [DEBUG] app - register handler method: "markMessageRead" on "/wxWeb/api/messageHandler/markMessageRead"
+[2018-12-26T14:50:06.387] [DEBUG] app - register handler method: "deleteMessage" on "/wxWeb/api/messageHandler/deleteMessage"
+[2018-12-26T14:50:06.387] [DEBUG] app - register handler method: "hasUnreadMessage" on "/wxWeb/api/messageHandler/hasUnreadMessage"
+[2018-12-26T14:50:06.387] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/pictureHandler.js"  ...
+[2018-12-26T14:50:06.388] [DEBUG] app - register handler method: "getCarouselPic" on "/wxWeb/api/pictureHandler/getCarouselPic"
+[2018-12-26T14:50:06.389] [DEBUG] app - register handler method: "getActivityPic" on "/wxWeb/api/pictureHandler/getActivityPic"
+[2018-12-26T14:50:06.389] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js"  ...
+[2018-12-26T14:50:06.390] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryCdkeyUsage.js" to "/wxWeb/api/queryCdkeyUsage"
+[2018-12-26T14:50:06.391] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js"  ...
+[2018-12-26T14:50:06.393] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/api/queryUserStatus.js" to "/wxWeb/api/queryUserStatus"
+[2018-12-26T14:50:06.393] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/smsHandler.js"  ...
+[2018-12-26T14:50:06.394] [DEBUG] app - register handler method: "registerPhone" on "/wxWeb/api/smsHandler/registerPhone"
+[2018-12-26T14:50:06.395] [DEBUG] app - register handler method: "getSmsCode" on "/wxWeb/api/smsHandler/getSmsCode"
+[2018-12-26T14:50:06.395] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/taskHandler.js"  ...
+[2018-12-26T14:50:06.396] [DEBUG] app - register handler method: "queryTaskList" on "/wxWeb/api/taskHandler/queryTaskList"
+[2018-12-26T14:50:06.396] [DEBUG] app - register handler method: "rewardCurrentTask" on "/wxWeb/api/taskHandler/rewardCurrentTask"
+[2018-12-26T14:50:06.398] [DEBUG] app - register handler method: "queryCurrentTaskInfo" on "/wxWeb/api/taskHandler/queryCurrentTaskInfo"
+[2018-12-26T14:50:06.399] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/api/userHandler.js"  ...
+[2018-12-26T14:50:06.400] [DEBUG] app - register handler method: "queryUserInfo" on "/wxWeb/api/userHandler/queryUserInfo"
+[2018-12-26T14:50:06.400] [DEBUG] app - register handler method: "updateUserInfo" on "/wxWeb/api/userHandler/updateUserInfo"
+[2018-12-26T14:50:06.400] [DEBUG] app - register handler method: "isAddressComplete" on "/wxWeb/api/userHandler/isAddressComplete"
+[2018-12-26T14:50:06.401] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js"  ...
+[2018-12-26T14:50:06.402] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/scanActivity.js" to "/wxWeb/scanActivity"
+[2018-12-26T14:50:06.403] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js"  ...
+[2018-12-26T14:50:06.405] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxAccess.js" to "/wxWeb/wxAccess"
+[2018-12-26T14:50:06.405] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxGetAuthorizeUrl.js"  ...
+[2018-12-26T14:50:06.406] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxGetAuthorizeUrl.js" to "/wxWeb/wxGetAuthorizeUrl"
+[2018-12-26T14:50:06.406] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js"  ...
+[2018-12-26T14:50:06.408] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLogin.js" to "/wxWeb/wxLogin"
+[2018-12-26T14:50:06.408] [DEBUG] app - loading "D:\\workspace\\koa2\\controllers/wxWeb/wxLoginCallback.js"  ...
+[2018-12-26T14:50:06.409] [DEBUG] app - mounting "D:\\workspace\\koa2\\controllers/wxWeb/wxLoginCallback.js" to "/wxWeb/wxLoginCallback"
+[2018-12-26T14:50:06.411] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/scanActivity.json" ...
+[2018-12-26T14:50:06.413] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/taskInfo.json" ...
+[2018-12-26T14:50:06.414] [DEBUG] app - load dbJsonImpl "D:\\workspace\\koa2/dbJson/vipLevel.json" ...
+[2018-12-26T14:50:06.416] [DEBUG] app - DummyService.start
+[2018-12-26T14:50:06.420] [DEBUG] app - start scan activity
+[2018-12-26T14:50:06.470] [DEBUG] app - register event: "login"
+[2018-12-26T14:50:06.470] [DEBUG] app - register event: "completePersonInfo"
+[2018-12-26T14:50:06.471] [DEBUG] app - register event: "share"
+[2018-12-26T14:50:06.471] [DEBUG] app - register event: "acquirePoints"
+[2018-12-26T14:50:06.471] [DEBUG] app - register event: "read"
+[2018-12-26T14:50:06.472] [DEBUG] app - register event: "exchange"
+[2018-12-26T14:50:06.478] [DEBUG] app - UserService.start
+[2018-12-26T14:50:06.480] [DEBUG] app - WechatService.start
+[2018-12-26T14:50:06.481] [DEBUG] app - DummyService.afterStart
+[2018-12-26T14:50:06.481] [DEBUG] app - UserService.afterStart
+[2018-12-26T14:50:06.481] [DEBUG] app - WechatService.afterStart
+[2018-12-26T14:50:06.482] [INFO] app - app start from dir: "D:\\workspace\\koa2"
+[2018-12-26T14:50:06.502] [INFO] app - redis "redis_cache" ready.
+[2018-12-26T14:50:06.526] [INFO] app - mongoose connect successfully.
+[2018-12-26T14:50:06.531] [DEBUG] app - createUser:{"openId":"ab12","nickName":"haha","sex":1}
+[2018-12-26T14:50:06.565] [DEBUG] app - awardItems:[{"itemId":"1000","amount":300}]
+[2018-12-26T14:50:06.570] [DEBUG] app - awardItems insert return:[{"amount":300,"acquireTime":1545807006565,"expireTime":9007199254740991,"_id":"5c23249e870ba70578fe4906","openId":"ab12","itemId":"1000","__v":0}]
+[2018-12-26T14:50:06.577] [DEBUG] app - userCenter queryUserInfo :"ab12"
+[2018-12-26T14:50:06.582] [DEBUG] app - getUserPoints openId:"ab12", ret:[{"_id":null,"points":1800}]
+[2018-12-26T14:50:06.582] [DEBUG] app - user "ab12" event "login" fired
+[2018-12-26T14:50:06.589] [DEBUG] app - query task for "ab12", ret:{"progress":-2,"_id":"5c137074ac2eea0183a78c6f","openId":"ab12","__v":0,"resetDaily":true,"taskId":1}
+[2018-12-26T14:50:06.589] [INFO] app - complete task {"progress":-2,"_id":"5c137074ac2eea0183a78c6f","openId":"ab12","__v":0,"resetDaily":true,"taskId":1} with event "login"
+[2018-12-26T14:50:06.594] [DEBUG] app - completeTaskPiece: {"n":0,"nModified":0,"opTime":{"ts":"6639190536697675780","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6639190536697675780","$clusterTime":{"clusterTime":"6639190536697675780","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-26T14:50:07.327] [DEBUG] app - createMenu:{"errcode":0,"errmsg":"ok"}
+[2018-12-27T00:00:00.005] [DEBUG] app - schedule job
+[2018-12-27T00:00:00.029] [DEBUG] app - resetTask:{"n":0,"nModified":0,"opTime":{"ts":"6639332227668770817","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6639332227668770817","$clusterTime":{"clusterTime":"6639332227668770817","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-27T00:00:00.030] [DEBUG] app - resetDailyTask: {"n":0,"nModified":0,"opTime":{"ts":"6639332227668770817","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6639332227668770817","$clusterTime":{"clusterTime":"6639332227668770817","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-28T00:00:00.002] [DEBUG] app - schedule job
+[2018-12-28T00:00:00.007] [DEBUG] app - resetTask:{"n":0,"nModified":0,"opTime":{"ts":"6639703321433079809","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6639703321433079809","$clusterTime":{"clusterTime":"6639703321433079809","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-28T00:00:00.009] [DEBUG] app - resetDailyTask: {"n":0,"nModified":0,"opTime":{"ts":"6639703321433079809","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6639703321433079809","$clusterTime":{"clusterTime":"6639703321433079809","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-29T00:00:00.011] [DEBUG] app - schedule job
+[2018-12-29T00:00:00.035] [DEBUG] app - resetTask:{"n":0,"nModified":0,"opTime":{"ts":"6640074380837650433","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6640074380837650433","$clusterTime":{"clusterTime":"6640074380837650433","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-29T00:00:00.035] [DEBUG] app - resetDailyTask: {"n":0,"nModified":0,"opTime":{"ts":"6640074380837650433","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6640074380837650433","$clusterTime":{"clusterTime":"6640074380837650433","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-30T00:00:00.002] [DEBUG] app - schedule job
+[2018-12-30T00:00:00.013] [DEBUG] app - resetTask:{"n":0,"nModified":0,"opTime":{"ts":"6640445478896926721","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6640445478896926721","$clusterTime":{"clusterTime":"6640445478896926721","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-30T00:00:00.014] [DEBUG] app - resetDailyTask: {"n":0,"nModified":0,"opTime":{"ts":"6640445478896926721","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6640445478896926721","$clusterTime":{"clusterTime":"6640445478896926721","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-31T00:00:02.314] [DEBUG] app - schedule job
+[2018-12-31T00:00:02.318] [DEBUG] app - resetTask:{"n":0,"nModified":0,"opTime":{"ts":"6640816589841104897","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6640816589841104897","$clusterTime":{"clusterTime":"6640816589841104897","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2018-12-31T00:00:02.319] [DEBUG] app - resetDailyTask: {"n":0,"nModified":0,"opTime":{"ts":"6640816589841104897","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6640816589841104897","$clusterTime":{"clusterTime":"6640816589841104897","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2019-01-01T00:00:00.003] [DEBUG] app - schedule job
+[2019-01-01T00:00:00.007] [DEBUG] app - resetTask:{"n":0,"nModified":0,"opTime":{"ts":"6641187649245675521","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6641187649245675521","$clusterTime":{"clusterTime":"6641187649245675521","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
+[2019-01-01T00:00:00.010] [DEBUG] app - resetDailyTask: {"n":0,"nModified":0,"opTime":{"ts":"6641187649245675521","t":5},"electionId":"7fffffff0000000000000005","ok":1,"operationTime":"6641187649245675521","$clusterTime":{"clusterTime":"6641187649245675521","signature":{"hash":"AAAAAAAAAAAAAAAAAAAAAAAAAAA=","keyId":0}}}
