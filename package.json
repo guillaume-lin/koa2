@@ -5,7 +5,7 @@
     "dependencies": {
         "@alicloud/sms-sdk": "^1.1.6",
         "ali-oss": "^6.0.1",
-        "async": "^2.6.1",
+        "async": "^3.2.2",
         "bluebird": "^3.5.2",
         "co-wechat-api": "^3.8.1",
         "crypto-js": "^3.1.9-1",
